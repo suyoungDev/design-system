@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
+import { colorChipListStore } from '../../../Store/ColorListStore';
 
-const Card = styled.div`
+const ColorBox = styled.div`
   width: 100px;
   height: 100px;
   background-color: ${({ hexId }) => (hexId ? `${hexId}` : '#dbdbdb')};
@@ -14,25 +15,50 @@ const Card = styled.div`
 `;
 
 const Label = styled.label`
-  color: gray;
+  color: white;
   font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 1rem;
 `;
 
 const Chip = observer(({ item }) => {
-  const chip = useRef(null);
-
-  const onClick = () => {
-    let innerText = chip.current.innerText;
-    navigator.clipboard.writeText(innerText);
+  const getHexId = () => {
+    navigator.clipboard.writeText(item.hexId);
     // 저장했다는 모션 나오면 좋을 듯? 근데 이건 뭘로하지? 모달?은 아닌디..
+  };
+
+  const changeColor = () => {
+    const hexId = prompt('hexId');
+    const title = prompt('title');
+    if (hexId && title) item.fix(hexId, title);
   };
 
   return (
     <li>
-      <Label>{item.title}</Label>
-      <Card hexId={item.hexId} onClick={onClick} ref={chip}>
-        {item.hexId}
-      </Card>
+      <Row>
+        <button
+          onClick={() => {
+            colorChipListStore.deleteColorChip(item.id);
+          }}
+        >
+          X
+        </button>
+      </Row>
+      <ColorBox
+        hexId={item.hexId}
+        onClick={getHexId}
+        onDoubleClick={changeColor}
+      >
+        <Label>{item.title}</Label>
+      </ColorBox>
     </li>
   );
 });

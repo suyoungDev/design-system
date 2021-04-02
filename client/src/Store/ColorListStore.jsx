@@ -16,7 +16,7 @@ export class colorChip {
     this.title = title;
   }
 
-  fix({ hexId, title }) {
+  fix(hexId, title) {
     this.hexId = hexId;
     this.title = title;
   }
@@ -35,7 +35,10 @@ class ColorChipList {
   }
 
   deleteColorChip(id) {
-    this.colorList.filter((item) => item.id !== id);
+    const index = this.colorList.findIndex((item) => item.id === id);
+    if (index > -1) {
+      this.colorList.splice(index, 1);
+    }
   }
 
   addColorChip(props) {

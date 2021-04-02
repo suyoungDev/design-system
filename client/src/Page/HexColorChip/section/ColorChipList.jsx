@@ -10,7 +10,6 @@ const List = styled.ul`
 `;
 
 const ColorChipList = observer(({ colorChipListStore }) => {
-  console.log(colorChipListStore.colorList);
   return (
     <List>
       {colorChipListStore.colorList.map((item) => (
