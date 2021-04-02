@@ -2,24 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { colorChipListStore } from '../../../Store/ColorListStore';
-
-const ColorBox = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: ${({ hexId }) => (hexId ? `${hexId}` : '#dbdbdb')};
-  border-radius: 0.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-`;
-
-const Label = styled.label`
-  color: white;
-  font-size: 14px;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 5px 10px;
-`;
+import ColorBox from './ColorBox';
 
 const Row = styled.div`
   display: flex;
@@ -54,7 +37,7 @@ const Chip = observer(({ item }) => {
         <button onClick={changeColor}>수정</button>
       </Row>
       <ColorBox hexId={item.hexId} onClick={getHexId}>
-        <Label>{item.title}</Label>
+        {item.title}
       </ColorBox>
     </li>
   );
