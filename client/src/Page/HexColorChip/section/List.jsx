@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ColorChipList from './section/ColorChipList';
-import { colorChipListStore } from '../../Store/ColorListStore';
+import ColorChipList from './ColorChipList';
+import { colorChipListStore } from '../../../Store/ColorListStore';
 import { observer } from 'mobx-react-lite';
 
 const Row = styled.div`

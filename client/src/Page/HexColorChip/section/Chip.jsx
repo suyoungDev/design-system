@@ -1,23 +1,25 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
-import { colorChipListStore } from '../../../Store/ColorListStore';
-import ColorBox from './ColorBox';
 
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 1rem;
+import ColorBox from './ColorBox';
+import { colorChipListStore } from '../../../Store/ColorListStore';
+import { Row } from '../../../Components/Row';
+import { Button } from '../../../Components/Button';
+
+const RelativeBox = styled.div`
+  position: static;
 `;
 
-const Chip = observer(({ item }) => {
-  const getHexId = () => {
-    navigator.clipboard.writeText(item.hexId);
-    // 저장했다는 모션 나오면 좋을 듯? 근데 이건 뭘로하지? 모달?은 아닌디..
-  };
+const Inner = styled.div`
+  position: relative;
+  top: 35px;
+  left: 0px;
+`;
 
+// 드랍다운 메뉴 버튼 만들어서 '수정',
+// '타이포컬러로 추가', 'accent로 추가' 이런거 있음 좋을듯?
+const Chip = observer(({ item }) => {
   const changeColor = () => {
     const hexId = prompt('hexId');
     const title = prompt('title');
@@ -26,19 +28,21 @@ const Chip = observer(({ item }) => {
 
   return (
     <li>
-      <Row>
-        <button
-          onClick={() => {
-            colorChipListStore.deleteColorChip(item.id);
-          }}
-        >
-          X
-        </button>
-        <button onClick={changeColor}>수정</button>
-      </Row>
-      <ColorBox hexId={item.hexId} onClick={getHexId}>
-        {item.title}
-      </ColorBox>
+      <Inner>
+        <Row className='jc_sa'>
+          <Button onClick={changeColor}>수정</Button>
+          <Button
+            onClick={() => {
+              colorChipListStore.deleteColorChip(item.id);
+            }}
+          >
+            X
+          </Button>
+        </Row>
+      </Inner>
+      <RelativeBox>
+        <ColorBox item={item} />
+      </RelativeBox>
     </li>
   );
 });

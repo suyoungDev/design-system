@@ -1,7 +1,7 @@
 import React from 'react';
-import FormInput from '../../Components/FormInput/FormInput';
-import useInput from '../../Hook/useInput';
-import { colorChipListStore } from '../../Store/ColorListStore';
+import FormInput from '../../../Components/FormInput/FormInput';
+import useInput from '../../../Hook/useInput';
+import { colorChipListStore } from '../../../Store/ColorListStore';
 
 const SubmitHex = () => {
   const [input, hanlder, resetInput] = useInput({ title: '', hexId: '' });
@@ -33,7 +33,7 @@ const SubmitHex = () => {
         label='title'
         required
       />
-      <button type='submit'>확인</button>
+      <button type='submit'>색상 추가</button>
     </form>
   );
 };
