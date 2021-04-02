@@ -1,6 +1,6 @@
 import React from 'react';
-import FormInput from '../../../Components/FormInput/FormInput';
-import useInput from '../../../Hook/useInput';
+import FormInput from '../../Components/FormInput/FormInput';
+import useInput from '../../Hook/useInput';
 
 const SubmitHex = () => {
   const [input, hanlder, resetInput] = useInput({ name: '', hexId: '' });

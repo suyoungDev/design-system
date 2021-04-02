@@ -12,26 +12,34 @@ const Chip = styled.div`
   font-size: 14px;
 `;
 
-const ColorChip = ({ colorList }) => {
+const ColorChipList = ({ colorChipListStore }) => {
   const chip = useRef(null);
 
+  console.log(colorChipListStore.colorList);
   const onClick = () => {
     let innerText = chip.current.innerText;
     navigator.clipboard.writeText(innerText);
     // 저장했다는 모션 나오면 좋을 듯? 근데 이건 뭘로하지? 모달?은 아닌디..
   };
+
   return (
-    <div>
-      <Chip onClick={onClick} ref={chip}>
-        +
-      </Chip>
-      {colorList.map((item) => (
-        <Chip hexId={item.hexId} onClick={onClick}>
-          {item.whatFor}
-        </Chip>
-      ))}
-    </div>
+    <Chip onClick={onClick} ref={chip}>
+      +
+    </Chip>
   );
+
+  // return (
+  //   <>
+  //     {colorList.map((item) => (
+  //       <Chip hexId={item.hexId} onClick={onClick}>
+  //         {item.whatFor}
+  //       </Chip>
+  //     ))}
+  //     <Chip onClick={onClick} ref={chip}>
+  //       +
+  //     </Chip>
+  //   </>
+  // );
 };
 
-export default ColorChip;
+export default ColorChipList;

@@ -1,0 +1,50 @@
+import { action, makeObservable, observable } from 'mobx';
+
+export class colorChip {
+  id = Math.random().toFixed(4);
+  title = '';
+  hexId = '';
+
+  constructor(hexId, title) {
+    makeObservable(this, {
+      hexId: observable,
+      title: observable,
+      fix: action,
+    });
+
+    this.hexId = hexId;
+    this.title = title;
+  }
+
+  fix({ hexId, title }) {
+    this.hexId = hexId;
+    this.title = title;
+  }
+}
+
+class ColorChipList {
+  colorList = [];
+
+  constructor(colorList) {
+    makeObservable(this, {
+      colorList: observable,
+      addColorChip: action,
+      deleteColorChip: action,
+    });
+    this.colorList = colorList;
+  }
+
+  deleteColorChip(id) {
+    this.colorList.filter((item) => item.id !== id);
+  }
+
+  addColorChip(props) {
+    const newColorChip = new colorChip(props.hexId, props.title);
+    this.colorList.push(newColorChip);
+  }
+}
+
+export const colorChipListStore = new ColorChipList([
+  new colorChip('#868bff', 'lavender'),
+  new colorChip('#748199', 'grey'),
+]);

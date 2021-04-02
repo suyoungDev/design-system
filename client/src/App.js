@@ -1,9 +1,9 @@
-import HexColorChip from './Page/HexColorChip/HexColorChip';
+import LandingPage from './Page/LandingPage/LandingPage';
 
 function App() {
   return (
     <div className='App'>
-      <HexColorChip />
+      <LandingPage />
     </div>
   );
 }
