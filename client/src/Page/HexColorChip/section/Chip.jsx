@@ -51,12 +51,9 @@ const Chip = observer(({ item }) => {
         >
           X
         </button>
+        <button onClick={changeColor}>수정</button>
       </Row>
-      <ColorBox
-        hexId={item.hexId}
-        onClick={getHexId}
-        onDoubleClick={changeColor}
-      >
+      <ColorBox hexId={item.hexId} onClick={getHexId}>
         <Label>{item.title}</Label>
       </ColorBox>
     </li>
