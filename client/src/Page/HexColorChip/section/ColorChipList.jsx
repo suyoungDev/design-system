@@ -1,45 +1,23 @@
-import React, { useRef } from 'react';
+import React from 'react';
+import Chip from './Chip';
 import styled from 'styled-components';
+import { observer } from 'mobx-react-lite';
 
-const Chip = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: ${({ hexId }) => (hexId ? `${hexId}` : '#dbdbdb')};
-  border-radius: 0.3rem;
+const List = styled.ul`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
+  flex-direction: row;
+  list-style: none;
 `;
 
-const ColorChipList = ({ colorChipListStore }) => {
-  const chip = useRef(null);
-
+const ColorChipList = observer(({ colorChipListStore }) => {
   console.log(colorChipListStore.colorList);
-  const onClick = () => {
-    let innerText = chip.current.innerText;
-    navigator.clipboard.writeText(innerText);
-    // 저장했다는 모션 나오면 좋을 듯? 근데 이건 뭘로하지? 모달?은 아닌디..
-  };
-
   return (
-    <Chip onClick={onClick} ref={chip}>
-      +
-    </Chip>
+    <List>
+      {colorChipListStore.colorList.map((item) => (
+        <Chip item={item} key={item.id} />
+      ))}
+    </List>
   );
-
-  // return (
-  //   <>
-  //     {colorList.map((item) => (
-  //       <Chip hexId={item.hexId} onClick={onClick}>
-  //         {item.whatFor}
-  //       </Chip>
-  //     ))}
-  //     <Chip onClick={onClick} ref={chip}>
-  //       +
-  //     </Chip>
-  //   </>
-  // );
-};
+});
 
 export default ColorChipList;

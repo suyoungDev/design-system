@@ -1,33 +1,14 @@
 import styled, { css } from 'styled-components';
 
-export const shrinkStyle = css`
-  top: -14px;
-  font-size: 12px;
-  color: black;
-`;
-
 export const Label = styled.label`
   font-size: 16px;
   font-weight: normal;
-  position: absolute;
-  top: 10px;
-  left: 5px;
-  transition: all 0.3s ease;
-
-  &.shrink {
-    ${shrinkStyle}
-  }
+  color: gray;
 `;
 
 export const Group = styled.div`
-  position: relative;
-  margin: 15px 0;
-
-  :hover {
-    ${Label} {
-      ${shrinkStyle}
-    }
-  }
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Input = styled.input`
@@ -35,7 +16,6 @@ export const Input = styled.input`
   background-color: white;
   color: black;
   font-size: 18px;
-  padding: 10px 10px 10px 5px;
   display: block;
   width: 150px;
   border: none;
