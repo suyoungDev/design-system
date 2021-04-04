@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../../../Components/Button';
+import Modal from '../../../Components/Modal/Modal';
 
 // 모달추가해서 왼쪽은 베이스 컬러 리스트 뜨고
 // 오른쪽은 all colors 리스트
@@ -8,7 +9,22 @@ import { Button } from '../../../Components/Button';
 // 모달 재활용해야겠구먼 🤔
 
 const AddBaseColor = () => {
-  return <Button tertiary>추가</Button>;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const content = <div>베이스 컬러 추가요</div>;
+
+  return (
+    <div>
+      <Button tertiary onClick={openModal}>
+        추가
+      </Button>
+      <Modal isOpen={isOpen} openModal={openModal} content={content} />
+    </div>
+  );
 };
 
 export default AddBaseColor;

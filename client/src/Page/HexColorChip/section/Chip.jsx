@@ -7,7 +7,8 @@ import ColorBox from './ColorBox';
 import { colorChipListStore } from '../../../Store/ColorListStore';
 import { Row } from '../../../Components/Row';
 import { Button } from '../../../Components/Button';
-import Modal from './Modal';
+import Modal from '../../../Components/Modal/Modal';
+import SubmitHex from './SubmitHex';
 
 const ButtonContainer = styled.div`
   position: absolute;
@@ -34,17 +35,16 @@ const Chip = observer(({ item }) => {
     setIsOpen(!isOpen);
   };
 
+  const ColorPicker = (
+    <SubmitHex openModal={openModal} item={item} changeColor={changeColor} />
+  );
+
   return (
     <Item>
       <ButtonContainer>
         <Row className='jc_sb'>
           <Button onClick={openModal}>수정</Button>
-          <Modal
-            isOpen={isOpen}
-            openModal={openModal}
-            item={item}
-            changeColor={changeColor}
-          />
+          <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
           <Button
             onClick={() => {
               colorChipListStore.deleteColorChip(item.id);

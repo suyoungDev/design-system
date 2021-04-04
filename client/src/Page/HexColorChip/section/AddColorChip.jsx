@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '../../../Components/Button';
-import Modal from './Modal';
+import Modal from '../../../Components/Modal/Modal';
+import SubmitHex from './SubmitHex';
 
 const AddColorChip = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,12 +10,14 @@ const AddColorChip = () => {
     setIsOpen((prev) => !prev);
   };
 
+  const ColorPicker = <SubmitHex openModal={openModal} />;
+
   return (
     <>
       <Button tertiary onClick={openModal}>
         추가
       </Button>
-      <Modal isOpen={isOpen} openModal={openModal} />
+      <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useEffect } from 'react';
-import { CgClose } from 'react-icons/cg';
 import styled from 'styled-components';
-import SubmitHex from './SubmitHex';
+
+import { CgClose } from 'react-icons/cg';
 import { Background, ModalWrapper } from './Modal.styles';
 
 const CloseModalButton = styled(CgClose)`
@@ -20,7 +20,7 @@ const CloseModalButton = styled(CgClose)`
   }
 `;
 
-const Modal = ({ isOpen, openModal, item, changeColor }) => {
+const Modal = ({ isOpen, openModal, content, item, changeColor }) => {
   const modalRef = useRef();
 
   const closeModal = (e) => {
@@ -48,11 +48,7 @@ const Modal = ({ isOpen, openModal, item, changeColor }) => {
         <Background ref={modalRef} onClick={closeModal}>
           <ModalWrapper isOpen={isOpen}>
             <CloseModalButton aria-label='Close Modal' onClick={openModal} />
-            <SubmitHex
-              openModal={openModal}
-              item={item}
-              changeColor={changeColor}
-            />
+            {content}
           </ModalWrapper>
         </Background>
       ) : null}
