@@ -5,6 +5,7 @@ export const Button = styled.button`
   background-color: transparent;
   outline: none;
   cursor: pointer;
+  color: ${(props) => props.theme.white};
 
   &:hover {
     opacity: 0.6;

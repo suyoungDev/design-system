@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { Column } from '../../../Components/Column';
 import { Row } from '../../../Components/Row';
 
-const DummyColor = styled.div`
-  color: ${({ hexId }) => hexId && `${hexId}`};
+const TypographyWrapper = styled.div`
+  color: ${(props) => props.hexId};
   width: 400px;
   h1 {
     font-size: 60px;
     font-weight: bold;
-    margin-right: 1.7rem;
+    margin-right: 1.5rem;
   }
 
   p {
@@ -21,7 +21,7 @@ const DummyColor = styled.div`
 
 const TypographyModule = ({ hexId }) => {
   return (
-    <DummyColor hexId={hexId}>
+    <TypographyWrapper hexId={hexId}>
       <Row>
         <h1>Aa</h1>
         <Column>
@@ -33,7 +33,7 @@ const TypographyModule = ({ hexId }) => {
           </p>
         </Column>
       </Row>
-    </DummyColor>
+    </TypographyWrapper>
   );
 };
 

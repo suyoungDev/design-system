@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Row = styled.div`
   display: flex;
@@ -15,8 +15,20 @@ export const Row = styled.div`
   }
 `;
 
+const defineHeadingStyles = (props) => {
+  if (props.first) return fristStyles;
+};
+
+const fristStyles = css`
+  margin: 3rem 0 1.4rem 0;
+`;
+
 export const HeadingRow = styled(Row)`
   width: 500px;
   justify-content: space-between;
-  margin: 5rem 0 1rem 0;
+  color: ${(props) => props.theme.ink50};
+  text-transform: capitalize;
+  margin: 0 0 1.4rem 0;
+
+  ${defineHeadingStyles}
 `;

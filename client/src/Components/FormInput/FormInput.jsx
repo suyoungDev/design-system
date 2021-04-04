@@ -1,11 +1,11 @@
 import React from 'react';
 import { Label, Group, Input } from './FormInput.styles';
 
-const FormInput = ({ handleChange, label, ...props }) => {
+const FormInput = ({ handleChange, label, id, ...props }) => {
   return (
     <Group>
-      {label ? <Label>{label}</Label> : null}
-      <Input onChange={handleChange} {...props} />
+      {label ? <Label htmlFor={id}>{label}</Label> : null}
+      <Input onChange={handleChange} {...props} id={id} />
     </Group>
   );
 };

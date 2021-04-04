@@ -22,7 +22,8 @@ export const CardButton = styled.button`
   margin: 0px 20px;
   font-weight: bold;
   font-size: 0.6rem;
-  background-color: ${({ hexId }) => hexId && `${hexId}`};
+  background-color: ${(props) => props.hexId};
+  color: ${(props) => props.theme.ink50};
   position: absolute;
   bottom: 20px;
   :hover {
@@ -35,6 +36,7 @@ export const Context = styled.span`
   margin: 0 20px;
   width: 340px;
   font-size: 0.85rem;
+  color: ${(props) => props.theme.ink50};
 `;
 
 export const CardLayout = styled.div`

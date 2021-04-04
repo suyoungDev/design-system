@@ -17,6 +17,11 @@ const Inner = styled.div`
   left: 0px;
 `;
 
+const List = styled.li`
+  list-style: none;
+  margin-right: 1rem;
+`;
+
 // 드랍다운 메뉴 버튼 만들어서 '수정',
 // '타이포컬러로 추가', 'accent로 추가' 이런거 있음 좋을듯?
 const Chip = observer(({ item }) => {
@@ -27,7 +32,7 @@ const Chip = observer(({ item }) => {
   };
 
   return (
-    <li>
+    <List>
       <Inner>
         <Row className='jc_sa'>
           <Button onClick={changeColor}>수정</Button>
@@ -43,7 +48,7 @@ const Chip = observer(({ item }) => {
       <RelativeBox>
         <ColorBox item={item} />
       </RelativeBox>
-    </li>
+    </List>
   );
 });
 

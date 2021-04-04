@@ -4,7 +4,7 @@ import useInput from '../../../Hook/useInput';
 import { colorChipListStore } from '../../../Store/ColorListStore';
 
 const SubmitHex = () => {
-  const [input, hanlder, resetInput] = useInput({ title: '', hexId: '' });
+  const [input, handler, resetInput] = useInput({ title: '', hexId: '' });
   const { title, hexId } = input;
 
   const handleSubmit = (e) => {
@@ -17,9 +17,10 @@ const SubmitHex = () => {
     <form onSubmit={handleSubmit}>
       <FormInput
         name='hexId'
+        id='hexId'
         type='text'
         value={hexId}
-        handleChange={hanlder}
+        handleChange={handler}
         label='hexId'
         maxlength='7'
         pattern='#?([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})'
@@ -27,9 +28,10 @@ const SubmitHex = () => {
       />
       <FormInput
         name='title'
+        id='title'
         type='text'
         value={title}
-        handleChange={hanlder}
+        handleChange={handler}
         label='title'
         required
       />

@@ -7,24 +7,26 @@ const ColorBox = styled.div`
   border-radius: 6px;
   width: 30px;
   height: 30px;
-  background-color: ${({ hexId }) => hexId && `${hexId}`};
+  background-color: ${(props) => props.hexId};
   margin-right: 1rem;
 `;
 
 const Wrapper = styled.div`
   padding: 0.8rem 0.4rem;
   width: 200px;
-  border-top: 1px solid #d5d8df;
-  border-bottom: 1px solid #d5d8df;
+  border-top: 1px solid ${(props) => props.theme.neutral60};
+  border-bottom: 1px solid ${(props) => props.theme.neutral60};
 `;
 
 const Title = styled.span`
   font-weight: bold;
   font-size: 0.8rem;
   margin-bottom: 0.4rem;
+  color: ${(props) => props.theme.ink50};
 `;
 const Color = styled.span`
   font-size: 0.7rem;
+  color: ${(props) => props.theme.ink40};
 `;
 
 const BASE_COLOR_LIST = [
