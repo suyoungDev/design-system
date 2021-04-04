@@ -1,12 +1,14 @@
 import LandingPage from './Page/LandingPage/LandingPage';
 import { GlobalStyle } from './GlobalStyle';
+import { ThemeProvider } from 'styled-components';
+import { allColors } from './themes/theme';
 
 function App() {
   return (
-    <div className='App'>
+    <ThemeProvider theme={allColors}>
       <GlobalStyle />
       <LandingPage />
-    </div>
+    </ThemeProvider>
   );
 }
 
