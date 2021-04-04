@@ -1,12 +1,16 @@
 import styled, { css } from 'styled-components';
 
 export const Label = styled.label`
-  font-size: 16px;
-  font-weight: normal;
+  position: absolute;
+  top: -12px;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 300;
   color: ${(props) => props.theme.ink30};
 `;
 
 export const Group = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
 `;
@@ -16,6 +20,7 @@ const defineInputStyle = (props) => {
 };
 
 export const Input = styled.input`
+  position: relative;
   background: none;
   background-color: white;
   color: black;
@@ -25,7 +30,7 @@ export const Input = styled.input`
   border: none;
   border-radius: 0;
   border-bottom: 1px solid ${(props) => props.theme.ink50};
-  margin: 10px 0;
+  margin: 10px 0 40px 0;
 
   &:focus {
     outline: none;

@@ -2,8 +2,10 @@ import React from 'react';
 import FormInput from '../../../Components/FormInput/FormInput';
 import useInput from '../../../Hook/useInput';
 import { colorChipListStore } from '../../../Store/ColorListStore';
+import { Button } from '../../../Components/Button';
+import { Form } from '../../../Components/Form';
 
-const SubmitHex = () => {
+const SubmitHex = ({ openModal }) => {
   const [input, handler, resetInput] = useInput({ title: '', hexId: '' });
   const { title, hexId } = input;
 
@@ -11,10 +13,11 @@ const SubmitHex = () => {
     e.preventDefault();
     colorChipListStore.addColorChip(input);
     resetInput();
+    openModal();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <FormInput
         name='hexId'
         id='hexId'
@@ -35,8 +38,10 @@ const SubmitHex = () => {
         label='title'
         required
       />
-      <button type='submit'>색상 추가</button>
-    </form>
+      <Button primary hex type='submit'>
+        색상 추가
+      </Button>
+    </Form>
   );
 };
 

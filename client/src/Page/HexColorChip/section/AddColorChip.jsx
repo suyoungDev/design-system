@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import SubmitHex from './SubmitHex';
 import { Button } from '../../../Components/Button';
-
-const Right = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
+import Modal from './Modal';
 
 const AddColorChip = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
-    <Right>
-      <Button tertiary onClick={() => setIsOpen(!isOpen)}>
+    <>
+      <Button tertiary onClick={openModal}>
         추가
       </Button>
-      {isOpen && <SubmitHex />}
-    </Right>
+      <Modal isOpen={isOpen} openModal={openModal} />
+    </>
   );
 };
 

@@ -20,6 +20,7 @@ const Color = styled.div`
 const Label = styled.label`
   color: #171921;
   font-size: 11px;
+  font-weight: 200;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,10 +28,12 @@ const Label = styled.label`
   text-align: center;
 
   > span {
-    padding-bottom: 5px;
+    color: ${(props) => props.theme.ink30};
+    padding-bottom: 3px;
 
     :first-child {
-      font-weight: bold;
+      color: ${(props) => props.theme.ink40};
+      font-weight: 500;
       font-size: 12px;
     }
   }
