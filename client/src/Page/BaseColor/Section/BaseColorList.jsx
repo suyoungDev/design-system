@@ -1,10 +1,11 @@
 import React from 'react';
 import BaseColorModule from './BaseColorModule';
-const BaseColorList = ({ list }) => {
+
+const BaseColorList = ({ store }) => {
   return (
     <div>
-      {list?.map((item) => (
-        <BaseColorModule hexId={item.hexId} />
+      {store?.baseColorList.map((item) => (
+        <BaseColorModule item={item} />
       ))}
     </div>
   );

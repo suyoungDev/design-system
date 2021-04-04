@@ -41,14 +41,14 @@ const BASE_COLOR_LIST = [
   'Warning',
 ];
 
-const BaseColorModule = ({ hexId }) => {
+const BaseColorModule = ({ item }) => {
   return (
     <Wrapper>
       <Row className='al_ct'>
-        <ColorBox hexId={hexId} />
+        <ColorBox hexId={item.hexId} />
         <Column>
-          <Title>{BASE_COLOR_LIST[0]}</Title>
-          <Color>{hexId}</Color>
+          <Title>{item.mainRole}</Title>
+          <Color>{item.hexId}</Color>
         </Column>
       </Row>
     </Wrapper>

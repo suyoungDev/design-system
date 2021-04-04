@@ -57,7 +57,6 @@ const primaryStyles = css`
 const secondaryStyles = css`
   background: ${(props) => props.theme.neutral50};
   color: ${(props) => props.theme.ink50};
-
   :hover {
     background: ${(props) => props.theme.neutral60};
   }
@@ -75,10 +74,9 @@ const secondaryStyles = css`
 `;
 
 const tertiaryStyles = css`
-  color: ${(props) => props.theme.purple50};
-
+  color: ${(props) => props.theme.ink50};
+  border-radius: 25px;
   :hover {
-    color: ${(props) => props.theme.purple70};
     background: ${(props) => props.theme.neutral50};
   }
 
