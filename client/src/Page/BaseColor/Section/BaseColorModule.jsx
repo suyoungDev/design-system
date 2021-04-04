@@ -4,9 +4,9 @@ import { Row } from '../../../Components/Row';
 import { Column } from '../../../Components/Column';
 
 const ColorBox = styled.div`
-  border-radius: 6px;
-  width: 30px;
-  height: 30px;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
   background-color: ${(props) => props.hexId};
   margin-right: 1rem;
 `;
@@ -19,14 +19,15 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.span`
-  font-weight: bold;
+  font-weight: 400;
   font-size: 0.8rem;
-  margin-bottom: 0.4rem;
-  color: ${(props) => props.theme.ink50};
+  margin-bottom: 0.2rem;
+  color: ${(props) => props.theme.ink40};
 `;
 const Color = styled.span`
   font-size: 0.7rem;
-  color: ${(props) => props.theme.ink40};
+  font-weight: 200;
+  color: ${(props) => props.theme.ink30};
 `;
 
 const BASE_COLOR_LIST = [

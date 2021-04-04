@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Heading = styled.h2`
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 400;
   margin: 15px 20px;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ export const CardButton = styled.button`
   outline: none;
 
   margin: 0px 20px;
-  font-weight: bold;
+  font-weight: 400;
   font-size: 0.6rem;
   background-color: ${(props) => props.hexId};
   color: ${(props) => props.theme.ink50};

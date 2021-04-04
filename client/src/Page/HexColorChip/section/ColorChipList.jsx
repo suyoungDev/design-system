@@ -3,18 +3,19 @@ import Chip from './Chip';
 import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 
-const List = styled.ul`
-  display: flex;
-  flex-direction: row;
+const ChipList = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
 `;
 
 const ColorChipList = observer(({ colorChipListStore }) => {
   return (
-    <List>
+    <ChipList>
       {colorChipListStore.colorList.map((item) => (
         <Chip item={item} key={item.id} />
       ))}
-    </List>
+    </ChipList>
   );
 });
 
