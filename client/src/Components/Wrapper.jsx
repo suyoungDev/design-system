@@ -5,7 +5,7 @@ const defineWrapperStyles = (props) => {
 };
 
 const fristStyles = css`
-  margin: 0;
+  margin: 0 0 1em 0;
 `;
 
 export const Wrapper = styled.div`

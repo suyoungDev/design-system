@@ -13,7 +13,9 @@ const AddColorChip = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Right>
-      <Button onClick={() => setIsOpen(!isOpen)}> 색상 추가</Button>
+      <Button tertiary onClick={() => setIsOpen(!isOpen)}>
+        추가
+      </Button>
       {isOpen && <SubmitHex />}
     </Right>
   );

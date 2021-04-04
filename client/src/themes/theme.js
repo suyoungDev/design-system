@@ -11,7 +11,7 @@ export const allColors = {
   ink30: '#A4A8AE',
   purple90: '#1e2ab5',
   purple80: '#1e2ab5',
-  purple70: '#302477',
+  purple70: '#3430BD',
   purple60: '#4637c6',
   purple50: '#513CCC',
   purple40: '#7058d4',
