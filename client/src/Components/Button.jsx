@@ -36,7 +36,9 @@ const hoverStyles = css`
 const primaryStyles = css`
   color: ${(props) => props.theme.white};
   background: ${(props) => props.theme.purple50};
-  width: ${({ hex }) => hex && '150px'};
+  width: ${({ hex }) => hex && '200px'};
+  position: ${({ hex }) => hex && 'absolute'};
+  bottom: ${({ hex }) => hex && '25px'};
 
   :hover {
     background: ${(props) => props.theme.purple70};

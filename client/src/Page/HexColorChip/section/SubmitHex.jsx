@@ -1,47 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FormInput from '../../../Components/FormInput/FormInput';
-import useInput from '../../../Hook/useInput';
 import { colorChipListStore } from '../../../Store/ColorListStore';
 import { Button } from '../../../Components/Button';
 import { Form } from '../../../Components/Form';
+import { ChromePicker } from 'react-color';
+import styled from 'styled-components';
+import { Row } from '../../../Components/Row';
 
-const SubmitHex = ({ openModal }) => {
-  const [input, handler, resetInput] = useInput({ title: '', hexId: '' });
-  const { title, hexId } = input;
+const Color = styled.div`
+  width: 35px;
+  height: 35px;
+  border-radius: 30%;
+  background-color: ${({ hexId }) => hexId && `${hexId}`};
+  margin-right: 0.7rem;
+`;
+
+const SubmitHex = ({ openModal, item, changeColor }) => {
+  const [title, setTitle] = useState('');
+  const [hexId, setHexId] = useState('#E1E1E1');
+
+  useEffect(() => {
+    if (item) {
+      setHexId(item.hexId);
+      setTitle(item.title);
+    }
+  }, [item]);
+
+  const handleColor = (color) => {
+    setHexId(color.hex);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    colorChipListStore.addColorChip(input);
-    resetInput();
+    if (item) {
+      changeColor(hexId, title);
+    } else {
+      colorChipListStore.addColorChip({ title, hexId });
+    }
     openModal();
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <FormInput
-        name='hexId'
-        id='hexId'
-        type='text'
-        value={hexId}
-        handleChange={handler}
-        label='hexId'
-        maxlength='7'
-        pattern='#?([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})'
-        required
-      />
-      <FormInput
-        name='title'
-        id='title'
-        type='text'
-        value={title}
-        handleChange={handler}
-        label='title'
-        required
-      />
-      <Button primary hex type='submit'>
-        색상 추가
-      </Button>
-    </Form>
+    <>
+      <ChromePicker color={hexId} onChange={handleColor} />
+      <Form onSubmit={handleSubmit}>
+        <Row>
+          <Color hexId={hexId} />
+          <FormInput
+            name='title'
+            id='title'
+            type='text'
+            value={title}
+            handleChange={(e) => setTitle(e.target.value)}
+            label='title'
+            required
+          />
+        </Row>
+        <Button primary hex type='submit'>
+          {item ? '수정' : '추가'}
+        </Button>
+      </Form>
+    </>
   );
 };
 
