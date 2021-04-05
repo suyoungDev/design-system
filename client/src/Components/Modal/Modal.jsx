@@ -20,7 +20,7 @@ const CloseModalButton = styled(CgClose)`
   }
 `;
 
-const Modal = ({ isOpen, openModal, content, item, changeColor }) => {
+const Modal = ({ isOpen, openModal, content, item, changeColor, ...props }) => {
   const modalRef = useRef();
 
   const closeModal = (e) => {
@@ -46,7 +46,7 @@ const Modal = ({ isOpen, openModal, content, item, changeColor }) => {
     <>
       {isOpen ? (
         <Background ref={modalRef} onClick={closeModal}>
-          <ModalWrapper isOpen={isOpen}>
+          <ModalWrapper isOpen={isOpen} {...props}>
             <CloseModalButton aria-label='Close Modal' onClick={openModal} />
             {content}
           </ModalWrapper>

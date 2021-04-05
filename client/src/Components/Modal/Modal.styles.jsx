@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const defineModalStyles = (props) => {
+  if (props.big) return BigStyles;
+};
 
 export const Background = styled.div`
   width: 100%;
@@ -25,4 +29,9 @@ export const ModalWrapper = styled.div`
   position: relative;
   border-radius: 10px;
   z-index: 150;
+  ${defineModalStyles}
+`;
+
+const BigStyles = css`
+  height: 700px;
 `;

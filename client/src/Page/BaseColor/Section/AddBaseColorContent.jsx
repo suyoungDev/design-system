@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
+import BaseList from '../../../Components/BaseList';
 import { Button } from '../../../Components/Button';
-import { Form } from '../../../Components/Form';
-import { colorChipListStore } from '../../../Store/ColorListStore';
-import { baseColorListStore } from '../../../Store/BaseColorStore';
-import RadioList from '../../../Components/RadioList';
-import { Row } from '../../../Components/Row';
+import { baseColorList } from './BaseColorListSource';
 
 const AddBaseColorContent = ({ openModal }) => {
   const [id, setId] = useState('');
@@ -14,24 +11,13 @@ const AddBaseColorContent = ({ openModal }) => {
     openModal();
   };
 
-  const getValue = (e) => {
-    setId(e.target.value);
-  };
-
   return (
-    <Form onSubmit={onSubmit}>
-      <Row>
-        <RadioList
-          first
-          list={colorChipListStore.colorList}
-          getValue={getValue}
-          name='list'
-        />
-      </Row>
+    <div>
+      <BaseList first list={baseColorList} />
       <Button primary type='submit'>
         완료
       </Button>
-    </Form>
+    </div>
   );
 };
 

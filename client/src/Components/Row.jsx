@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
 
   &.jc_sb {
     justify-content: space-between;
