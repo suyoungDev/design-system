@@ -26,7 +26,7 @@ const fristStyles = css`
 export const HeadingRow = styled(Row)`
   width: 540px;
   justify-content: space-between;
-  color: ${(props) => props.theme.ink50};
+  color: ${(props) => props.theme.ink60};
   text-transform: capitalize;
   margin: 0 0 1.4rem 0;
 

@@ -13,6 +13,7 @@
 - typography
 - sizing and spacing
 - create a UI/pattern library
+- button!
 - theme: bright / dark 지정가능
 
   - primary, secondary, background, ciritcal, warning, ink를 theme에 맞게 설정할 수 있다.
@@ -21,6 +22,8 @@
 - 로그인 유저는 테마를 저장할 수 있다.
 - pdf로 따로 저장 할 수 있다.
 - 노션과 비슷한 레이아웃으로 다양한 theme을 작성 가능하다.
+- base color로 셋팅한게 밑의 버튼이나 그런거에서도 실시간으로 변경되서 보여져야....
+- css로 가져올 수 있..는데 어떻게 하는거지...🤔🤔🤔
 
 ## 음...🙄
 

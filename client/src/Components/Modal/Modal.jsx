@@ -7,10 +7,10 @@ import { Background, ModalWrapper } from './Modal.styles';
 const CloseModalButton = styled(CgClose)`
   cursor: pointer;
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   padding: 0;
   z-index: 100;

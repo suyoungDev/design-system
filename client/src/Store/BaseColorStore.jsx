@@ -3,15 +3,18 @@ import { action, makeObservable, observable } from 'mobx';
 export class baseColor {
   id = Math.random().toFixed(4);
   hexId = '';
+  title = '';
   mainRole = '';
 
-  constructor(hexId, mainRole) {
+  constructor(hexId, title, mainRole) {
     makeObservable(this, {
       hexId: observable,
+      title: observable,
       mainRole: observable,
     });
 
     this.hexId = hexId;
+    this.title = title;
     this.mainRole = mainRole;
   }
 }
@@ -41,5 +44,5 @@ export class baseColorList {
 }
 
 export const baseColorListStore = new baseColorList([
-  new baseColor('#868bff', 'Primary'),
+  new baseColor('#868bff', 'lavender', 'Primary'),
 ]);

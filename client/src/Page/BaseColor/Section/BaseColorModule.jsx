@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row } from '../../../Components/Row';
 import { Column } from '../../../Components/Column';
+import { BaseColorList } from './BaseColorList';
 
 const ColorBox = styled.div`
   border-radius: 8px;
@@ -13,7 +14,7 @@ const ColorBox = styled.div`
 
 const Wrapper = styled.div`
   padding: 0.8rem 0.4rem;
-  width: 200px;
+  width: 220px;
   border-top: 1px solid ${(props) => props.theme.neutral60};
   border-bottom: 1px solid ${(props) => props.theme.neutral60};
 `;
@@ -21,25 +22,15 @@ const Wrapper = styled.div`
 const Title = styled.span`
   font-weight: 400;
   font-size: 0.8rem;
-  margin-bottom: 0.2rem;
-  color: ${(props) => props.theme.ink40};
+  margin: 0 0.6rem 0.2rem 0;
+  color: ${(props) => props.theme.ink50};
 `;
+
 const Color = styled.span`
-  font-size: 0.7rem;
+  font-size: ${({ small }) => (small ? '0.6rem' : '0.7rem')};
   font-weight: 200;
   color: ${(props) => props.theme.ink30};
 `;
-
-const BASE_COLOR_LIST = [
-  'Background',
-  'Ink',
-  'Action',
-  'Negative',
-  'Positive',
-  'Primary',
-  'Secondary',
-  'Warning',
-];
 
 const BaseColorModule = ({ item }) => {
   return (
@@ -47,7 +38,10 @@ const BaseColorModule = ({ item }) => {
       <Row className='al_ct'>
         <ColorBox hexId={item.hexId} />
         <Column>
-          <Title>{item.mainRole}</Title>
+          <Row className='al_ct jc_sb'>
+            <Title>{item.mainRole}</Title>
+            <Color small>{item.title}</Color>
+          </Row>
           <Color>{item.hexId}</Color>
         </Column>
       </Row>

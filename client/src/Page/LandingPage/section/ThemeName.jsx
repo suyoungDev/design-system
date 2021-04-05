@@ -18,7 +18,7 @@ const ThemeName = () => {
 
   return (
     <Wrapper first>
-      <HeadingRow first onClick={() => setWillChangeName(true)}>
+      <HeadingRow first onDoubleClick={() => setWillChangeName(true)}>
         {!willChangeName && (
           <h1>{themeTitle ? themeTitle : '사용자 테마 이름'}</h1>
         )}

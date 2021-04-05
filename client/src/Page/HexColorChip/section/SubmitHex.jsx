@@ -42,7 +42,7 @@ const SubmitHex = ({ openModal, item, changeColor }) => {
 
   return (
     <>
-      <ChromePicker color={hexId} onChange={handleColor} />
+      <ChromePicker color={hexId} onChange={handleColor} disableAlpha={true} />
       <Form onSubmit={handleSubmit}>
         <Row>
           <Color hexId={hexId} />
