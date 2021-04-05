@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ColorCircle } from './ColorCircle';
 import styled from 'styled-components';
-import DropdownMenu from './DropdownMenu/DropdownMenu';
 import { Row } from './Row';
 import Select from 'react-select';
 import { baseColorList } from '../Page/BaseColor/Section/BaseColorListSource';
