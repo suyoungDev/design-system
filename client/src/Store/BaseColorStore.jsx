@@ -29,9 +29,17 @@ export class baseColorList {
       deleteBaseColor: action,
       modifyListItem: action,
       deleteAll: action,
+      modifyRole: action,
+      modifyHexId: action,
+      newBaseColor: action,
     });
 
     this.baseColorList = baseColorList;
+  }
+
+  newBaseColor() {
+    const newBase = new baseColor('#F0F0F0', 'default', 'default');
+    this.baseColorList.push(newBase);
   }
 
   addBaseColor(hexId, label, role) {
@@ -49,6 +57,23 @@ export class baseColorList {
     this.baseColorList = [];
   }
 
+  modifyRole(id, value) {
+    if (!id) return null;
+    const index = this.baseColorList.findIndex((item) => item.id === id);
+    if (index > -1) {
+      this.baseColorList[index].role = value;
+    }
+  }
+
+  modifyHexId(id, hexId, label) {
+    if (!id) return null;
+    const index = this.baseColorList.findIndex((item) => item.id === id);
+    if (index > -1) {
+      this.baseColorList[index].hexId = hexId;
+      this.baseColorList[index].label = label;
+    }
+  }
+
   modifyListItem(list) {
     let reduced = this.baseColorList.filter(
       (a_item) => !list.find((b_item) => a_item.role === b_item.role)
@@ -63,4 +88,7 @@ export class baseColorList {
 
 export const baseColorListStore = new baseColorList([
   new baseColor('#868bff', 'lavender', 'Primary'),
+  new baseColor('#2037ff', 'blue', 'action'),
+  new baseColor('#748199', 'ash', 'ink'),
+  new baseColor('#52f4e1', 'mint', 'secondary'),
 ]);

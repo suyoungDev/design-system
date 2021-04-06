@@ -5,7 +5,7 @@ import useInput from '../../../Hook/useInput';
 import { Wrapper } from '../../../Components/Wrapper';
 import { Button } from '../../../Components/Button';
 import { Row } from '../../../Components/Row';
-
+import { FiEdit2 } from 'react-icons/fi';
 const ThemeName = () => {
   const [willChangeName, setWillChangeName] = useState(false);
   const [themeTitle, setThemeTitle] = useState('');
@@ -47,7 +47,7 @@ const ThemeName = () => {
                 setWillChangeName(true);
               }}
             >
-              수정
+              <FiEdit2 />
             </Button>
           </Row>
         )}

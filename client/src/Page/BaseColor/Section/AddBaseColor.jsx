@@ -1,25 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '../../../Components/Button';
-import Modal from '../../../Components/Modal/Modal';
-import AddBaseColorContent from './AddBaseColorContent';
+import { baseColorListStore } from '../../../Store/BaseColorStore';
+import { BiPlus } from 'react-icons/bi';
 
 const AddBaseColor = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => {
-    setIsOpen(!isOpen);
+  const clickHandle = () => {
+    baseColorListStore.newBaseColor();
   };
 
   return (
-    <div>
-      <Button onClick={openModal}>추가</Button>
-      <Modal
-        big
-        isOpen={isOpen}
-        openModal={openModal}
-        content={<AddBaseColorContent openModal={openModal} />}
-      />
-    </div>
+    <Button onClick={clickHandle}>
+      <BiPlus />
+    </Button>
   );
 };
 
