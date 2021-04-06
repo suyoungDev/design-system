@@ -4,20 +4,21 @@ const defineButtonStyle = (props) => {
   if (props.primary) return primaryStyles;
   if (props.secondary) return secondaryStyles;
   if (props.tertiary) return tertiaryStyles;
+  if (props.basic) return basicStyles;
   else return hoverStyles;
 };
 
 export const Button = styled.button`
-  border: none;
+  height: 35px;
+  padding: 0.4em 1em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   background: transparent;
-  outline: none;
-  cursor: pointer;
-  color: ${(props) => props.theme.white};
-  padding: 9px 15px;
-  border-radius: 5px;
-  font-weight: 300;
-  transition: all 0.3s ease;
   border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
 
   ${defineButtonStyle};
 
@@ -26,10 +27,19 @@ export const Button = styled.button`
     align-items: center;
   }
 `;
+const basicStyles = css`
+  color: ${(props) => props.theme.white};
+  font-weight: 200;
+  :hover {
+    opacity: 0.5;
+  }
+`;
 
 const hoverStyles = css`
+  color: ${(props) => props.theme.ink30};
+
   :hover {
-    opacity: 0.7;
+    color: ${(props) => props.theme.purple40};
   }
 `;
 
@@ -74,8 +84,8 @@ const secondaryStyles = css`
 `;
 
 const tertiaryStyles = css`
-  color: ${(props) => props.theme.ink50};
-  border-radius: 25px;
+  color: ${(props) => props.theme.purple50};
+  border-radius: 8px;
   :hover {
     background: ${(props) => props.theme.neutral50};
   }

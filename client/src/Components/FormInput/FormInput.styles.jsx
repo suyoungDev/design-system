@@ -11,8 +11,7 @@ export const Label = styled.label`
 
 export const Group = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
+  width: 78%;
 `;
 
 const defineInputStyle = (props) => {
@@ -45,5 +44,8 @@ const setThemeNameStyles = css`
   color: ${(props) => props.theme.ink50};
   width: 100%;
   margin: 0;
-  border-bottom: 1px solid ${(props) => props.theme.ink30};
+  border-bottom: 2px solid ${(props) => props.theme.neutral50};
+  :focus {
+    border-bottom: 2px solid ${(props) => props.theme.purple10};
+  }
 `;
