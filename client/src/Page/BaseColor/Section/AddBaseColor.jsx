@@ -12,9 +12,7 @@ const AddBaseColor = () => {
 
   return (
     <div>
-      <Button tertiary onClick={openModal}>
-        추가
-      </Button>
+      <Button onClick={openModal}>추가</Button>
       <Modal
         big
         isOpen={isOpen}

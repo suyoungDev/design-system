@@ -14,9 +14,7 @@ const AddColorChip = () => {
 
   return (
     <>
-      <Button tertiary onClick={openModal}>
-        추가
-      </Button>
+      <Button onClick={openModal}>추가</Button>
       <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
     </>
   );

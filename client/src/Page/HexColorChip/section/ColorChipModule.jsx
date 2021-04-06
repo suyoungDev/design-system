@@ -43,9 +43,12 @@ const Chip = observer(({ item }) => {
     <Item>
       <ButtonContainer>
         <Row className='jc_sb'>
-          <Button onClick={openModal}>수정</Button>
+          <Button basic onClick={openModal}>
+            수정
+          </Button>
           <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
           <Button
+            basic
             onClick={() => {
               colorChipListStore.deleteColorChip(item.id);
             }}

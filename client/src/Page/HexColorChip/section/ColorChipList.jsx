@@ -1,5 +1,5 @@
 import React from 'react';
-import Chip from './Chip';
+import Chip from './ColorChipModule';
 import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 
