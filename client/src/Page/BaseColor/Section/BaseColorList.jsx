@@ -4,9 +4,16 @@ import BaseColorModule from './BaseColorModule';
 import { observer } from 'mobx-react-lite';
 
 const ListLayout = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2em;
+  display: flex;
+  flex-direction: column;
+
+  > :first-child {
+    border-top: 1px solid ${(props) => props.theme.neutral50};
+  }
+  > :not(:last-child) {
+    border-bottom: 1px solid ${(props) => props.theme.neutral50};
+  }
+  border-bottom: 1px solid ${(props) => props.theme.neutral50};
 `;
 
 const BaseColorList = observer(({ store }) => {

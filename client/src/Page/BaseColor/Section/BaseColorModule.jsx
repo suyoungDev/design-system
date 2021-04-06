@@ -1,21 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row } from '../../../Components/Row';
-import { Column } from '../../../Components/Column';
-
-const ColorBox = styled.div`
-  border-radius: 8px;
-  width: 36px;
-  height: 36px;
-  background-color: ${(props) => props.hexId};
-  margin-right: 1rem;
-`;
+import { ColorCircle } from '../../../Components/ColorCircle';
+import { BiTransfer } from 'react-icons/bi';
 
 const Wrapper = styled.div`
-  padding: 0.8rem 0.4rem;
-  width: 220px;
-  border-top: 1px solid ${(props) => props.theme.neutral60};
-  border-bottom: 1px solid ${(props) => props.theme.neutral60};
+  padding: 0.5rem 0.7rem;
+  width: 100%;
+
+  .react-icons {
+    transform: rotate(90deg);
+    color: ${(props) => props.theme.ink30};
+  }
 `;
 
 const Title = styled.span`
@@ -26,23 +22,26 @@ const Title = styled.span`
 `;
 
 const Color = styled.span`
-  font-size: ${({ small }) => (small ? '0.6rem' : '0.7rem')};
+  font-size: ${({ small }) => (small ? '0.5rem' : '0.7rem')};
   font-weight: 200;
   color: ${(props) => props.theme.ink30};
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
 `;
 
 const BaseColorModule = ({ item }) => {
   return (
     <Wrapper>
       <Row className='al_ct'>
-        <ColorBox hexId={item.hexId} />
-        <Column>
-          <Row className='al_ct jc_sb'>
+        <ColorCircle hexId={item.hexId} />
+        <Row className='al_ct jc_sb'>
+          <Row className='al_ct'>
             <Title>{item.role}</Title>
-            <Color small>{item.label}</Color>
+            <Color>{item.label}</Color>
           </Row>
-          <Color>{item.hexId}</Color>
-        </Column>
+          <BiTransfer />
+        </Row>
       </Row>
     </Wrapper>
   );
