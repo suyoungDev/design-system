@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BaseColorModule from './BaseColorModule';
+import { observer } from 'mobx-react-lite';
 
 const ListLayout = styled.div`
   display: grid;
@@ -8,7 +9,7 @@ const ListLayout = styled.div`
   grid-gap: 2em;
 `;
 
-const BaseColorList = ({ store }) => {
+const BaseColorList = observer(({ store }) => {
   return (
     <ListLayout>
       {store?.baseColorList.map((item) => (
@@ -16,6 +17,6 @@ const BaseColorList = ({ store }) => {
       ))}
     </ListLayout>
   );
-};
+});
 
 export default BaseColorList;

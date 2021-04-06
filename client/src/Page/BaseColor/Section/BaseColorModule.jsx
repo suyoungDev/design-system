@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row } from '../../../Components/Row';
 import { Column } from '../../../Components/Column';
-import { BaseColorList } from './BaseColorList';
 
 const ColorBox = styled.div`
   border-radius: 8px;
@@ -39,8 +38,8 @@ const BaseColorModule = ({ item }) => {
         <ColorBox hexId={item.hexId} />
         <Column>
           <Row className='al_ct jc_sb'>
-            <Title>{item.mainRole}</Title>
-            <Color small>{item.title}</Color>
+            <Title>{item.role}</Title>
+            <Color small>{item.label}</Color>
           </Row>
           <Color>{item.hexId}</Color>
         </Column>

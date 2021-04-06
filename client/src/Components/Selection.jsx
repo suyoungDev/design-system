@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ColorCircle } from './ColorCircle';
 import styled from 'styled-components';
 import { Row } from './Row';
 import Select from 'react-select';
-import { baseColorList } from '../Page/BaseColor/Section/BaseColorListSource';
 import { colorChipListStore } from '../Store/ColorListStore';
 import chroma from 'chroma-js';
 
@@ -48,7 +46,7 @@ const dot = (color = '#ccc') => ({
   },
 });
 
-const Base = ({ label }) => {
+const Selection = ({ label, defineCustomColor }) => {
   const [selected, setSelected] = useState({});
   const [data, setData] = useState({});
 
@@ -61,7 +59,17 @@ const Base = ({ label }) => {
     }));
 
     setData(value);
-  }, []);
+
+    if (selected.label) {
+      const data = {
+        hexId: selected.hexId,
+        label: selected.label,
+        role: label,
+      };
+      defineCustomColor((prev) => [...prev, data]);
+    }
+    // eslint-disable-next-line
+  }, [selected]);
 
   const colourStyles = {
     control: (styles) => ({ ...styles, backgroundColor: 'white' }),
@@ -104,7 +112,7 @@ const Base = ({ label }) => {
           <span>{label}</span>
           <SelectContainer>
             <Select
-              defaultValue={data[0]}
+              defaultValue={data}
               options={data}
               label='single select'
               value={selected}
@@ -119,4 +127,4 @@ const Base = ({ label }) => {
   );
 };
 
-export default Base;
+export default Selection;

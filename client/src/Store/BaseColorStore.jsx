@@ -3,19 +3,19 @@ import { action, makeObservable, observable } from 'mobx';
 export class baseColor {
   id = Math.random().toFixed(4);
   hexId = '';
-  title = '';
-  mainRole = '';
+  label = '';
+  role = '';
 
-  constructor(hexId, title, mainRole) {
+  constructor(hexId, label, role) {
     makeObservable(this, {
       hexId: observable,
-      title: observable,
-      mainRole: observable,
+      label: observable,
+      role: observable,
     });
 
     this.hexId = hexId;
-    this.title = title;
-    this.mainRole = mainRole;
+    this.label = label;
+    this.role = role;
   }
 }
 
@@ -27,19 +27,37 @@ export class baseColorList {
       baseColorList: observable,
       addBaseColor: action,
       deleteBaseColor: action,
+      modifyListItem: action,
+      deleteAll: action,
     });
 
     this.baseColorList = baseColorList;
   }
 
-  addBaseColor(hexId, title, mainRole) {
-    const newBase = new baseColor(hexId, title, mainRole);
+  addBaseColor(hexId, label, role) {
+    const newBase = new baseColor(hexId, label, role);
     this.baseColorList.push(newBase);
   }
 
   deleteBaseColor(id) {
+    if (!id) return null;
     const index = this.baseColorList.findIndex((item) => item.id === id);
     if (index > -1) this.baseColorList.splice(index, 1);
+  }
+
+  deleteAll() {
+    this.baseColorList = [];
+  }
+
+  modifyListItem(list) {
+    let reduced = this.baseColorList.filter(
+      (a_item) => !list.find((b_item) => a_item.role === b_item.role)
+    );
+    let result = reduced.concat(list);
+    this.deleteAll();
+    result.forEach((item) => {
+      this.addBaseColor(item.hexId, item.label, item.role);
+    });
   }
 }
 

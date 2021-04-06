@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Base from './Base';
+import Selection from './Selection';
 
 const ListStyle = styled.div`
   display: flex;
@@ -12,14 +12,18 @@ const ListStyle = styled.div`
   overflow: auto;
 `;
 
-const BaseList = ({ list }) => {
+const SelectList = ({ list, defineCustomColor }) => {
   return (
     <ListStyle>
       {list.map((item) => (
-        <Base label={item.label} key={item.id} />
+        <Selection
+          label={item.label}
+          key={item.id}
+          defineCustomColor={defineCustomColor}
+        />
       ))}
     </ListStyle>
   );
 };
 
-export default BaseList;
+export default SelectList;
