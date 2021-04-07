@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import useInput from '../../../Hook/useInput';
+import { BiPencil } from 'react-icons/bi';
+
 import FormInput from '../../../Components/FormInput/FormInput';
 import { HeadingRow } from '../../../Components/Row';
-import useInput from '../../../Hook/useInput';
 import { Wrapper } from '../../../Components/Wrapper';
 import { Button } from '../../../Components/Button';
 import { Row } from '../../../Components/Row';
-import { FiEdit2 } from 'react-icons/fi';
+
 const ThemeName = () => {
   const [willChangeName, setWillChangeName] = useState(false);
   const [themeTitle, setThemeTitle] = useState('');
@@ -18,7 +20,8 @@ const ThemeName = () => {
     setWillChangeName(false);
   };
 
-  const cancleSubmit = () => {
+  const cancleSubmit = (e) => {
+    e.preventDefault();
     setWillChangeName(false);
   };
 
@@ -47,7 +50,7 @@ const ThemeName = () => {
                 setWillChangeName(true);
               }}
             >
-              <FiEdit2 />
+              <BiPencil />
             </Button>
           </Row>
         )}
