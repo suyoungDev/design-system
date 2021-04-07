@@ -27,6 +27,15 @@ export const Button = styled.button`
     align-items: center;
   }
 `;
+
+export const SmallButton = styled(Button)`
+  align-self: center;
+  height: 32px;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 0.2rem;
+`;
+
 const basicStyles = css`
   color: ${(props) => props.theme.white};
   font-weight: 200;
