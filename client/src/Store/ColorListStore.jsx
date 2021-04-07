@@ -52,4 +52,5 @@ export const colorChipListStore = new ColorChipList([
   new colorChip('#748199', 'ash'),
   new colorChip('#fa8888', 'pink'),
   new colorChip('#52f4e1', 'mint'),
+  new colorChip('#2037ff', 'blue'),
 ]);

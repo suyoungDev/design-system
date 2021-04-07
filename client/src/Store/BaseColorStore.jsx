@@ -11,11 +11,22 @@ export class baseColor {
       hexId: observable,
       label: observable,
       role: observable,
+      changeRole: action,
+      changeHexId: action,
     });
 
     this.hexId = hexId;
     this.label = label;
     this.role = role;
+  }
+
+  changeRole(role) {
+    this.role = role;
+  }
+
+  changeHexId(hexId, label) {
+    this.hexId = hexId;
+    this.label = label;
   }
 }
 
@@ -25,24 +36,16 @@ export class baseColorList {
   constructor(baseColorList) {
     makeObservable(this, {
       baseColorList: observable,
-      addBaseColor: action,
       deleteBaseColor: action,
       modifyListItem: action,
       deleteAll: action,
-      modifyRole: action,
-      modifyHexId: action,
-      newBaseColor: action,
+      addNewBaseColor: action,
     });
 
     this.baseColorList = baseColorList;
   }
 
-  newBaseColor() {
-    const newBase = new baseColor('#F0F0F0', 'default', 'default');
-    this.baseColorList.push(newBase);
-  }
-
-  addBaseColor(hexId, label, role) {
+  addNewBaseColor(hexId = '#F0F0F0', label = 'default', role = 'default') {
     const newBase = new baseColor(hexId, label, role);
     this.baseColorList.push(newBase);
   }
@@ -57,23 +60,7 @@ export class baseColorList {
     this.baseColorList = [];
   }
 
-  modifyRole(id, value) {
-    if (!id) return null;
-    const index = this.baseColorList.findIndex((item) => item.id === id);
-    if (index > -1) {
-      this.baseColorList[index].role = value;
-    }
-  }
-
-  modifyHexId(id, hexId, label) {
-    if (!id) return null;
-    const index = this.baseColorList.findIndex((item) => item.id === id);
-    if (index > -1) {
-      this.baseColorList[index].hexId = hexId;
-      this.baseColorList[index].label = label;
-    }
-  }
-
+  // 안쓰는 액션... 혹시나 남겨둠 나중에 쓸 수 있을 지도?
   modifyListItem(list) {
     let reduced = this.baseColorList.filter(
       (a_item) => !list.find((b_item) => a_item.role === b_item.role)
@@ -81,7 +68,7 @@ export class baseColorList {
     let result = reduced.concat(list);
     this.deleteAll();
     result.forEach((item) => {
-      this.addBaseColor(item.hexId, item.label, item.role);
+      this.addNewBaseColor(item.hexId, item.label, item.role);
     });
   }
 }
