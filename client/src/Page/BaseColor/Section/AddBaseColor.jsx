@@ -5,7 +5,7 @@ import { BiPlus } from 'react-icons/bi';
 
 const AddBaseColor = () => {
   const clickHandle = () => {
-    baseColorListStore.newBaseColor();
+    baseColorListStore.addNewBaseColor();
   };
 
   return (
