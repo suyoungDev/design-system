@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .react-icons {
+    font-size: 1rem;
     display: flex;
     align-items: center;
     color: ${(props) => props.theme.neutral70};

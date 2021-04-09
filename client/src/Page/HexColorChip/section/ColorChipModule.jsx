@@ -44,7 +44,7 @@ const Chip = observer(({ item }) => {
       <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
       <ButtonContainer>
         <Row className='jc_sb'>
-          <Button basic onClick={openModal}>
+          <Button white onClick={openModal}>
             수정
           </Button>
           <Button

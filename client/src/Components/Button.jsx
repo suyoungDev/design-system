@@ -4,7 +4,7 @@ const defineButtonStyle = (props) => {
   if (props.primary) return primaryStyles;
   if (props.secondary) return secondaryStyles;
   if (props.tertiary) return tertiaryStyles;
-  if (props.basic) return basicStyles;
+  if (props.white) return whiteStyles;
   else return hoverStyles;
 };
 
@@ -29,9 +29,11 @@ export const SmallButton = styled(Button)`
   font-size: 12px;
   font-weight: 400;
   margin-right: 0.2rem;
+
+  padding: ${({ narrow }) => narrow && '0.2rem'};
 `;
 
-const basicStyles = css`
+const whiteStyles = css`
   color: white;
   font-weight: 200;
   :hover {
