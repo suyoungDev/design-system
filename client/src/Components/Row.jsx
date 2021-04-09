@@ -14,6 +14,10 @@ export const Row = styled.div`
   &.al_ct {
     align-items: center;
   }
+
+  .react-icons {
+    color: ${(props) => props.theme.neutral70};
+  }
 `;
 
 const defineHeadingStyles = (props) => {

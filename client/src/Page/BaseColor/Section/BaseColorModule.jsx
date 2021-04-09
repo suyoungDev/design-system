@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import { BiX, BiMoveVertical, BiPencil } from 'react-icons/bi';
+import { BiX, BiPencil } from 'react-icons/bi';
+
 import { Row } from '../../../Components/Row';
 import { ColorCircle } from '../../../Components/ColorCircle';
 import ModifyInput from './ModifyInput';
@@ -8,7 +9,7 @@ import ChangeBaseColorList from './ChangeBaseColorList';
 import { baseColorListStore } from '../../../Store/BaseColorStore';
 import { Wrapper, Title, Dash, Label } from './BaseColorModule.styles';
 
-const BaseColorModule = observer(({ item }) => {
+const BaseColorModule = observer(({ item, ...props }) => {
   const [isModify, setIsModify] = useState({ label: false, role: false });
   const { role, label } = isModify;
 
@@ -39,41 +40,35 @@ const BaseColorModule = observer(({ item }) => {
   };
 
   return (
-    <>
-      <Wrapper>
-        <Row className='al_ct' onClick={(e) => clickHandler('label', e)}>
-          <ColorCircle hexId={item.hexId} />
-          <Row className='al_ct jc_sb'>
-            <Row
-              className='al_ct'
-              onDoubleClick={(e) => clickHandler('role', e)}
-            >
-              {role ? (
-                <ModifyInput
-                  changeRole={changeRole}
-                  isModify={isModify}
-                  setIsModify={setIsModify}
-                  role={role}
-                />
-              ) : (
-                <Title>{item.role}</Title>
-              )}
-              {!role && (
-                <Row className='al_ct'>
-                  <Label>{item.label}</Label>
-                  <Dash />
-                  <Label hex>{item.hexId}</Label>
-                </Row>
-              )}
-            </Row>
+    <Wrapper {...props}>
+      <Row className='al_ct' onClick={(e) => clickHandler('label', e)}>
+        <ColorCircle hexId={item.hexId} />
+        <Row className='al_ct jc_sb'>
+          <Row className='al_ct' onDoubleClick={(e) => clickHandler('role', e)}>
+            {role ? (
+              <ModifyInput
+                changeRole={changeRole}
+                isModify={isModify}
+                setIsModify={setIsModify}
+                role={role}
+              />
+            ) : (
+              <Title>{item.role}</Title>
+            )}
+            {!role && (
+              <Row className='al_ct'>
+                <Label>{item.label}</Label>
+                <Dash />
+                <Label hex>{item.hexId}</Label>
+              </Row>
+            )}
           </Row>
-          <BiPencil onClick={(e) => clickHandler('role', e)} />
-          <BiMoveVertical />
-          <BiX onClick={deleteItem} />
         </Row>
-      </Wrapper>
+        <BiPencil onClick={(e) => clickHandler('role', e)} />
+        <BiX onClick={deleteItem} />
+      </Row>
       {label && <ChangeBaseColorList changeColor={changeColor} />}
-    </>
+    </Wrapper>
   );
 });
 

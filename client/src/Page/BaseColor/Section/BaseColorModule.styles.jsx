@@ -23,6 +23,7 @@ export const Title = styled.span`
   margin: 0 0.6rem 0.2rem 0;
   color: ${(props) => props.theme.ink50};
   text-transform: capitalize;
+  user-select: none;
 `;
 
 export const Label = styled.span`
@@ -33,6 +34,7 @@ export const Label = styled.span`
   display: flex;
   align-items: center;
   text-transform: lowercase;
+  user-select: none;
 `;
 
 export const Dash = styled.span`
@@ -40,4 +42,5 @@ export const Dash = styled.span`
   height: 12px;
   border-bottom: 1px solid ${(props) => props.theme.neutral50};
   transform: rotate(90deg);
+  user-select: none;
 `;

@@ -40,6 +40,7 @@ export class baseColorList {
       modifyListItem: action,
       deleteAll: action,
       addNewBaseColor: action,
+      changeOrder: action,
     });
 
     this.baseColorList = baseColorList;
@@ -58,6 +59,14 @@ export class baseColorList {
 
   deleteAll() {
     this.baseColorList = [];
+  }
+
+  changeOrder(sourceIndex, destinationIndex) {
+    if (destinationIndex) {
+      const list = this.baseColorList;
+      list.splice(destinationIndex, 0, list.splice(sourceIndex, 1)[0]);
+      this.colorList = list;
+    }
   }
 
   // 안쓰는 액션... 혹시나 남겨둠 나중에 쓸 수 있을 지도?
