@@ -1,14 +1,16 @@
 import React from 'react';
 import { CardLayout, Heading, CardButton, Context } from './CardModule.styles';
 
-const CardModule = ({ hexId }) => {
+const CardModule = ({ headHex, contentHex, mainHex, hoverHex }) => {
   return (
     <CardLayout>
-      <Heading>Heading</Heading>
-      <Context>
+      <Heading headHex={headHex}>Heading</Heading>
+      <Context contentHex={contentHex}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </Context>
-      <CardButton hexId={hexId}>Default</CardButton>
+      <CardButton mainHex={mainHex} hover={hoverHex}>
+        Default
+      </CardButton>
     </CardLayout>
   );
 };

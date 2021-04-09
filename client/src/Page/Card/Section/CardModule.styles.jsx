@@ -6,6 +6,7 @@ export const Heading = styled.h2`
   margin: 15px 20px;
   display: flex;
   align-items: center;
+  color: ${(props) => props.headHex};
 `;
 
 export const CardButton = styled.button`
@@ -22,12 +23,12 @@ export const CardButton = styled.button`
   margin: 0px 20px;
   font-weight: 400;
   font-size: 0.6rem;
-  background-color: ${(props) => props.hexId};
+  background-color: ${(props) => props.mainHex};
   color: ${(props) => props.theme.ink50};
   position: absolute;
   bottom: 20px;
   :hover {
-    opacity: 0.7;
+    background-color: ${(props) => props.hoverHex};
   }
 `;
 
@@ -36,14 +37,14 @@ export const Context = styled.span`
   margin: 0 20px;
   width: 340px;
   font-size: 0.85rem;
-  color: ${(props) => props.theme.ink50};
+  color: ${(props) => props.contentHex};
 `;
 
 export const CardLayout = styled.div`
   position: relative;
 
   width: 380px;
-  height: 180px;
+  height: 200px;
   border: 1px solid #f2f3f5;
   border-radius: 0.3em;
 
