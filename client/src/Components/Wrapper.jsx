@@ -9,6 +9,8 @@ const fristStyles = css`
 `;
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: 0 0 4em 0;
   ${defineWrapperStyles}
 `;

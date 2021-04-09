@@ -1,23 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import BaseColorModule from './BaseColorModule';
-import { BiMenu } from 'react-icons/bi';
 import { observer } from 'mobx-react-lite';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import { Row } from '../../../Components/Row';
-
-const ListContainer = styled.ul`
-  display: flex;
-  flex-direction: column;
-
-  > :first-child {
-    border-top: 1px solid ${(props) => props.theme.neutral50};
-  }
-  > :not(:last-child) {
-    border-bottom: 1px solid ${(props) => props.theme.neutral50};
-  }
-  border-bottom: 1px solid ${(props) => props.theme.neutral50};
-`;
+import { ListItemRow } from '../../../Components/Row';
+import { ListContainer } from './BaseColorList.styles';
 
 const BaseColorList = observer(({ store }) => {
   return (
@@ -29,11 +15,12 @@ const BaseColorList = observer(({ store }) => {
       }}
     >
       <ListContainer>
-        <Droppable droppableId='droppable-1'>
+        <Droppable droppableId='droppable-2'>
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}
               style={{
+                border: snapshot.isDraggingOver ? '#FCFBFC' : 'none',
                 backgroundColor: snapshot.isDraggingOver ? '#FCFBFC' : 'white',
               }}
               {...provided.droppableProps}
@@ -45,8 +32,7 @@ const BaseColorList = observer(({ store }) => {
                   index={index}
                 >
                   {(provided, snapshot) => (
-                    <Row
-                      key={item.id}
+                    <ListItemRow
                       className='al_ct'
                       ref={provided.innerRef}
                       {...provided.draggableProps}
@@ -58,14 +44,11 @@ const BaseColorList = observer(({ store }) => {
                           : 'none',
                       }}
                     >
-                      <div
-                        className='react-icons'
+                      <BaseColorModule
+                        item={item}
                         {...provided.dragHandleProps}
-                      >
-                        <BiMenu />
-                      </div>
-                      <BaseColorModule item={item} />
-                    </Row>
+                      />
+                    </ListItemRow>
                   )}
                 </Draggable>
               ))}

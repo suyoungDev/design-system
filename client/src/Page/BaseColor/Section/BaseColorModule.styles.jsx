@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.li`
-  padding: 0.5rem 0.7rem;
   width: 100%;
   list-style: none;
+
   .react-icons {
     color: ${(props) => props.theme.ink30};
     cursor: pointer;

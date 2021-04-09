@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { BiX, BiPencil } from 'react-icons/bi';
+import { BiMenu } from 'react-icons/bi';
 
-import { Row } from '../../../Components/Row';
+import { Row, BaseColorItemRow } from '../../../Components/Row';
 import { ColorCircle } from '../../../Components/ColorCircle';
 import ModifyInput from './ModifyInput';
 import ChangeBaseColorList from './ChangeBaseColorList';
@@ -14,11 +15,8 @@ const BaseColorModule = observer(({ item, ...props }) => {
   const { role, label } = isModify;
 
   const clickHandler = (element, e) => {
-    if (element === 'role') {
-      setIsModify({ ...isModify, [element]: !role });
-    } else {
-      setIsModify({ ...isModify, [element]: !label });
-    }
+    if (element === 'role') setIsModify({ ...isModify, [element]: !role });
+    if (element === 'label') setIsModify({ ...isModify, [element]: !label });
     e.stopPropagation();
   };
 
@@ -40,8 +38,11 @@ const BaseColorModule = observer(({ item, ...props }) => {
   };
 
   return (
-    <Wrapper {...props}>
-      <Row className='al_ct' onClick={(e) => clickHandler('label', e)}>
+    <Wrapper>
+      <BaseColorItemRow
+        className='al_ct'
+        onClick={(e) => clickHandler('label', e)}
+      >
         <ColorCircle hexId={item.hexId} />
         <Row className='al_ct jc_sb'>
           <Row className='al_ct' onDoubleClick={(e) => clickHandler('role', e)}>
@@ -66,7 +67,10 @@ const BaseColorModule = observer(({ item, ...props }) => {
         </Row>
         <BiPencil onClick={(e) => clickHandler('role', e)} />
         <BiX onClick={deleteItem} />
-      </Row>
+        <div className='react-icons' {...props}>
+          <BiMenu />
+        </div>
+      </BaseColorItemRow>
       {label && <ChangeBaseColorList changeColor={changeColor} />}
     </Wrapper>
   );

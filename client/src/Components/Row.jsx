@@ -16,7 +16,16 @@ export const Row = styled.div`
   }
 
   .react-icons {
-    color: ${(props) => props.theme.neutral70};
+    display: flex;
+    align-items: center;
+    color: ${(props) => props.theme.neutral60};
+    :not(:last-child) {
+      margin-right: 0.5rem;
+    }
+    :hover {
+      color: ${(props) => props.theme.purple50};
+    }
+    transition: all 0.3s ease;
   }
 `;
 
@@ -36,4 +45,14 @@ export const HeadingRow = styled(Row)`
   margin: 0 0 1.4rem 0;
 
   ${defineHeadingStyles}
+`;
+
+export const ListItemRow = styled(Row)`
+  :not(:last-child) {
+    border-bottom: 1px solid ${(props) => props.theme.neutral50};
+  }
+`;
+
+export const BaseColorItemRow = styled(Row)`
+  padding: 0.5rem 0.7rem;
 `;
