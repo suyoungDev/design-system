@@ -11,8 +11,9 @@ import Modal from '../../../Components/Modal/Modal';
 import SubmitHex from './SubmitHex';
 
 const ButtonContainer = styled.div`
+  box-sizing: border-box;
   position: absolute;
-  top: 8px;
+  top: 0px;
   width: 100%;
   z-index: 0;
 `;

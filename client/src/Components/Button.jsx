@@ -21,11 +21,6 @@ export const Button = styled.button`
   cursor: pointer;
 
   ${defineButtonStyle};
-
-  .react-icons {
-    display: flex;
-    align-items: center;
-  }
 `;
 
 export const SmallButton = styled(Button)`
@@ -37,10 +32,14 @@ export const SmallButton = styled(Button)`
 `;
 
 const basicStyles = css`
-  color: ${(props) => props.theme.white};
+  color: white;
   font-weight: 200;
   :hover {
     opacity: 0.5;
+  }
+
+  .react-icons {
+    color: white;
   }
 `;
 

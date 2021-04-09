@@ -3,18 +3,6 @@ import styled from 'styled-components';
 export const Wrapper = styled.li`
   width: 100%;
   list-style: none;
-
-  .react-icons {
-    color: ${(props) => props.theme.ink30};
-    cursor: pointer;
-    :not(:last-child) {
-      margin-right: 0.5rem;
-    }
-    :hover {
-      color: ${(props) => props.theme.purple50};
-    }
-    transition: all 0.3s ease;
-  }
 `;
 
 export const Title = styled.span`

@@ -14,19 +14,6 @@ export const Row = styled.div`
   &.al_ct {
     align-items: center;
   }
-
-  .react-icons {
-    display: flex;
-    align-items: center;
-    color: ${(props) => props.theme.neutral60};
-    :not(:last-child) {
-      margin-right: 0.5rem;
-    }
-    :hover {
-      color: ${(props) => props.theme.purple50};
-    }
-    transition: all 0.3s ease;
-  }
 `;
 
 const defineHeadingStyles = (props) => {
