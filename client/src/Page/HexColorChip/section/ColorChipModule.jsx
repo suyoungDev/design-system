@@ -14,16 +14,15 @@ const ButtonContainer = styled.div`
   position: absolute;
   top: 8px;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
 `;
 
 const Item = styled.div`
+  margin: 0.3rem;
   position: relative;
   z-index: 0;
 `;
 
-// 드랍다운 메뉴 버튼 만들어서 '수정',
-// '타이포컬러로 추가', 'accent로 추가' 이런거 있음 좋을듯?
 const Chip = observer(({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -41,12 +40,12 @@ const Chip = observer(({ item }) => {
 
   return (
     <Item>
+      <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
       <ButtonContainer>
         <Row className='jc_sb'>
           <Button basic onClick={openModal}>
             수정
           </Button>
-          <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
           <Button
             basic
             onClick={() => {

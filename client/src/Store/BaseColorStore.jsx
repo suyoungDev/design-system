@@ -37,7 +37,6 @@ export class baseColorList {
     makeObservable(this, {
       baseColorList: observable,
       deleteBaseColor: action,
-      modifyListItem: action,
       deleteAll: action,
       addNewBaseColor: action,
       changeOrder: action,
@@ -62,23 +61,13 @@ export class baseColorList {
   }
 
   changeOrder(sourceIndex, destinationIndex) {
-    if (destinationIndex) {
-      const list = this.baseColorList;
-      list.splice(destinationIndex, 0, list.splice(sourceIndex, 1)[0]);
-      this.colorList = list;
-    }
-  }
+    if (typeof destinationIndex === 'undefined') return;
+    if (destinationIndex === sourceIndex) return;
 
-  // 안쓰는 액션... 혹시나 남겨둠 나중에 쓸 수 있을 지도?
-  modifyListItem(list) {
-    let reduced = this.baseColorList.filter(
-      (a_item) => !list.find((b_item) => a_item.role === b_item.role)
-    );
-    let result = reduced.concat(list);
-    this.deleteAll();
-    result.forEach((item) => {
-      this.addNewBaseColor(item.hexId, item.label, item.role);
-    });
+    const result = this.baseColorList;
+    const [removed] = result.splice(sourceIndex, 1);
+    result.splice(destinationIndex, 0, removed);
+    this.baseColorList = result;
   }
 }
 

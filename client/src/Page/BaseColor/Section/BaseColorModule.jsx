@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { BiX, BiPencil } from 'react-icons/bi';
-import { BiMenu } from 'react-icons/bi';
 
 import { Row, BaseColorItemRow } from '../../../Components/Row';
 import { ColorCircle } from '../../../Components/ColorCircle';
@@ -10,7 +9,7 @@ import ChangeBaseColorList from './ChangeBaseColorList';
 import { baseColorListStore } from '../../../Store/BaseColorStore';
 import { Wrapper, Title, Dash, Label } from './BaseColorModule.styles';
 
-const BaseColorModule = observer(({ item, ...props }) => {
+const BaseColorModule = observer(({ item }) => {
   const [isModify, setIsModify] = useState({ label: false, role: false });
   const { role, label } = isModify;
 
@@ -67,9 +66,6 @@ const BaseColorModule = observer(({ item, ...props }) => {
         </Row>
         <BiPencil onClick={(e) => clickHandler('role', e)} />
         <BiX onClick={deleteItem} />
-        <div className='react-icons' {...props}>
-          <BiMenu />
-        </div>
       </BaseColorItemRow>
       {label && <ChangeBaseColorList changeColor={changeColor} />}
     </Wrapper>

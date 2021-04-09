@@ -30,6 +30,7 @@ class ColorChipList {
       colorList: observable,
       addColorChip: action,
       deleteColorChip: action,
+      changeOrder: action,
     });
     this.colorList = colorList;
   }
@@ -44,6 +45,16 @@ class ColorChipList {
   addColorChip(props) {
     const newColorChip = new colorChip(props.hexId, props.title);
     this.colorList.push(newColorChip);
+  }
+
+  changeOrder(sourceIndex, destinationIndex) {
+    if (typeof destinationIndex === 'undefined') return;
+    if (destinationIndex === sourceIndex) return;
+
+    const result = this.colorList;
+    const [removed] = result.splice(sourceIndex, 1);
+    result.splice(destinationIndex, 0, removed);
+    this.colorList = result;
   }
 }
 

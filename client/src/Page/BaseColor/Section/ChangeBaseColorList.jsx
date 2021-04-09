@@ -9,7 +9,7 @@ const Container = styled.div`
   background: ${(props) => props.theme.neutral40};
   display: flex;
   flex-direction: row;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
 `;
 
 const Button = styled.button`

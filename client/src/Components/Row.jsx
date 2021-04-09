@@ -48,6 +48,7 @@ export const HeadingRow = styled(Row)`
 `;
 
 export const ListItemRow = styled(Row)`
+  align-items: center;
   :not(:last-child) {
     border-bottom: 1px solid ${(props) => props.theme.neutral50};
   }
