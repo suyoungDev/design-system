@@ -4,12 +4,13 @@ import useInput from '../../../Hook/useInput';
 import { SmallButton } from '../../../Components/Button';
 
 const Input = styled.input`
+  width: 200px;
   padding: 5px 10px;
-  border: none;
   border-radius: 10px;
   border: 2px solid ${(props) => props.theme.neutral50};
-  margin-right: 1rem;
+  margin: 0 1rem 0 0.7rem;
   outline: none;
+  font-weight: 200;
   :focus {
     border: 2px solid ${(props) => props.theme.purple10};
   }

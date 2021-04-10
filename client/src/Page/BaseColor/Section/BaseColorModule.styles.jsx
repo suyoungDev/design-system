@@ -8,7 +8,7 @@ export const Wrapper = styled.li`
 export const Title = styled.span`
   font-weight: 400;
   font-size: 0.8rem;
-  margin: 0 0.6rem 0.2rem 0;
+  margin: 0 0.6rem 0.2rem 0.7rem;
   color: ${(props) => props.theme.ink50};
   text-transform: capitalize;
   user-select: none;

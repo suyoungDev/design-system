@@ -6,5 +6,4 @@ export const ColorCircle = styled.div`
   padding: 10px;
   background: ${(props) => props.hexId};
   border-radius: 50%;
-  margin-right: 0.74rem;
 `;

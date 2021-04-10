@@ -7,8 +7,9 @@ import { colorChipListStore } from '../../../Store/ColorListStore';
 const Container = styled.div`
   width: 100%;
   background: ${(props) => props.theme.neutral40};
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(14, 25px);
   padding: 1rem 1.5rem;
 `;
 
