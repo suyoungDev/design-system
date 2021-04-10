@@ -5,7 +5,7 @@ import PhotoCardModule from './Section/PhotoCardModule';
 import { Wrapper } from '../../Components/Wrapper';
 import { BiPalette } from 'react-icons/bi';
 import { Button } from '../../Components/Button';
-
+import CardColorSelect from './Section/CardColorSelect';
 const Card = () => {
   const [cardColorList, setCardColorList] = useState({
     head: '',
@@ -24,6 +24,7 @@ const Card = () => {
           <BiPalette />
         </Button>
       </HeadingRow>
+      <CardColorSelect isOpen={isOpen} setCardColorList={setCardColorList} />
       <CardModule
         headHex={head}
         contentHex={content}

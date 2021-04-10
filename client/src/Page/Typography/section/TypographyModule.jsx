@@ -11,8 +11,8 @@ const TypographyWrapper = styled.div`
   color: ${(props) => props.hexId};
   width: 540px;
   padding: 1rem 0.5rem;
-  border-top: 1px solid ${(props) => props.theme.neutral50};
   border-bottom: 1px solid ${(props) => props.theme.neutral50};
+
   h1 {
     margin-right: 1.5rem;
   }
