@@ -12,8 +12,8 @@ import lorem from '../../../lorem';
 const { korean, english } = lorem;
 
 const BG = styled.div`
-  border-radius: ${({ radius }) => `${radius}px`}
-    ${({ radius }) => `${radius}px`} 0 0;
+  border-radius: ${({ radius }) => (radius ? `${radius}px` : '10px')}
+    ${({ radius }) => (radius ? `${radius}px` : '10px')} 0 0;
   height: 190px;
   background-image: url(${BGImage});
   background-size: cover;
