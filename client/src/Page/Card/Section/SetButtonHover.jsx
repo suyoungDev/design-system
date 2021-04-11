@@ -42,7 +42,7 @@ const SetButtonHover = () => {
           ))}
         </OptionContainer>
       </Row>
-      {buttonHoverType === 'colors' && <SelectModule value='hover' />}
+      {buttonHoverType === 'colors' && <SelectModule value='hoverColor' />}
     </Column>
   );
 };

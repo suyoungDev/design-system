@@ -15,7 +15,7 @@ const Card = observer(() => {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState(true);
   const {
-    mainColor,
+    buttonColor,
     hoverColor,
     headColor,
     contentColor,
@@ -23,7 +23,9 @@ const Card = observer(() => {
   } = cardColorStore;
 
   const textHex =
-    mainColor && chroma.contrast(mainColor, 'white') > 2 ? 'white' : 'black';
+    buttonColor && chroma.contrast(buttonColor, 'white') > 2
+      ? 'white'
+      : 'black';
 
   const hoverText =
     hoverColor && chroma.contrast(hoverColor, 'white') > 2 ? 'white' : 'black';
@@ -48,7 +50,7 @@ const Card = observer(() => {
       </HeadingRow>
       <SetColorsList isOpen={isOpen} />
       <CardModule
-        mainHex={mainColor}
+        mainHex={buttonColor}
         headHex={headColor}
         contentHex={contentColor}
         hoverHex={hoverColor}
@@ -58,7 +60,7 @@ const Card = observer(() => {
         hoverText={hoverText}
       />
       <PhotoCardModule
-        mainHex={mainColor}
+        mainHex={buttonColor}
         headHex={headColor}
         contentHex={contentColor}
         hoverHex={hoverColor}

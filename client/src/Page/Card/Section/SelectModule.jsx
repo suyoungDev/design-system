@@ -4,9 +4,9 @@ import Select from 'react-select';
 import { observer } from 'mobx-react-lite';
 
 import { Row } from '../../../Components/Row';
+import { Label } from '../../../Components/Label';
 import { colorChipListStore } from '../../../Store/ColorListStore';
 import { cardColorStore } from '../../../Store/CardColorStore';
-import { Label } from '../../../Components/Label';
 
 const dot = (color = '#ccc') => ({
   display: 'flex',

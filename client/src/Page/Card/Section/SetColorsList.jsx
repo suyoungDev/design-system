@@ -6,9 +6,9 @@ import SetButtonHover from './SetButtonHover';
 import { cardColorStore } from '../../../Store/CardColorStore';
 
 const LIST = [
-  { label: '제목 색상', value: 'head' },
-  { label: '내용 색상', value: 'content' },
-  { label: '버튼 색상', value: 'main' },
+  { label: '제목 색상', value: 'headColor' },
+  { label: '내용 색상', value: 'contentColor' },
+  { label: '버튼 색상', value: 'buttonColor' },
 ];
 
 const Container = styled.div`
@@ -34,7 +34,7 @@ const SetColorsList = ({ isOpen }) => {
               key={item.value}
             />
           ))}
-          {cardColorStore.mainColor && <SetButtonHover />}
+          {cardColorStore.buttonColor && <SetButtonHover />}
           <CardSlider />
         </Container>
       )}

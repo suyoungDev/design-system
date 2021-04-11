@@ -3,15 +3,15 @@ import chroma from 'chroma-js';
 
 export class cardColor {
   borderRadius = '';
-  mainColor = '';
+  buttonColor = '';
   hoverColor = '';
   headColor = '';
   contentColor = '';
 
-  constructor(borderRadius, mainColor, hoverColor, headColor, contentColor) {
+  constructor(borderRadius, buttonColor, hoverColor, headColor, contentColor) {
     makeObservable(this, {
       borderRadius: observable,
-      mainColor: observable,
+      buttonColor: observable,
       hoverColor: observable,
       headColor: observable,
       contentColor: observable,
@@ -20,7 +20,7 @@ export class cardColor {
     });
 
     this.borderRadius = borderRadius;
-    this.mainColor = mainColor;
+    this.buttonColor = buttonColor;
     this.hoverColor = hoverColor;
     this.headColor = headColor;
     this.contentColor = contentColor;
@@ -28,21 +28,22 @@ export class cardColor {
 
   setCardColor(name, value) {
     if (!name || !value) return;
-    if (name === 'radius') this.borderRadius = value;
-    if (name === 'main') this.mainColor = value;
-    if (name === 'hover') this.hoverColor = value;
-    if (name === 'head') this.headColor = value;
-    if (name === 'content') this.contentColor = value;
+    if (name === 'borderRadius') this.borderRadius = value;
+    if (name === 'buttonColor') this.buttonColor = value;
+    if (name === 'hoverColor') this.hoverColor = value;
+    if (name === 'headColor') this.headColor = value;
+    if (name === 'contentColor') this.contentColor = value;
   }
 
   setHoverColor(value) {
-    if (!this.mainColor) return;
+    if (!this.buttonColor) return;
     let newColor;
-    if (value === 'brighten') newColor = chroma(this.mainColor).brighten();
-    if (value === 'darken') newColor = chroma(this.mainColor).darken();
-    if (value === 'saturate') newColor = chroma(this.mainColor).saturate();
-    if (value === 'desaturate') newColor = chroma(this.mainColor).desaturate();
-    this.setCardColor('hover', newColor);
+    if (value === 'brighten') newColor = chroma(this.buttonColor).brighten();
+    if (value === 'darken') newColor = chroma(this.buttonColor).darken();
+    if (value === 'saturate') newColor = chroma(this.buttonColor).saturate();
+    if (value === 'desaturate')
+      newColor = chroma(this.buttonColor).desaturate();
+    this.setCardColor('hoverColor', newColor);
   }
 }
 

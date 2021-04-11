@@ -26,7 +26,7 @@ const handle = (props) => {
 
 const CardSlider = () => {
   const changeHandle = (value) => {
-    cardColorStore.setCardColor('radius', value);
+    cardColorStore.setCardColor('borderRadius', value);
   };
 
   return (
