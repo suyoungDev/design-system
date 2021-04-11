@@ -12,7 +12,8 @@ import lorem from '../../../lorem';
 const { korean, english } = lorem;
 
 const BG = styled.div`
-  border-radius: 0.3em 0.3em 0 0;
+  border-radius: ${({ radius }) => `${radius}px`}
+    ${({ radius }) => `${radius}px`} 0 0;
   height: 190px;
   background-image: url(${BGImage});
   background-size: cover;
@@ -32,7 +33,7 @@ const PhotoCardModule = ({
 }) => {
   return (
     <PhotoCardLayout radius={radius}>
-      <BG />
+      <BG radius={radius} />
       <div>
         <Heading headHex={headHex}>
           {language ? korean.heading : english.heading}
