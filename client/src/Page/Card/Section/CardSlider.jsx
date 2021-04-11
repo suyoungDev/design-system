@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider, { SliderTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
-
+import { observer } from 'mobx-react-lite';
 import { Row } from '../../../Components/Row';
 import { Label } from '../../../Components/Label';
 import { cardColorStore } from '../../../Store/CardColorStore';
@@ -24,7 +24,9 @@ const handle = (props) => {
   );
 };
 
-const CardSlider = () => {
+const CardSlider = observer(() => {
+  const [borderRadius] = useState(cardColorStore.borderRadius || 10);
+
   const changeHandle = (value) => {
     cardColorStore.setCardColor('borderRadius', value);
   };
@@ -36,8 +38,7 @@ const CardSlider = () => {
         <Slider
           min={0}
           max={30}
-          startPoint={0}
-          defaultValue={10}
+          defaultValue={borderRadius}
           handle={handle}
           trackStyle={{ backgroundColor: '#AD9EE5' }}
           handleStyle={{
@@ -51,6 +52,6 @@ const CardSlider = () => {
       </div>
     </Row>
   );
-};
+});
 
 export default CardSlider;
