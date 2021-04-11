@@ -1,8 +1,9 @@
 import React from 'react';
 import Slider, { SliderTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
+
 import { Row } from '../../../Components/Row';
-import { Label } from './SelectModule';
+import { Label } from '../../../Components/Label';
 import { cardColorStore } from '../../../Store/CardColorStore';
 
 const { Handle } = Slider;
@@ -31,7 +32,7 @@ const CardSlider = () => {
   return (
     <Row className='al_ct'>
       <Label>라운드 값</Label>
-      <div style={{ width: 270 }}>
+      <div style={{ width: 340 }}>
         <Slider
           min={0}
           max={30}

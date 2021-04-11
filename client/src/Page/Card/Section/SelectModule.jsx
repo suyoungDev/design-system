@@ -1,19 +1,12 @@
 import React from 'react';
-import { Row } from '../../../Components/Row';
 import chroma from 'chroma-js';
-import styled from 'styled-components';
 import Select from 'react-select';
 import { observer } from 'mobx-react-lite';
+
+import { Row } from '../../../Components/Row';
 import { colorChipListStore } from '../../../Store/ColorListStore';
 import { cardColorStore } from '../../../Store/CardColorStore';
-
-export const Label = styled.span`
-  color: ${(props) => props.theme.ink50};
-  font-weight: 200;
-  width: 160px;
-  display: flex;
-  align-items: center;
-`;
+import { Label } from '../../../Components/Label';
 
 const dot = (color = '#ccc') => ({
   display: 'flex',
@@ -77,11 +70,11 @@ const SelectModule = observer(({ label, value }) => {
   }
 
   return (
-    <Row className='mb-3'>
-      <Label>{label}</Label>
+    <Row className='mb-5'>
+      <Label center>{label}</Label>
       <Select
         placeholder='선택해주세요'
-        width='270px'
+        width='340px'
         options={options}
         styles={colourStyles}
         theme={customTheme}

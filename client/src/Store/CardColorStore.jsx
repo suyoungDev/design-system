@@ -1,4 +1,5 @@
 import { action, makeObservable, observable } from 'mobx';
+import chroma from 'chroma-js';
 
 export class cardColor {
   borderRadius = '';
@@ -15,6 +16,7 @@ export class cardColor {
       headColor: observable,
       contentColor: observable,
       setCardColor: action,
+      setHoverColor: action,
     });
 
     this.borderRadius = borderRadius;
@@ -31,6 +33,16 @@ export class cardColor {
     if (name === 'hover') this.hoverColor = value;
     if (name === 'head') this.headColor = value;
     if (name === 'content') this.contentColor = value;
+  }
+
+  setHoverColor(value) {
+    if (!this.mainColor) return;
+    let newColor;
+    if (value === 'brighten') newColor = chroma(this.mainColor).brighten();
+    if (value === 'darken') newColor = chroma(this.mainColor).darken();
+    if (value === 'saturate') newColor = chroma(this.mainColor).saturate();
+    if (value === 'desaturate') newColor = chroma(this.mainColor).desaturate();
+    this.setCardColor('hover', newColor);
   }
 }
 

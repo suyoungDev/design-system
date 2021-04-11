@@ -14,8 +14,11 @@ export const Row = styled.div`
   &.al_ct {
     align-items: center;
   }
-  &.mb-3 {
-    margin-bottom: 0.3rem;
+  &.mb-5 {
+    margin-bottom: 0.8rem;
+  }
+  &.mt-5 {
+    margin-top: 0.8rem;
   }
 `;
 
