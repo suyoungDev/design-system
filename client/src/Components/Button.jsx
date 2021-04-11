@@ -4,7 +4,7 @@ const defineButtonStyle = (props) => {
   if (props.primary) return primaryStyles;
   if (props.secondary) return secondaryStyles;
   if (props.tertiary) return tertiaryStyles;
-  if (props.white) return whiteStyles;
+  if (props.colorChip) return colorChipStyles;
   else return hoverStyles;
 };
 
@@ -33,15 +33,16 @@ export const SmallButton = styled(Button)`
   padding: ${({ narrow }) => narrow && '0.2rem'};
 `;
 
-const whiteStyles = css`
-  color: white;
+const colorChipStyles = css`
+  color: ${(props) => props.color};
   font-weight: 200;
   :hover {
     opacity: 0.5;
   }
 
   .react-icons {
-    color: white;
+    font-size: 0.6rem;
+    color: ${(props) => props.color};
   }
 `;
 

@@ -6,15 +6,17 @@ const Container = styled.div`
   margin-top: 0.4rem;
   width: 120px;
   height: 120px;
-  border-radius: 0.3rem;
 
   display: grid;
   grid-template-rows: 70px 50px;
-  border: 1.2px solid ${({ hexId }) => hexId && `${hexId}`};
+  border: 1px solid ${({ borderColor }) => `${borderColor}`};
+  border-radius: 0.3rem;
 `;
 
 const Color = styled.div`
-  background-color: ${({ hexId }) => hexId && `${hexId}`};
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  background-color: ${({ hexId }) => `${hexId}`};
 `;
 
 const Label = styled.label`
@@ -39,7 +41,7 @@ const Label = styled.label`
   }
 `;
 
-const ColorBox = ({ item }) => {
+const ColorBox = ({ item, borderColor }) => {
   const getHexId = () => {
     navigator.clipboard.writeText(item.hexId);
     // 저장했다는 모션 나오면 좋을 듯? 근데 이건 뭘로하지? 모달?은 아닌디..
@@ -47,7 +49,7 @@ const ColorBox = ({ item }) => {
   };
 
   return (
-    <Container hexId={item.hexId} onClick={getHexId}>
+    <Container hexId={item.hexId} onClick={getHexId} borderColor={borderColor}>
       <Color hexId={item.hexId} />
       <Label>
         <span>{item.title}</span>

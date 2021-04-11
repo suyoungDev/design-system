@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { CgClose } from 'react-icons/cg';
+import chroma from 'chroma-js';
 
 import ColorBox from './ColorBox';
 import { colorChipListStore } from '../../../Store/ColorListStore';
@@ -39,16 +40,27 @@ const Chip = observer(({ item }) => {
     <SubmitHex openModal={openModal} item={item} changeColor={changeColor} />
   );
 
+  const buttonColor =
+    item.hexId && chroma.contrast(item.hexId, 'white') > 2
+      ? 'white'
+      : '#212224';
+
+  const borderColor =
+    item.hexId && chroma.contrast(item.hexId, 'white') <= 1.15
+      ? chroma(item.hexId).darken()
+      : item.hexId;
+
   return (
     <Item>
       <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
       <ButtonContainer>
         <Row className='jc_sb'>
-          <Button white onClick={openModal}>
+          <Button color={buttonColor} colorChip onClick={openModal}>
             수정
           </Button>
           <Button
-            basic
+            colorChip
+            color={buttonColor}
             onClick={() => {
               colorChipListStore.deleteColorChip(item.id);
             }}
@@ -57,7 +69,7 @@ const Chip = observer(({ item }) => {
           </Button>
         </Row>
       </ButtonContainer>
-      <ColorBox item={item} />
+      <ColorBox item={item} borderColor={borderColor} />
     </Item>
   );
 });
