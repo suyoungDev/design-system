@@ -7,6 +7,9 @@ import {
   Context,
 } from './CardModule.styles';
 import BGImage from '../../../constance/background.jpg';
+import lorem from '../../../lorem';
+
+const { korean, english } = lorem;
 
 const BG = styled.div`
   border-radius: 0.3em 0.3em 0 0;
@@ -17,16 +20,27 @@ const BG = styled.div`
   background-position: center;
 `;
 
-const PhotoCardModule = () => {
+const PhotoCardModule = ({
+  headHex,
+  contentHex,
+  mainHex,
+  hoverHex,
+  textHex,
+  language,
+}) => {
   return (
     <PhotoCardLayout>
       <BG />
       <div>
-        <Heading>Heading</Heading>
-        <Context>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <Heading headHex={headHex}>
+          {language ? korean.heading : english.heading}
+        </Heading>
+        <Context contentHex={contentHex}>
+          {language ? korean.short_content : english.short_content}
         </Context>
-        <CardButton>Default</CardButton>
+        <CardButton mainHex={mainHex} hoverHex={hoverHex} textHex={textHex}>
+          {language ? korean.button : english.button}
+        </CardButton>
       </div>
     </PhotoCardLayout>
   );

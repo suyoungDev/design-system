@@ -1,15 +1,27 @@
 import React from 'react';
 import { CardLayout, Heading, CardButton, Context } from './CardModule.styles';
+import lorem from '../../../lorem';
 
-const CardModule = ({ headHex, contentHex, mainHex, hoverHex }) => {
+const { korean, english } = lorem;
+
+const CardModule = ({
+  headHex,
+  contentHex,
+  mainHex,
+  hoverHex,
+  textHex,
+  language,
+}) => {
   return (
     <CardLayout>
-      <Heading headHex={headHex}>Heading</Heading>
+      <Heading headHex={headHex}>
+        {language ? korean.heading : english.heading}
+      </Heading>
       <Context contentHex={contentHex}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {language ? korean.short_content : english.short_content}
       </Context>
-      <CardButton mainHex={mainHex} hover={hoverHex}>
-        Default
+      <CardButton mainHex={mainHex} hoverHex={hoverHex} textHex={textHex}>
+        {language ? korean.button : english.button}
       </CardButton>
     </CardLayout>
   );

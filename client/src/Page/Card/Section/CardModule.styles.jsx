@@ -19,14 +19,16 @@ export const CardButton = styled.button`
   border: none;
   border-radius: 5px;
   outline: none;
-
+  cursor: pointer;
   margin: 0px 20px;
   font-weight: 400;
   font-size: 0.6rem;
   background-color: ${(props) => props.mainHex};
-  color: ${(props) => props.theme.ink50};
+  color: ${(props) => props.textHex};
   position: absolute;
   bottom: 20px;
+  transition: all 0.3s ease;
+
   :hover {
     background-color: ${(props) => props.hoverHex};
   }
@@ -58,9 +60,9 @@ export const CardLayout = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 
-  :hover {
+  /* :hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
+  } */
 `;
 
 export const PhotoCardLayout = styled(CardLayout)`
