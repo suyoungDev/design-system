@@ -66,7 +66,7 @@ const SelectModule = observer(({ label, value }) => {
         setStoredIndex(i);
       }
     }
-  }, [value]);
+  }, [value, options]);
 
   const setCardColors = (color) => {
     cardColorStore.setCardColor(value, color.color);

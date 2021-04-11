@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from 'react';
-
+import React, { useState, useCallback, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
 import SelectModule from './SelectModule';
 import { OptionContainer } from './SetButtonHover.styles';
 import RadioComponents from './RadioComponents';
@@ -16,8 +16,12 @@ const OPTIONS = [
   { label: '기존 색상', value: 'colors' },
 ];
 
-const SetButtonHover = () => {
+const SetButtonHover = observer(() => {
   const [buttonHoverType, setButtonHoverType] = useState('');
+
+  useEffect(() => {
+    setButtonHoverType(cardColorStore.hoverType);
+  }, []);
 
   const changeHoverColorType = useCallback((e) => {
     setButtonHoverType(e.target.value);
@@ -44,6 +48,6 @@ const SetButtonHover = () => {
       {buttonHoverType === 'colors' && <SelectModule value='hoverColor' />}
     </Column>
   );
-};
+});
 
 export default SetButtonHover;

@@ -2,25 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { RadioLabel, Radio } from './SetButtonHover.styles';
 
 const RadioComponents = ({ value, label, name, defaultChecked }) => {
-  const [isCheck, setIsCheck] = useState(false);
-  useEffect(() => {
-    checked();
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const checked = () => {
-    setIsCheck(defaultChecked === value ? true : false);
-  };
+  useEffect(() => {
+    setIsLoading(true);
+  }, [defaultChecked]);
 
   return (
     <div>
-      <Radio
-        type='radio'
-        value={value}
-        name={name}
-        id={value}
-        defaultChecked={isCheck}
-      />
-      <RadioLabel htmlFor={value}>{label}</RadioLabel>
+      {isLoading && (
+        <div>
+          <Radio
+            type='radio'
+            value={value}
+            name={name}
+            id={value}
+            defaultChecked={defaultChecked === value ? true : false}
+          />
+          <RadioLabel htmlFor={value}>{label}</RadioLabel>
+        </div>
+      )}
     </div>
   );
 };
