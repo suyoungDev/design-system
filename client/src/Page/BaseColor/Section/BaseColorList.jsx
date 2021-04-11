@@ -4,7 +4,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { ListContainer } from './BaseColorList.styles';
 import BaseColorListItems from './BaseColorListItems';
 
-const BaseColorList = observer(({ store }) => {
+const BaseColorList = ({ store }) => {
   function onDragEnd(result) {
     const sourceIndex = result.source.index;
     const destinationIndex = result.destination?.index;
@@ -33,6 +33,6 @@ const BaseColorList = observer(({ store }) => {
       </ListContainer>
     </DragDropContext>
   );
-});
+};
 
 export default BaseColorList;

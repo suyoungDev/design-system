@@ -9,7 +9,7 @@ import ChangeBaseColorList from './ChangeBaseColorList';
 import { baseColorListStore } from '../../../Store/BaseColorStore';
 import { Wrapper, Title, Dash, Label } from './BaseColorModule.styles';
 
-const BaseColorModule = observer(({ item }) => {
+const BaseColorModule = ({ item }) => {
   const [isModify, setIsModify] = useState({ label: false, role: false });
   const { role, label } = isModify;
 
@@ -70,6 +70,6 @@ const BaseColorModule = observer(({ item }) => {
       {label && <ChangeBaseColorList changeColor={changeColor} />}
     </Wrapper>
   );
-});
+};
 
 export default BaseColorModule;

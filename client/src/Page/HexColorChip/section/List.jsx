@@ -1,10 +1,9 @@
 import React from 'react';
 import ColorChipList from './ColorChipList';
 import { colorChipListStore } from '../../../Store/ColorListStore';
-import { observer } from 'mobx-react-lite';
 
-const List = observer(() => {
+const List = () => {
   return <ColorChipList colorChipListStore={colorChipListStore} />;
-});
+};
 
 export default List;
