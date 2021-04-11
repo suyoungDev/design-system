@@ -10,6 +10,7 @@ import { Wrapper } from '../../Components/Wrapper';
 import { SmallButton } from '../../Components/Button';
 import { cardColorStore } from '../../Store/CardColorStore';
 import SetColorsList from './Section/SetColorsList';
+import { Column } from '../../Components/Column';
 
 const Card = observer(() => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,26 +50,28 @@ const Card = observer(() => {
         </div>
       </HeadingRow>
       <SetColorsList isOpen={isOpen} />
-      <CardModule
-        mainHex={buttonColor}
-        headHex={headColor}
-        contentHex={contentColor}
-        hoverHex={hoverColor}
-        textHex={textHex}
-        language={language}
-        radius={borderRadius}
-        hoverText={hoverText}
-      />
-      <PhotoCardModule
-        mainHex={buttonColor}
-        headHex={headColor}
-        contentHex={contentColor}
-        hoverHex={hoverColor}
-        textHex={textHex}
-        language={language}
-        radius={borderRadius}
-        hoverText={hoverText}
-      />
+      <Column className='center'>
+        <CardModule
+          mainHex={buttonColor}
+          headHex={headColor}
+          contentHex={contentColor}
+          hoverHex={hoverColor}
+          textHex={textHex}
+          language={language}
+          radius={borderRadius}
+          hoverText={hoverText}
+        />
+        <PhotoCardModule
+          mainHex={buttonColor}
+          headHex={headColor}
+          contentHex={contentColor}
+          hoverHex={hoverColor}
+          textHex={textHex}
+          language={language}
+          radius={borderRadius}
+          hoverText={hoverText}
+        />
+      </Column>
     </Wrapper>
   );
 });
