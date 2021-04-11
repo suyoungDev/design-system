@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import chroma from 'chroma-js';
 import Select from 'react-select';
 import { observer } from 'mobx-react-lite';
@@ -50,14 +50,27 @@ const colourStyles = {
 };
 
 const SelectModule = observer(({ label, value }) => {
-  const setCardColors = (color) => {
-    cardColorStore.setCardColor(value, color.color);
-  };
+  const [isReEnter, setIsReEnter] = useState(false);
+  const [storedIndex, setStoredIndex] = useState();
 
   const options = colorChipListStore.colorList.map((item) => ({
     color: item.hexId,
     label: item.title,
   }));
+
+  useEffect(() => {
+    const storeValue = cardColorStore[value];
+    if (storeValue) setIsReEnter(true);
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].color === storeValue) {
+        setStoredIndex(i);
+      }
+    }
+  }, [value]);
+
+  const setCardColors = (color) => {
+    cardColorStore.setCardColor(value, color.color);
+  };
 
   function customTheme(theme) {
     return {
@@ -72,15 +85,29 @@ const SelectModule = observer(({ label, value }) => {
   return (
     <Row className='mb-5'>
       <Label center>{label}</Label>
-      <Select
-        placeholder='선택해주세요'
-        width='340px'
-        options={options}
-        styles={colourStyles}
-        theme={customTheme}
-        isSearchable
-        onChange={setCardColors}
-      />
+      {!isReEnter && (
+        <Select
+          placeholder='선택해주세요'
+          width='340px'
+          options={options}
+          styles={colourStyles}
+          theme={customTheme}
+          isSearchable
+          onChange={setCardColors}
+        />
+      )}
+      {isReEnter && (
+        <Select
+          placeholder='선택해주세요'
+          width='340px'
+          options={options}
+          styles={colourStyles}
+          theme={customTheme}
+          isSearchable
+          onChange={setCardColors}
+          defaultValue={options[storedIndex]}
+        />
+      )}
     </Row>
   );
 });
