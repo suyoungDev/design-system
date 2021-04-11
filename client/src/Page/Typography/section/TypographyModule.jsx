@@ -6,6 +6,9 @@ import { SmallButton } from '../../../Components/Button';
 import { BiPalette, BiWorld, BiX } from 'react-icons/bi';
 import ChangeBaseColorList from '../../BaseColor/Section/ChangeBaseColorList';
 import { typoColorStore } from '../../../Store/TypoStore';
+import lorem from '../../../lorem.js';
+
+const { korean, english } = lorem;
 
 const TypographyWrapper = styled.div`
   color: ${(props) => props.hexId};
@@ -28,15 +31,6 @@ const TypographyWrapper = styled.div`
   }
 `;
 
-const KOREAN_LOREM = [
-  '가',
-  '법원은 최고법원인 대법원과 각급법원으로 조직된다. 대한민국은 통일을 지향하며, 자유민주적 기본질서에 입각한 평화적 통일 정책을 수립하고 이를 추진한다.',
-];
-const ENGLISH_LOREN = [
-  'Aa',
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Suscipit tellus mauris a diam maecenas sed enim ut sem. Adipiscing commodo elit at imperdiet.',
-];
-
 const TypographyModule = ({ item, hexId }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState(true);
@@ -55,12 +49,12 @@ const TypographyModule = ({ item, hexId }) => {
       <TypographyWrapper hexId={hexId}>
         <Row>
           <Column>
-            <h1>{language ? KOREAN_LOREM[0] : ENGLISH_LOREN[0]}</h1>
-            <h2>{language ? KOREAN_LOREM[0] : ENGLISH_LOREN[0]}</h2>
+            <h1>{language ? korean.a : english.a}</h1>
+            <h2>{language ? korean.a : english.a}</h2>
           </Column>
           <Column>
             <Row className='jc_sb'>
-              <h3>{language ? KOREAN_LOREM[0] : ENGLISH_LOREN[0]}</h3>
+              <h3>{language ? korean.a : english.a}</h3>
 
               <div>
                 <SmallButton
@@ -84,7 +78,7 @@ const TypographyModule = ({ item, hexId }) => {
                 </SmallButton>
               </div>
             </Row>
-            <p>{language ? KOREAN_LOREM[1] : ENGLISH_LOREN[1]}</p>
+            <p>{language ? korean.content : english.content}</p>
           </Column>
         </Row>
       </TypographyWrapper>
