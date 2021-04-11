@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import SelectModule from './SelectModule';
+import { OptionContainer } from './SetButtonHover.styles';
+import RadioComponents from './RadioComponents';
 import { Row } from '../../../Components/Row';
 import { Column } from '../../../Components/Column';
 import { Label } from '../../../Components/Label';
-
 import { cardColorStore } from '../../../Store/CardColorStore';
-import { RadioLabel, OptionContainer, Raido } from './SetButtonHover.styles';
 
 const OPTIONS = [
   { label: '밝게', value: 'brighten' },
@@ -19,10 +19,10 @@ const OPTIONS = [
 const SetButtonHover = () => {
   const [buttonHoverType, setButtonHoverType] = useState('');
 
-  const changeHoverColorType = (e) => {
+  const changeHoverColorType = useCallback((e) => {
     setButtonHoverType(e.target.value);
     cardColorStore.setHoverColor(e.target.value);
-  };
+  }, []);
 
   return (
     <Column>
@@ -31,13 +31,12 @@ const SetButtonHover = () => {
         <OptionContainer onClick={(e) => changeHoverColorType(e)}>
           {OPTIONS.map((option) => (
             <div key={option.value}>
-              <Raido
-                type='radio'
+              <RadioComponents
                 value={option.value}
+                label={option.label}
                 name='hover'
-                id={option.value}
+                defaultChecked={buttonHoverType}
               />
-              <RadioLabel htmlFor={option.value}>{option.label}</RadioLabel>
             </div>
           ))}
         </OptionContainer>

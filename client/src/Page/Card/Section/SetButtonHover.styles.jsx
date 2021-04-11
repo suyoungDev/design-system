@@ -23,7 +23,7 @@ export const CheckLabel = styled.label`
   }
 `;
 
-export const Raido = styled.input`
+export const Radio = styled.input`
   display: none;
   &:checked + ${RadioLabel} {
     color: ${(props) => props.theme.white};
