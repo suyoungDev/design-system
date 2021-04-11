@@ -11,16 +11,23 @@ const CardModule = ({
   hoverHex,
   textHex,
   language,
+  radius,
+  hoverText,
 }) => {
   return (
-    <CardLayout>
+    <CardLayout radius={radius}>
       <Heading headHex={headHex}>
         {language ? korean.heading : english.heading}
       </Heading>
       <Context contentHex={contentHex}>
         {language ? korean.short_content : english.short_content}
       </Context>
-      <CardButton mainHex={mainHex} hoverHex={hoverHex} textHex={textHex}>
+      <CardButton
+        mainHex={mainHex}
+        hoverHex={hoverHex}
+        textHex={textHex}
+        hoverText={hoverText}
+      >
         {language ? korean.button : english.button}
       </CardButton>
     </CardLayout>

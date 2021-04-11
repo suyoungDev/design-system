@@ -26,7 +26,7 @@ export class cardColor {
 
   setCardColor(name, value) {
     if (!name || !value) return;
-    if (name === 'br') this.borderRadius = value;
+    if (name === 'radius') this.borderRadius = value;
     if (name === 'main') this.mainColor = value;
     if (name === 'hover') this.hoverColor = value;
     if (name === 'head') this.headColor = value;

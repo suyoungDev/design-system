@@ -31,6 +31,7 @@ export const CardButton = styled.button`
 
   :hover {
     background-color: ${(props) => props.hoverHex};
+    color: ${(props) => props.hoverText};
   }
 `;
 
@@ -48,7 +49,7 @@ export const CardLayout = styled.div`
   width: 380px;
   height: 200px;
   border: 1px solid #f2f3f5;
-  border-radius: 0.3em;
+  border-radius: ${(props) => `${props.radius}px`};
 
   display: flex;
   flex-direction: column;
@@ -60,9 +61,9 @@ export const CardLayout = styled.div`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 
-  /* :hover {
+  :hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  } */
+  }
 `;
 
 export const PhotoCardLayout = styled(CardLayout)`

@@ -14,10 +14,19 @@ import SetColorsList from './Section/SetColorsList';
 const Card = observer(() => {
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState(true);
-  const { mainColor, hoverColor, headColor, contentColor } = cardColorStore;
+  const {
+    mainColor,
+    hoverColor,
+    headColor,
+    contentColor,
+    borderRadius,
+  } = cardColorStore;
 
   const textHex =
     mainColor && chroma.contrast(mainColor, 'white') > 2 ? 'white' : 'black';
+
+  const hoverText =
+    hoverColor && chroma.contrast(hoverColor, 'white') > 2 ? 'white' : 'black';
 
   return (
     <Wrapper>
@@ -45,6 +54,8 @@ const Card = observer(() => {
         hoverHex={hoverColor}
         textHex={textHex}
         language={language}
+        radius={borderRadius}
+        hoverText={hoverText}
       />
       <PhotoCardModule
         mainHex={mainColor}
@@ -53,6 +64,8 @@ const Card = observer(() => {
         hoverHex={hoverColor}
         textHex={textHex}
         language={language}
+        radius={borderRadius}
+        hoverText={hoverText}
       />
     </Wrapper>
   );

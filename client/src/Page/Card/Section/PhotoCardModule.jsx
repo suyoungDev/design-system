@@ -27,9 +27,11 @@ const PhotoCardModule = ({
   hoverHex,
   textHex,
   language,
+  radius,
+  hoverText,
 }) => {
   return (
-    <PhotoCardLayout>
+    <PhotoCardLayout radius={radius}>
       <BG />
       <div>
         <Heading headHex={headHex}>
@@ -38,7 +40,12 @@ const PhotoCardModule = ({
         <Context contentHex={contentHex}>
           {language ? korean.short_content : english.short_content}
         </Context>
-        <CardButton mainHex={mainHex} hoverHex={hoverHex} textHex={textHex}>
+        <CardButton
+          mainHex={mainHex}
+          hoverHex={hoverHex}
+          textHex={textHex}
+          hoverText={hoverText}
+        >
           {language ? korean.button : english.button}
         </CardButton>
       </div>

@@ -7,7 +7,7 @@ import { observer } from 'mobx-react-lite';
 import { colorChipListStore } from '../../../Store/ColorListStore';
 import { cardColorStore } from '../../../Store/CardColorStore';
 
-const Label = styled.span`
+export const Label = styled.span`
   color: ${(props) => props.theme.ink50};
   font-weight: 200;
   width: 160px;

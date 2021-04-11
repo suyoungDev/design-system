@@ -1,6 +1,7 @@
 import React from 'react';
 import SelectModule from './SelectModule';
 import styled from 'styled-components';
+import CardSlider from './CardSlider';
 
 const LIST = [
   { label: '버튼 색상', value: 'main' },
@@ -32,6 +33,7 @@ const SetColorsList = ({ isOpen }) => {
               key={item.value}
             />
           ))}
+          <CardSlider />
         </Container>
       )}
     </>
