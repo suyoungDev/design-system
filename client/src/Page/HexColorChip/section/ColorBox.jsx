@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useAlert } from 'react-alert';
 
 const Container = styled.div`
   cursor: pointer;
@@ -10,12 +11,12 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: 70px 50px;
   border: 1px solid ${({ borderColor }) => `${borderColor}`};
-  border-radius: 0.3rem;
+  border-radius: 13px;
 `;
 
 const Color = styled.div`
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
+  border: 1px solid ${({ hexId }) => `${hexId}`};
+  border-radius: 13px 13px 0 0;
   background-color: ${({ hexId }) => `${hexId}`};
 `;
 
@@ -42,10 +43,15 @@ const Label = styled.label`
 `;
 
 const ColorBox = ({ item, borderColor }) => {
+  const alert = useAlert();
+
   const getHexId = () => {
     navigator.clipboard.writeText(item.hexId);
-    // 저장했다는 모션 나오면 좋을 듯? 근데 이건 뭘로하지? 모달?은 아닌디..
-    // check 애니메이션 나오게해야게따
+    toasting();
+  };
+
+  const toasting = () => {
+    alert.success('복사 완료');
   };
 
   return (
