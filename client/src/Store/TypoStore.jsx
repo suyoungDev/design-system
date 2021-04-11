@@ -26,7 +26,6 @@ export class typoColorList {
       colorList: observable,
       addNewColor: action,
       deleteColor: action,
-      deleteAll: action,
     });
 
     this.colorList = colorList;
@@ -41,10 +40,6 @@ export class typoColorList {
     if (!id) return null;
     const index = this.colorList.findIndex((item) => item.id === id);
     if (index > -1) this.colorList.splice(index, 1);
-  }
-
-  deleteAll() {
-    this.colorList = [];
   }
 }
 

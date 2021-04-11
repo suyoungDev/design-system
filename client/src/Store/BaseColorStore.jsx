@@ -61,7 +61,7 @@ export class baseColorList {
   }
 
   changeOrder(sourceIndex, destinationIndex) {
-    if (typeof destinationIndex === 'undefined') return;
+    if (typeof destinationIndex !== 'number') return;
     if (destinationIndex === sourceIndex) return;
 
     const result = this.baseColorList;
