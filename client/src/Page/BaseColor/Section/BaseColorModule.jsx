@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { observer } from 'mobx-react-lite';
 import { BiX, BiPencil } from 'react-icons/bi';
 
 import { Row, BaseColorItemRow } from '../../../Components/Row';

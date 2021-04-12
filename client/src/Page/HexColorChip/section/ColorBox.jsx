@@ -21,7 +21,6 @@ const Color = styled.div`
 `;
 
 const Label = styled.label`
-  color: #171921;
   font-size: 11px;
   font-weight: 200;
   display: flex;

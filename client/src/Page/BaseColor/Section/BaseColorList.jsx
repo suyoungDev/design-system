@@ -1,5 +1,4 @@
 import React from 'react';
-import { observer } from 'mobx-react-lite';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { ListContainer } from './BaseColorList.styles';
 import BaseColorListItems from './BaseColorListItems';
