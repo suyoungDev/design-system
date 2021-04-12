@@ -1,18 +1,27 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import chroma from 'chroma-js';
 import { observer } from 'mobx-react-lite';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { githubGist } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import chroma from 'chroma-js';
-
+import { IoMdCopy } from 'react-icons/io';
+import { SmallButton } from '../Components/Button';
 import { colorChipListStore } from '../Store/ColorListStore';
 import { baseColorListStore } from '../Store/BaseColorStore';
 import { cardColorStore } from '../Store/CardColorStore';
+import useCopy from '../Hook/useCopy';
+
+const CopyButton = styled(SmallButton)`
+  position: absolute;
+  top: 0px;
+  right: 10px;
+`;
 
 const Container = styled.div`
   font-size: 14px;
   width: 540px;
   margin-bottom: 1rem;
+  position: relative;
 `;
 
 const ViewCode = observer(({ isOpen, base, card }) => {
@@ -155,6 +164,10 @@ const ViewCode = observer(({ isOpen, base, card }) => {
     return block;
   }, [getCode, base]);
 
+  const [copy] = useCopy();
+
+  const codeBlock = card ? cardCode() : code();
+
   return (
     <div>
       {isOpen && (
@@ -164,10 +177,12 @@ const ViewCode = observer(({ isOpen, base, card }) => {
             style={githubGist}
             wrapLines={true}
             wrapLongLines={true}
-            showLineNumbers={true}
           >
-            {card ? cardCode() : code()}
+            {codeBlock}
           </SyntaxHighlighter>
+          <CopyButton narrow onClick={() => copy(codeBlock)}>
+            <IoMdCopy />
+          </CopyButton>
         </Container>
       )}
     </div>
