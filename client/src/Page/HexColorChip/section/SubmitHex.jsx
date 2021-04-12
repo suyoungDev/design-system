@@ -4,27 +4,15 @@ import { colorChipListStore } from '../../../Store/ColorListStore';
 import { Button } from '../../../Components/Button';
 import { Form } from '../../../Components/Form';
 import { ChromePicker } from 'react-color';
-import styled from 'styled-components';
 import { Row } from '../../../Components/Row';
+import { ColorCircle } from '../../../Components/ColorCircle';
+import { openModalStore } from '../../../Store/ModalStore';
 
-const Color = styled.div`
-  width: 35px;
-  height: 35px;
-  border-radius: 30%;
-  background-color: ${({ hexId }) => hexId && `${hexId}`};
-  margin-right: 0.7rem;
-`;
-
-const SubmitHex = ({ openModal, item, changeColor }) => {
+const SubmitHex = () => {
   const [title, setTitle] = useState('');
   const [hexId, setHexId] = useState('#E1E1E1');
 
-  useEffect(() => {
-    if (item) {
-      setHexId(item.hexId);
-      setTitle(item.title);
-    }
-  }, [item]);
+  const payload = openModalStore.payload;
 
   const handleColor = (color) => {
     setHexId(color.hex);
@@ -32,20 +20,26 @@ const SubmitHex = ({ openModal, item, changeColor }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (item) {
-      changeColor(hexId, title);
-    } else {
-      colorChipListStore.addColorChip({ title, hexId });
-    }
-    openModal();
+    if (payload) {
+      const id = payload.id;
+      colorChipListStore.modifyColorChip({ id, title, hexId });
+    } else colorChipListStore.addColorChip({ title, hexId });
+    openModalStore.setModalOpen(false);
   };
+
+  useEffect(() => {
+    if (payload) {
+      setHexId(payload.hexId);
+      setTitle(payload.title);
+    }
+  }, [payload]);
 
   return (
     <>
       <ChromePicker color={hexId} onChange={handleColor} disableAlpha={true} />
       <Form onSubmit={handleSubmit}>
         <Row>
-          <Color hexId={hexId} />
+          <ColorCircle big hexId={hexId} />
           <FormInput
             name='title'
             id='title'
@@ -57,7 +51,7 @@ const SubmitHex = ({ openModal, item, changeColor }) => {
           />
         </Row>
         <Button primary hex type='submit'>
-          {item ? '수정' : '추가'}
+          {payload ? '수정' : '추가'}
         </Button>
       </Form>
     </>

@@ -14,7 +14,8 @@ export const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
+  z-index: 1000;
+  cursor: auto;
   backdrop-filter: blur(2px);
 `;
 
@@ -28,7 +29,6 @@ export const ModalWrapper = styled.div`
   background-color: white;
   position: relative;
   border-radius: 10px;
-  z-index: 150;
   ${defineModalStyles}
 `;
 

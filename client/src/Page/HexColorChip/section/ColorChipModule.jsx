@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { CgClose } from 'react-icons/cg';
@@ -8,8 +8,7 @@ import ColorBox from './ColorBox';
 import { colorChipListStore } from '../../../Store/ColorListStore';
 import { Row } from '../../../Components/Row';
 import { Button } from '../../../Components/Button';
-import Modal from '../../../Components/Modal/Modal';
-import SubmitHex from './SubmitHex';
+import { openModalStore } from '../../../Store/ModalStore';
 
 const ButtonContainer = styled.div`
   box-sizing: border-box;
@@ -26,20 +25,6 @@ const Item = styled.div`
 `;
 
 const Chip = observer(({ item }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const changeColor = (hexId, title) => {
-    if (hexId && title) item.fix(hexId, title);
-  };
-
-  const openModal = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const ColorPicker = (
-    <SubmitHex openModal={openModal} item={item} changeColor={changeColor} />
-  );
-
   const buttonColor =
     item.hexId && chroma.contrast(item.hexId, 'white') > 2
       ? 'white'
@@ -52,10 +37,13 @@ const Chip = observer(({ item }) => {
 
   return (
     <Item>
-      <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
       <ButtonContainer>
         <Row className='jc_sb'>
-          <Button color={buttonColor} colorChip onClick={openModal}>
+          <Button
+            colorChip
+            color={buttonColor}
+            onClick={() => openModalStore.setModalOpen(true, item)}
+          >
             수정
           </Button>
           <Button

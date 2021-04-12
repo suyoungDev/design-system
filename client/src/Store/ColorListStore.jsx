@@ -31,15 +31,14 @@ class ColorChipList {
       addColorChip: action,
       deleteColorChip: action,
       changeOrder: action,
+      modifyColorChip: action,
     });
     this.colorList = colorList;
   }
 
   deleteColorChip(id) {
     const index = this.colorList.findIndex((item) => item.id === id);
-    if (index > -1) {
-      this.colorList.splice(index, 1);
-    }
+    if (index > -1) this.colorList.splice(index, 1);
   }
 
   addColorChip(props) {
@@ -55,6 +54,15 @@ class ColorChipList {
     const [removed] = result.splice(sourceIndex, 1);
     result.splice(destinationIndex, 0, removed);
     this.colorList = result;
+  }
+
+  modifyColorChip(item) {
+    const { hexId, id, title } = item;
+    const index = this.colorList.findIndex((item) => item.id === id);
+    if (index > -1) {
+      this.colorList[index].title = title;
+      this.colorList[index].hexId = hexId;
+    }
   }
 }
 

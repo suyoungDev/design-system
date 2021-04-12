@@ -1,25 +1,18 @@
-import React, { useState } from 'react';
-import { Button } from '../../../Components/Button';
-import Modal from '../../../Components/Modal/Modal';
-import SubmitHex from './SubmitHex';
+import React from 'react';
 import { BiPlus } from 'react-icons/bi';
 
-const AddColorChip = () => {
-  const [isOpen, setIsOpen] = useState(false);
+import { Button } from '../../../Components/Button';
+import { openModalStore } from '../../../Store/ModalStore';
 
+const AddColorChip = () => {
   const openModal = () => {
-    setIsOpen((prev) => !prev);
+    openModalStore.setModalOpen(true);
   };
 
-  const ColorPicker = <SubmitHex openModal={openModal} />;
-
   return (
-    <>
-      <Button onClick={openModal}>
-        <BiPlus />
-      </Button>
-      <Modal isOpen={isOpen} openModal={openModal} content={ColorPicker} />
-    </>
+    <Button onClick={openModal}>
+      <BiPlus />
+    </Button>
   );
 };
 

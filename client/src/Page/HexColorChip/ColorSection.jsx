@@ -1,16 +1,19 @@
 import React from 'react';
+
+import { Wrapper } from '../../Components/Wrapper';
+import Modal from '../../Components/Modal/Modal';
+import Head from '../../Components/Head';
 import List from './section/List';
 import AddColorChip from './section/AddColorChip';
-import { HeadingRow } from '../../Components/Row';
-import { Wrapper } from '../../Components/Wrapper';
+import SubmitHex from './section/SubmitHex';
 
 const ColorSection = () => {
   return (
     <Wrapper>
-      <HeadingRow>
-        <h2>All Colors</h2>
-        <AddColorChip />
-      </HeadingRow>
+      <Modal>
+        <SubmitHex />
+      </Modal>
+      <Head title='All Colors' addComponent={<AddColorChip />} />
       <List />
     </Wrapper>
   );

@@ -33,6 +33,17 @@ export const SmallButton = styled(Button)`
   padding: ${({ narrow }) => narrow && '0.2rem'};
 `;
 
+export const ModalButton = styled(Button)`
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 0;
+`;
+
 const colorChipStyles = css`
   color: ${(props) => props.color};
   font-weight: 200;
