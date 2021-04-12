@@ -60,18 +60,18 @@ const TypographyModule = ({ item, hexId }) => {
                 <SmallButton
                   narrow
                   onClick={() => {
-                    setIsOpen(!isOpen);
-                  }}
-                >
-                  <BiPalette />
-                </SmallButton>
-                <SmallButton
-                  narrow
-                  onClick={() => {
                     setLanguage(!language);
                   }}
                 >
                   <BiWorld />
+                </SmallButton>
+                <SmallButton
+                  narrow
+                  onClick={() => {
+                    setIsOpen(!isOpen);
+                  }}
+                >
+                  <BiPalette />
                 </SmallButton>
                 <SmallButton narrow onClick={deleteItem}>
                   <BiX />
