@@ -1,12 +1,19 @@
 import React from 'react';
-import { BiPlus } from 'react-icons/bi';
-import { Button } from './Button';
+import { BiPlus, BiCodeAlt } from 'react-icons/bi';
+import { SmallButton } from './Button';
 
-const AddButton = ({ clickHandle }) => {
+const AddButton = ({ addNew, viewCode, typo }) => {
   return (
-    <Button onClick={clickHandle}>
-      <BiPlus />
-    </Button>
+    <div>
+      {!typo && (
+        <SmallButton narrow onClick={viewCode}>
+          <BiCodeAlt />
+        </SmallButton>
+      )}
+      <SmallButton narrow onClick={addNew}>
+        <BiPlus />
+      </SmallButton>
+    </div>
   );
 };
 

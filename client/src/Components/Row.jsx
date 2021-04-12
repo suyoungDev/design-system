@@ -32,12 +32,23 @@ const fristStyles = css`
 
 export const HeadingRow = styled(Row)`
   width: 540px;
+  align-items: center;
   justify-content: space-between;
   color: ${(props) => props.theme.ink60};
   text-transform: capitalize;
   margin: 0 0 1.4rem 0;
 
   ${defineHeadingStyles}
+  :hover {
+    .react-icons {
+      color: ${(props) => props.theme.ink30};
+    }
+  }
+  button {
+    :hover {
+      background: ${(props) => props.theme.neutral50};
+    }
+  }
 `;
 
 export const ListItemRow = styled(Row)`
