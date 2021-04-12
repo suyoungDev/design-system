@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
     display: flex;
     align-items: center;
-    color: ${(props) => props.theme.neutral70};
+    color: ${(props) => props.theme.neutral60};
     :not(:last-child) {
       margin-right: 0.5rem;
     }

@@ -7,6 +7,7 @@ export const Heading = styled.h2`
   display: flex;
   align-items: center;
   color: ${(props) => props.headHex};
+  text-transform: capitalize;
 `;
 
 export const CardButton = styled.button`
@@ -59,7 +60,7 @@ export const CardLayout = styled.div`
   }
 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  transition: all 0.3s ease;
 
   :hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
