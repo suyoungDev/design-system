@@ -1,8 +1,4 @@
-import styled, { css } from 'styled-components';
-
-const defineModalStyles = (props) => {
-  if (props.big) return BigStyles;
-};
+import styled from 'styled-components';
 
 export const Background = styled.div`
   width: 100%;
@@ -22,16 +18,11 @@ export const Background = styled.div`
 export const ModalWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 500px;
-  height: 300px;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  width: 300px;
+  height: 500px;
+  border-radius: 10px;
   background-color: white;
   position: relative;
-  border-radius: 10px;
-  ${defineModalStyles}
-`;
-
-const BigStyles = css`
-  height: 700px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
 `;
