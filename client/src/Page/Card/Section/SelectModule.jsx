@@ -98,7 +98,6 @@ const SelectModule = observer(({ label, value }) => {
       )}
       {isReEnter && (
         <Select
-          placeholder='선택해주세요'
           width='340px'
           options={options}
           styles={colourStyles}

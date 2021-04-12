@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import CardSlider from './CardSlider';
 import SetButtonHover from './SetButtonHover';
 import { cardColorStore } from '../../../Store/CardColorStore';
+import { observer } from 'mobx-react-lite';
 
 const LIST = [
   { label: '제목 색상', value: 'headColor' },
@@ -22,7 +23,7 @@ const Container = styled.div`
   border-top: 1px solid ${(props) => props.theme.neutral50};
 `;
 
-const SetColorsList = ({ isOpen }) => {
+const SetColorsList = observer(({ isOpen }) => {
   return (
     <>
       {isOpen && (
@@ -40,6 +41,6 @@ const SetColorsList = ({ isOpen }) => {
       )}
     </>
   );
-};
+});
 
 export default SetColorsList;
