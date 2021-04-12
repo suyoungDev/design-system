@@ -41,7 +41,7 @@ const ChangeBaseColorList = observer(({ changeColor }) => {
           }
           key={item.id}
           value={item.hexId}
-          name={item.title}
+          name={item.label}
         >
           <ColorCircle hexId={item.hexId} select />
         </Button>

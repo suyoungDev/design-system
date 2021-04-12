@@ -26,8 +26,8 @@ const BaseColorModule = ({ item }) => {
     setIsModify({ label: false, role: !role });
   };
 
-  const changeColor = (title, hexId) => {
-    item.changeHexId(hexId, title);
+  const changeColor = (label, hexId) => {
+    item.changeHexId(hexId, label);
     setIsModify({ ...isModify, label: !label });
   };
 

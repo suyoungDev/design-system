@@ -1,6 +1,6 @@
 import React from 'react';
-import ColorSection from '../HexColorChip/ColorSection';
 import styled from 'styled-components';
+import ColorSection from '../HexColorChip/ColorSection';
 import Typography from '../Typography/Typography';
 import BaseColor from '../BaseColor/BaseColor';
 import Card from '../Card/Card';

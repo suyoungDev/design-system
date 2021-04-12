@@ -57,7 +57,7 @@ const ColorBox = ({ item, borderColor }) => {
     <Container hexId={item.hexId} onClick={getHexId} borderColor={borderColor}>
       <Color hexId={item.hexId} />
       <Label>
-        <span>{item.title}</span>
+        <span>{item.label}</span>
         <span>{item.hexId}</span>
       </Label>
     </Container>

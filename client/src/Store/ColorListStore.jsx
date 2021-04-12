@@ -2,23 +2,23 @@ import { action, makeObservable, observable } from 'mobx';
 
 export class colorChip {
   id = Math.random().toFixed(4);
-  title = '';
+  label = '';
   hexId = '';
 
-  constructor(hexId, title) {
+  constructor(hexId, label) {
     makeObservable(this, {
       hexId: observable,
-      title: observable,
+      label: observable,
       fix: action,
     });
 
     this.hexId = hexId;
-    this.title = title;
+    this.label = label;
   }
 
-  fix(hexId, title) {
+  fix(hexId, label) {
     this.hexId = hexId;
-    this.title = title;
+    this.label = label;
   }
 }
 
@@ -42,7 +42,7 @@ class ColorChipList {
   }
 
   addColorChip(props) {
-    const newColorChip = new colorChip(props.hexId, props.title);
+    const newColorChip = new colorChip(props.hexId, props.label);
     this.colorList.push(newColorChip);
   }
 
@@ -57,10 +57,10 @@ class ColorChipList {
   }
 
   modifyColorChip(item) {
-    const { hexId, id, title } = item;
+    const { hexId, id, label } = item;
     const index = this.colorList.findIndex((item) => item.id === id);
     if (index > -1) {
-      this.colorList[index].title = title;
+      this.colorList[index].label = label;
       this.colorList[index].hexId = hexId;
     }
   }

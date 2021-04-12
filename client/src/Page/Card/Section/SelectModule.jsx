@@ -55,7 +55,7 @@ const SelectModule = observer(({ label, value }) => {
 
   const options = colorChipListStore.colorList.map((item) => ({
     color: item.hexId,
-    label: item.title,
+    label: item.label,
   }));
 
   useEffect(() => {
