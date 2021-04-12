@@ -1,9 +1,9 @@
 import React from 'react';
+
 import { Wrapper } from '../../Components/Wrapper';
-import { HeadingRow } from '../../Components/Row';
-import { baseColorListStore } from '../../Store/BaseColorStore';
+import Head from '../../Components/Head';
 import BaseColorList from './Section/BaseColorList';
-import AddButton from '../../Components/AddButton';
+import { baseColorListStore } from '../../Store/BaseColorStore';
 
 const BaseColor = () => {
   const clickHandle = () => {
@@ -12,10 +12,7 @@ const BaseColor = () => {
 
   return (
     <Wrapper>
-      <HeadingRow>
-        <h2>Main Colors</h2>
-        <AddButton clickHandle={clickHandle} />
-      </HeadingRow>
+      <Head title='Main Colors' clickHandle={clickHandle} />
       <BaseColorList store={baseColorListStore} />
     </Wrapper>
   );

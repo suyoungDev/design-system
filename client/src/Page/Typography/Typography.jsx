@@ -1,8 +1,9 @@
 import React from 'react';
-import { HeadingRow } from '../../Components/Row';
+
 import TypographyList from './section/TypographyList';
 import { Wrapper } from '../../Components/Wrapper';
-import AddButton from '../../Components/AddButton';
+import Head from '../../Components/Head';
+
 import { typoColorStore } from '../../Store/TypoStore';
 
 const Typography = () => {
@@ -12,10 +13,7 @@ const Typography = () => {
 
   return (
     <Wrapper>
-      <HeadingRow>
-        <h2>Typography</h2>
-        <AddButton clickHandle={clickHandle} />
-      </HeadingRow>
+      <Head title='Typography' clickHandle={clickHandle} />
       <TypographyList list={typoColorStore} />
     </Wrapper>
   );
