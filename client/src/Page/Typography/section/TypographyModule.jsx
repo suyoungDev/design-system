@@ -7,6 +7,7 @@ import { BiPalette, BiWorld, BiX } from 'react-icons/bi';
 import ChangeBaseColorList from '../../BaseColor/Section/ChangeBaseColorList';
 import { typoColorStore } from '../../../Store/TypoStore';
 import lorem from '../../../lorem.js';
+import useIsOpen from '../../../Hook/useIsOpen';
 
 const { korean, english } = lorem;
 
@@ -32,12 +33,12 @@ const TypographyWrapper = styled.div`
 `;
 
 const TypographyModule = ({ item, hexId }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useIsOpen();
   const [language, setLanguage] = useState(true);
 
   const changeColor = (name, value) => {
     item.changeHexId(value);
-    setIsOpen(!isOpen);
+    setIsOpen();
   };
 
   const deleteItem = () => {
@@ -65,12 +66,7 @@ const TypographyModule = ({ item, hexId }) => {
                 >
                   <BiWorld />
                 </SmallButton>
-                <SmallButton
-                  narrow
-                  onClick={() => {
-                    setIsOpen(!isOpen);
-                  }}
-                >
+                <SmallButton narrow onClick={setIsOpen}>
                   <BiPalette />
                 </SmallButton>
                 <SmallButton narrow onClick={deleteItem}>
