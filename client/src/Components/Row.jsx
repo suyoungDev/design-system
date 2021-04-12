@@ -20,6 +20,9 @@ export const Row = styled.div`
   &.mt-5 {
     margin-top: 0.8rem;
   }
+  &.mb-20 {
+    margin-bottom: 2.5rem;
+  }
 `;
 
 const defineHeadingStyles = (props) => {

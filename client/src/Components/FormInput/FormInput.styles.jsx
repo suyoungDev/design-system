@@ -29,7 +29,6 @@ export const Input = styled.input`
   border: none;
   border-radius: 0;
   border-bottom: 1px solid ${(props) => props.theme.ink50};
-  margin: 10px 0 40px 0;
 
   &:focus {
     outline: none;
@@ -39,6 +38,7 @@ export const Input = styled.input`
 `;
 
 const setThemeNameStyles = css`
+  margin: 10px 0 40px 0;
   font-size: 2em;
   text-transform: capitalize;
   color: ${(props) => props.theme.ink50};

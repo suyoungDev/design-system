@@ -136,12 +136,12 @@ const ViewCode = observer(({ isOpen, base, card }) => {
     let result;
     if (base) {
       result = baseColorListStore.baseColorList.map((item) => ({
-        label: item.role.toLowerCase(),
+        label: item.role,
         hexId: item.hexId,
       }));
     } else {
       result = colorChipListStore.colorList.map((item) => ({
-        label: item.label.toLowerCase(),
+        label: item.label,
         hexId: item.hexId,
       }));
     }

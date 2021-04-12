@@ -10,4 +10,8 @@ export const Column = styled.div`
       margin-bottom: 2rem;
     }
   }
+
+  &.jc-ct {
+    justify-content: center;
+  }
 `;

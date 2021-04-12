@@ -44,6 +44,19 @@ export const ModalButton = styled(Button)`
   padding: 0;
 `;
 
+export const ModalSubmitButton = styled(Button)`
+  color: ${(props) => props.theme.ink50};
+  background: ${(props) => props.theme.neutral50};
+  width: 200px;
+  height: auto;
+  padding: 0.6em 3em;
+
+  :hover {
+    background: ${(props) => props.buttonColor};
+    color: ${(props) => props.theme.white};
+  }
+`;
+
 const colorChipStyles = css`
   color: ${(props) => props.color};
   font-weight: 200;
@@ -69,8 +82,6 @@ const primaryStyles = css`
   color: ${(props) => props.theme.white};
   background: ${(props) => props.theme.purple50};
   width: ${({ hex }) => hex && '200px'};
-  position: ${({ hex }) => hex && 'absolute'};
-  bottom: ${({ hex }) => hex && '25px'};
 
   :hover {
     background: ${(props) => props.theme.purple70};
