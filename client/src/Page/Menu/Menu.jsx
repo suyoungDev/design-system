@@ -15,6 +15,9 @@ const Menu = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', changeNav);
+    return () => {
+      window.removeEventListener('scroll', changeNav);
+    };
   }, []);
 
   const toggleTop = () => {
