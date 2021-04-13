@@ -7,6 +7,7 @@ import { HeadingRow } from '../../../Components/Row';
 import { Wrapper } from '../../../Components/Wrapper';
 import { Button } from '../../../Components/Button';
 import { Row } from '../../../Components/Row';
+import { themeNameStore } from '../../../Store/ThemeNameStore';
 
 const ThemeName = () => {
   const [willChangeName, setWillChangeName] = useState(false);
@@ -18,6 +19,7 @@ const ThemeName = () => {
     e.preventDefault();
     setThemeTitle(title);
     setWillChangeName(false);
+    themeNameStore.changeName(title);
   };
 
   const cancleSubmit = (e) => {

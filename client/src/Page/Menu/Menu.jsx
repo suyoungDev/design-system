@@ -33,6 +33,7 @@ const Menu = () => {
             offset={-30}
             onClick={toggleTop}
             activeClass='active'
+            to='top'
           >
             <BiArrowToTop />
           </NavLinkS>
@@ -90,7 +91,15 @@ const Menu = () => {
           </NavLinkS>
         </NavItem>
         <NavItem>
-          <NavLinkS to='save'>
+          <NavLinkS
+            to='save'
+            smooth={true}
+            duration={500}
+            spy={true}
+            exact='true'
+            offset={-30}
+            activeClass='active'
+          >
             <BiSave />
           </NavLinkS>
         </NavItem>

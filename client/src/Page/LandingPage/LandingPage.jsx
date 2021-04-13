@@ -6,6 +6,7 @@ import BaseColor from '../BaseColor/BaseColor';
 import Card from '../Card/Card';
 import ThemeName from './section/ThemeName';
 import Menu from '../Menu/Menu';
+import Save from '../Save/Save';
 
 const Page = styled.div`
   display: flex;
@@ -23,6 +24,7 @@ const LandingPage = () => {
       <BaseColor />
       <Typography />
       <Card />
+      <Save />
     </Page>
   );
 };
