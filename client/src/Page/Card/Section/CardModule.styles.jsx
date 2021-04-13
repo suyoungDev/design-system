@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h2`
-  font-size: 28px;
-  font-weight: 400;
   margin: 15px 20px;
-  display: flex;
-  align-items: center;
   color: ${(props) => props.headHex};
   text-transform: capitalize;
 `;

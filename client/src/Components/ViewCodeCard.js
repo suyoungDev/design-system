@@ -34,13 +34,11 @@ export function cardCode() {
     import styled from 'styled-components';
 
     const Heading = styled.h2\`
-      font-size: 28px;
-      font-weight: 400;
-      margin: 15px 20px;
       display: flex;
       align-items: center;
-      color: ${headColor};
+      margin: 15px 20px;
       text-transform: capitalize;
+      color: ${headColor};
     \`;
 
     const CardButton = styled.button\`
@@ -69,7 +67,7 @@ export function cardCode() {
       }
     \`;
 
-    const Context = styled.span\`
+    const Content = styled.span\`
       display: flex;
       margin: 0 20px;
       width: 340px;
@@ -87,10 +85,6 @@ export function cardCode() {
 
       display: flex;
       flex-direction: column;
-
-      :not(:first-child) {
-        margin-bottom: 2rem;
-      }
 
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
@@ -112,7 +106,7 @@ export function cardCode() {
       return (
         <CardLayout>
           <Heading>Heading</Heading>
-          <Context>content</Context>
+          <Content>content</Content>
           <CardButton>submit</CardButton>
         </CardLayout>
       )

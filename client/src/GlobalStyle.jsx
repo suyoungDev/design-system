@@ -13,9 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     color: ${(props) => props.theme.neutral60};
-    :not(:last-child) {
-      margin-right: 0.5rem;
-    }
+
     :hover {
       color: ${(props) => props.theme.purple50};
     }
