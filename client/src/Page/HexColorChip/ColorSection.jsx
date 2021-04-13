@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { Wrapper } from '../../Components/Wrapper';
 import Modal from '../../Components/Modal/Modal';
@@ -6,8 +6,8 @@ import Head from '../../Components/Head';
 import List from './section/List';
 import SubmitHex from './section/SubmitHex';
 import { openModalStore } from '../../Store/ModalStore';
-import ViewCode from '../../Components/ViewCode';
 import useIsOpen from '../../Hook/useIsOpen';
+const ViewCode = React.lazy(() => import('../../Components/ViewCode'));
 
 const ColorSection = () => {
   const openModal = () => {
@@ -22,7 +22,9 @@ const ColorSection = () => {
         <SubmitHex />
       </Modal>
       <Head title='All Colors' addNew={openModal} viewCode={setIsOpen} />
-      <ViewCode isOpen={isOpen} />
+      <Suspense fallback={<div>...loading..</div>}>
+        {isOpen && <ViewCode />}
+      </Suspense>
       <List />
     </Wrapper>
   );

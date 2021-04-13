@@ -57,6 +57,12 @@ export const ModalSubmitButton = styled(Button)`
   }
 `;
 
+export const CopyButton = styled(SmallButton)`
+  position: absolute;
+  top: 0px;
+  right: 10px;
+`;
+
 const colorChipStyles = css`
   color: ${(props) => props.color};
   font-weight: 200;
