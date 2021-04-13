@@ -7,6 +7,7 @@ import ModifyInput from './ModifyInput';
 import ChangeBaseColorList from './ChangeBaseColorList';
 import { baseColorListStore } from '../../../Store/BaseColorStore';
 import { Wrapper, Title, Dash, Label } from './BaseColorModule.styles';
+import { SmallButton } from '../../../Components/Button';
 
 const BaseColorModule = ({ item }) => {
   const [isModify, setIsModify] = useState({ label: false, role: false });
@@ -63,8 +64,12 @@ const BaseColorModule = ({ item }) => {
             )}
           </Row>
         </Row>
-        <BiPencil onClick={(e) => clickHandler('role', e)} />
-        <BiX onClick={deleteItem} />
+        <SmallButton narrow onClick={(e) => clickHandler('role', e)}>
+          <BiPencil />
+        </SmallButton>
+        <SmallButton narrow onClick={deleteItem}>
+          <BiX />
+        </SmallButton>
       </BaseColorItemRow>
       {label && <ChangeBaseColorList changeColor={changeColor} />}
     </Wrapper>
