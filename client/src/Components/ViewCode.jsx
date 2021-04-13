@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 import SyntaxHighlighter from 'react-syntax-highlighter';
