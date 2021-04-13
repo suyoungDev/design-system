@@ -31,7 +31,7 @@ export class typoColorList {
     this.colorList = colorList;
   }
 
-  addNewColor(hexId = '#60636A') {
+  addNewColor(hexId = '#A4A8AE') {
     const newBase = new typoColor(hexId);
     this.colorList.push(newBase);
   }

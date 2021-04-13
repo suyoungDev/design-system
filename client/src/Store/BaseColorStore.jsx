@@ -45,7 +45,7 @@ export class baseColorList {
     this.baseColorList = baseColorList;
   }
 
-  addNewBaseColor(hexId = '#F0F0F0', label = 'default', role = 'default') {
+  addNewBaseColor(hexId = '#F2F3F5', label = 'default', role = 'default') {
     const newBase = new baseColor(hexId, label, role);
     this.baseColorList.push(newBase);
   }

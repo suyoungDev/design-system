@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { VscLoading } from 'react-icons/vsc';
 
-import { Wrapper } from '../../Components/Wrapper';
+import { Wrapper, SaveExplain } from '../../Components/Wrapper';
+import { Loading, SavingButton } from './Save.styles';
+
 import { baseColorListStore } from '../../Store/BaseColorStore';
 import { cardColorStore } from '../../Store/CardColorStore';
 import { colorChipListStore } from '../../Store/ColorListStore';
 import { themeNameStore } from '../../Store/ThemeNameStore';
-import { Loading, SavingButton } from './Save.styles';
 
 const Save = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,8 +37,12 @@ const Save = () => {
   };
 
   return (
-    <Wrapper id='save'>
-      저장하시겠습니까?
+    <Wrapper id='save' last>
+      <SaveExplain>
+        <p>저장하시겠습니까?</p>
+        <p>설정한 모든 옵션을 로컬스토리지에 저장합니다.</p>
+        <p>다음 접속 시, 저장된 옵션을 불러옵니다.</p>
+      </SaveExplain>
       <SavingButton
         onClick={saveInLocal}
         className={`${!isLoading && 'saving'}`}

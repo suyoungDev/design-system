@@ -14,7 +14,7 @@ const Container = styled.div``;
 
 const SubmitHex = () => {
   const [label, setLabel] = useState('');
-  const [hexId, setHexId] = useState('#E1E1E1');
+  const [hexId, setHexId] = useState('#F2F3F5');
 
   const payload = openModalStore.payload;
 

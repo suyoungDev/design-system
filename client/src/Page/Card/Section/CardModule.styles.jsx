@@ -46,7 +46,7 @@ export const CardLayout = styled.div`
   width: 380px;
   height: 200px;
   border: 1px solid #f2f3f5;
-  border-radius: ${({ radius }) => (radius ? `${radius}px` : '10px')};
+  border-radius: ${({ radius }) => `${radius}px`};
 
   display: flex;
   flex-direction: column;

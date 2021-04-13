@@ -25,7 +25,7 @@ const handle = (props) => {
 };
 
 const CardSlider = observer(() => {
-  const [borderRadius] = useState(cardColorStore.borderRadius || 10);
+  const [borderRadius] = useState(cardColorStore.borderRadius || 0);
 
   const changeHandle = (value) => {
     cardColorStore.setCardColor('borderRadius', value);
