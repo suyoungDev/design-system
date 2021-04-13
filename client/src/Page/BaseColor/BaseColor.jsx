@@ -14,7 +14,7 @@ const BaseColor = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper id='maincolors'>
       <Head title='Main Colors' addNew={clickHandle} viewCode={setIsOpen} />
       <Suspense fallback={<div>loading..</div>}>
         {isOpen && <ViewCode base />}

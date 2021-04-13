@@ -12,7 +12,7 @@ const Typography = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper id='typo'>
       <Head title='Typography' addNew={clickHandle} typo />
       <TypographyList list={typoColorStore} />
     </Wrapper>

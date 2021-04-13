@@ -17,7 +17,7 @@ const ColorSection = () => {
   const [isOpen, setIsOpen] = useIsOpen();
 
   return (
-    <Wrapper>
+    <Wrapper id='allcolors'>
       <Modal>
         <SubmitHex />
       </Modal>

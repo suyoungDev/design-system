@@ -19,7 +19,7 @@ const Card = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper id='cards'>
       <HeadingRow>
         <h2>Cards</h2>
         <div>
