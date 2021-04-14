@@ -33,8 +33,10 @@ const fristStyles = css`
   margin: 3rem 0 1.4rem 0;
 `;
 
-export const HeadingRow = styled(Row)`
+export const HeadingRow = styled.div`
+  display: flex;
   width: 540px;
+  margin: 3rem 0 1.4rem 0;
   align-items: center;
   justify-content: space-between;
   color: ${(props) => props.theme.ink60};

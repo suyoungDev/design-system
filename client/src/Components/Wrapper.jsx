@@ -12,9 +12,10 @@ const fristStyles = css`
   margin: 0 0 1em 0;
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 0 4em 0;
   ${defineWrapperStyles}
 `;

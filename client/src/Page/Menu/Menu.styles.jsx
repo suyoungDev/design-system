@@ -57,6 +57,6 @@ export const NavLinkS = styled(LinkScroll)`
   }
 `;
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.nav`
   z-index: 1;
 `;
