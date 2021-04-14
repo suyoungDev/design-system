@@ -35,7 +35,8 @@ export const allColors = {
   yellow40: '#f5704F',
   yellow30: '#f68a6e',
   yellow20: '#f8aa97',
-  yellow10: 'FFEDB3',
+  yellow10: '#FFEDB3',
+  lemon: '#F3EFA1',
 };
 
 export const baseColor = {

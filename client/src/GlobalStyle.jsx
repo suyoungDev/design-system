@@ -1,11 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+html,body{
+  margin:0;
+  padding:0;
+  overflow-x: hidden;
+
+}
   *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   .react-icons {
