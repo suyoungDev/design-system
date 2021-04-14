@@ -8,12 +8,18 @@ import { Wrapper } from '../../../Components/Wrapper';
 import { Button } from '../../../Components/Button';
 import { Row } from '../../../Components/Row';
 import { themeNameStore } from '../../../Store/ThemeNameStore';
+import { observer } from 'mobx-react-lite';
 
-const ThemeName = () => {
+const ThemeName = observer(() => {
   const [willChangeName, setWillChangeName] = useState(false);
   const [themeTitle, setThemeTitle] = useState('');
   const [input, handler] = useInput({ title: '' });
   const { title } = input;
+
+  useEffect(() => {
+    const themeName = localStorage.getItem('themeName');
+    setThemeTitle(themeName);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +48,7 @@ const ThemeName = () => {
   }, [keyPress]);
 
   return (
-    <Wrapper first>
+    <Wrapper first id='title'>
       <HeadingRow first onDoubleClick={() => setWillChangeName(true)}>
         {!willChangeName && (
           <Row className='al_ct jc_sb'>
@@ -79,6 +85,6 @@ const ThemeName = () => {
       </HeadingRow>
     </Wrapper>
   );
-};
+});
 
 export default ThemeName;

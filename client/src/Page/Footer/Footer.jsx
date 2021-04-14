@@ -12,6 +12,7 @@ const Footer = () => {
           <a
             href='https://github.com/mochapoke'
             target='_blank'
+            rel='noreferrer'
             title='깃허브로 이동'
           >
             <DiGithubAlt />

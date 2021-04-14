@@ -85,12 +85,18 @@ const hoverStyles = css`
 `;
 
 const primaryStyles = css`
-  color: ${(props) => props.theme.white};
-  background: ${(props) => props.theme.purple50};
-  width: ${({ hex }) => hex && '200px'};
+  color: ${(props) => props.theme.ink70};
+  background: ${(props) => props.theme.white};
+  width: 220px;
+  height: 50px;
+  border-radius: 25px;
+  margin-top: 3.5rem;
+
+  font-size: 1.2rem;
+  font-weight: bold;
 
   :hover {
-    background: ${(props) => props.theme.purple70};
+    opacity: 0.8;
   }
   :focus {
     border: 2px solid ${(props) => props.theme.purple10};
