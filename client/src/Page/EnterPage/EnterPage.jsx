@@ -11,6 +11,8 @@ import {
 } from './EnterPage.styles';
 import Section from './Section/Section';
 import Section2 from './Section/Section2';
+import Section3 from './Section/Section3';
+
 const EnterPage = () => {
   const [positionY, setPositionY] = useState(0);
 
@@ -66,6 +68,7 @@ const EnterPage = () => {
       </Dotted>
       <Section2 />
       <Section />
+      <Section3 />
     </Head>
   );
 };

@@ -3,6 +3,20 @@ import Doted from '../../constance/dot.webp';
 import BrghtGradation from '../../constance/brightGradation.webp';
 import DarktGradation from '../../constance/darkgradation.webp';
 
+export const TitleContainer = styled.div`
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  padding: 2.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(176deg, #3430bd 20%, transparent 70%);
+`;
+
 export const Container = styled.div`
   width: 100vw;
   max-width: 100%;
@@ -17,13 +31,21 @@ export const Container = styled.div`
   position: relative;
 `;
 
+export const SimpleContainer = styled.div`
+  position: relative;
+  height: auto;
+  overflow: hidden;
+  padding: 4rem 0;
+`;
+
 export const BasicContainer = styled(Container)`
   background-image: url(${DarktGradation});
-  background-position: bottom left;
   background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
-  align-items: flex-start;
   height: 70vh;
+  max-height: 560px;
+  align-items: flex-start;
 `;
 
 export const Dotted = styled.div`
@@ -32,16 +54,38 @@ export const Dotted = styled.div`
   top: 0;
   z-index: ${({ section }) => (section ? '0' : '-1')};
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   max-width: 100%;
   background-image: url(${Doted});
-  opacity: ${({ screen }) => (screen ? '1' : '.5')};
-  background-size: 190vw;
+  opacity: ${({ screen }) => (screen ? '1' : '.7')};
+  background-size: ${({ small }) => (small ? '100vw' : '190vw')};
 `;
 const defineTitleStyles = (props) => {
   if (props.third) return thirdStyles;
   if (props.small) return smallStyles;
+  if (props.mini) return miniStyles;
 };
+
+const miniStyles = css`
+  margin: 3rem 0 2rem 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+
+  > span {
+    text-transform: capitalize;
+    width: 100%;
+    font-weight: bold;
+    font-size: 2rem;
+    color: ${(props) => props.theme.white};
+  }
+
+  @media screen and (min-width: 768px) {
+    > span {
+      font-size: 2.8rem;
+    }
+  }
+`;
 
 const smallStyles = css`
   text-align: left;
@@ -49,9 +93,16 @@ const smallStyles = css`
   flex-direction: column;
 
   > span {
-    font-size: 3rem;
+    width: 80%;
+    font-size: 1.5rem;
     font-weight: bold;
     color: ${(props) => props.theme.white};
+  }
+
+  @media screen and (min-width: 768px) {
+    > span {
+      font-size: 3rem;
+    }
   }
 `;
 
@@ -70,7 +121,6 @@ export const MainTitle = styled.div`
   text-align: center;
   word-break: keep-all;
   z-index: 2;
-  background-color: transparent;
 
   h2 {
     font-size: 7rem;
@@ -88,8 +138,14 @@ const subSmallStyles = css`
   color: ${(props) => props.theme.white};
 
   > span {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     margin-top: 1.5rem;
+  }
+  @media screen and (min-width: 768px) {
+    > span {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+    }
   }
 `;
 

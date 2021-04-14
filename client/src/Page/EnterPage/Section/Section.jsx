@@ -5,15 +5,17 @@ import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const GridLayout = styled.div`
   display: grid;
-  grid-template-columns: 0.45fr 1fr;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 0.45fr 1fr;
+  }
 `;
 
 const Title = styled.div`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  padding: 1rem 0;
   color: ${(props) => props.theme.ink50};
-  height: 140px;
+  height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -23,25 +25,39 @@ const Title = styled.div`
     font-size: 1.5rem;
     margin-right: 0.5rem;
   }
-  :not(:nth-child(5)) {
-    border-bottom: 1px solid ${(props) => props.theme.ink50};
+
+  @media screen and (min-width: 768px) {
+    height: 140px;
+    padding: 1rem 0;
+    font-size: 1.5rem;
+
+    :not(:nth-child(7)) {
+      border-bottom: 1px solid ${(props) => props.theme.ink30};
+    }
   }
 `;
 
 const Content = styled.div`
   display: flex;
+  height: 100px;
   align-items: center;
   padding: 1rem 0;
+  margin-bottom: 1rem;
   font-size: 1rem;
   color: ${(props) => props.theme.ink50};
   letter-spacing: 1px;
   word-break: keep-all;
   :not(:last-child) {
-    border-bottom: 1px solid ${(props) => props.theme.ink50};
+    border-bottom: 1px solid ${(props) => props.theme.ink30};
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    height: 140px;
   }
 `;
 
-export const Container = styled.div`
+const Container = styled.div`
   position: relative;
   height: auto;
   overflow: hidden;
@@ -60,17 +76,21 @@ const Center = styled.div`
 
 const description = [
   {
-    title: '색상 선택',
-    p: `실시간으로 색상을 선택할 수 있습니다. 선택한 컬러 중에 메인 컬러를
-          선택하여 활용해 보세요. 간단하게 복사도 지원합니다.`,
+    title: '손쉬운 색상 선택',
+    p: `실시간으로 색상을 선택할 수 있습니다. 선택한 색상 중에 중요한 색상만 따로 보관해보세요.
+           복사도 간단합니다.`,
   },
   {
     title: '글자체 선택',
-    p: `선택한 글자체와 색상을 실시간으로 확인해 보세요.`,
+    p: `선택한 글자체와 색상을 실시간으로 확인하고 비교해 보세요.`,
   },
   {
     title: '버튼과 카드까지',
     p: `선택한 색상으로 버튼과 카드를 만들어보세요. 다양한 설정값을 적용하여 실시간으로 확인해 볼 수 있습니다.`,
+  },
+  {
+    title: '라이브 코드',
+    p: `선택한 옵션들을 적용한 JSX, styled-components 코드를 바로 바로 사용하세요.`,
   },
 ];
 

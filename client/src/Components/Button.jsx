@@ -5,6 +5,7 @@ const defineButtonStyle = (props) => {
   if (props.secondary) return secondaryStyles;
   if (props.tertiary) return tertiaryStyles;
   if (props.colorChip) return colorChipStyles;
+  if (props.codeBox) return codeBoxStyles;
   else return hoverStyles;
 };
 
@@ -87,12 +88,13 @@ const hoverStyles = css`
 const primaryStyles = css`
   color: ${(props) => props.theme.ink70};
   background: ${(props) => props.theme.white};
-  width: 220px;
-  height: 50px;
-  border-radius: 25px;
-  margin-top: 3.5rem;
+  padding: 1.2em 3em;
+  display: flex;
+  align-items: center;
+  border-radius: 35px;
+  margin-top: 2.5rem;
 
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   font-weight: bold;
 
   :hover {
@@ -106,6 +108,10 @@ const primaryStyles = css`
   }
   :disabled {
     background: ${(props) => props.theme.purple20};
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -145,5 +151,35 @@ const tertiaryStyles = css`
   }
   :disabled {
     color: ${(props) => props.theme.purple20};
+  }
+`;
+
+const codeBoxStyles = css`
+  color: ${(props) => props.theme.ink70};
+  background: ${(props) => props.theme.white};
+  padding: 1.5em 2em;
+  border-radius: 35px;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+
+  font-size: 0.7rem;
+  font-weight: bold;
+
+  :hover {
+    opacity: 0.8;
+  }
+  :focus {
+    border: 2px solid ${(props) => props.theme.purple10};
+  }
+  :active {
+    background: ${(props) => props.theme.purple90};
+  }
+  :disabled {
+    background: ${(props) => props.theme.purple20};
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 1rem;
   }
 `;
