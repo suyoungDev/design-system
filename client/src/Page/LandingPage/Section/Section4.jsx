@@ -61,7 +61,7 @@ const Content = styled.div`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.section`
   position: relative;
   height: auto;
   overflow: hidden;

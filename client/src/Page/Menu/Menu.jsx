@@ -15,7 +15,8 @@ const Menu = ({ history }) => {
     if (history.location.pathname === '/main') {
       setIsOpen();
     }
-  }, [history, setIsOpen]);
+    // eslint-disable-next-line
+  }, [history.location.pathname]);
 
   const changeNav = () => {
     if (window.scrollY >= 70) setScrollNav(true);

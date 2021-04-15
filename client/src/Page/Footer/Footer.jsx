@@ -8,7 +8,7 @@ const Footer = () => {
     <Container>
       <Dotted />
       <WrapperUp>
-        <h2>DESIGN and Code BY</h2>
+        <h2>design and Code By</h2>
         <span>poked.by.mocha@gmail.com</span>
         <div>
           <a

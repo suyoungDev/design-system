@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Head } from './LandingPage.styles';
 import Section1 from './Section/Section1';
 import Section2 from './Section/Section2';
 import Section3 from './Section/Section3';
@@ -18,13 +17,13 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <Head>
+    <body>
       <Section1 offset={offset} />
       <Section2 offset={offset} />
       <Section3 offset={offset} />
-      <Section4 offset={offset} />
+      <Section4 />
       <Section5 offset={offset} />
-    </Head>
+    </body>
   );
 };
 

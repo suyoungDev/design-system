@@ -2,32 +2,36 @@ import styled, { css } from 'styled-components';
 import Doted from '../../constance/dot.webp';
 import BrghtGradation from '../../constance/brightGradation.webp';
 import DarktGradation from '../../constance/darkgradation.webp';
+import Blue from '../../constance/blueGradation.webp';
 
 export const TitleContainer = styled.div`
-  z-index: 2;
-  padding: 2.3rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(176deg, #3430bd 20%, transparent 70%);
+  background-image: url(${Blue});
+  background-repeat: no-repeat;
+  transition: opacity 0.5s ease;
 
   &.fixed {
     position: fixed;
+    top: 0;
+    z-index: 10;
   }
+
   &.settled {
     position: relative;
   }
 
   @media screen and (min-width: 768px) {
     align-items: flex-start;
-    padding-left: 6rem;
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.section`
   width: 100vw;
   max-width: 100%;
   height: 100vh;
@@ -40,9 +44,10 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: -2;
 `;
 
-export const SimpleContainer = styled.div`
+export const SimpleContainer = styled.section`
   position: relative;
   height: auto;
   overflow: hidden;
@@ -55,8 +60,9 @@ export const BasicContainer = styled(Container)`
   background-size: cover;
   width: 100%;
   height: 70vh;
-  max-height: 560px;
+  max-height: 700px;
   align-items: flex-start;
+  z-index: 1;
 `;
 
 export const Dotted = styled.div`
@@ -67,9 +73,10 @@ export const Dotted = styled.div`
   width: 100vw;
   max-width: 100%;
   height: 100%;
+  opacity: ${({ screen }) => (screen ? '1' : '1')};
   background-image: url(${Doted});
-  opacity: ${({ screen }) => (screen ? '1' : '.7')};
-  background-size: ${({ small }) => (small ? '100vw' : '140vw')};
+  background-size: ${({ small }) => (small ? '100vw' : '120vw')};
+  background-blend-mode: multiply;
 `;
 const defineTitleStyles = (props) => {
   if (props.third) return thirdStyles;
@@ -133,15 +140,17 @@ const thirdStyles = css`
 `;
 
 export const MainTitle = styled.div`
-  margin-top: 2em;
   text-align: center;
   word-break: keep-all;
   z-index: 2;
   width: 100%;
 
+  span {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
   h2 {
     font-size: 7rem;
-    font-weight: bolder;
   }
 
   @media screen and (min-width: 768px) {
@@ -181,7 +190,7 @@ const subStyles = css`
   color: ${(props) => props.theme.purple60};
   font-size: 1.5rem;
   font-weight: 200;
-  margin-top: 4rem;
+  margin-top: 2rem;
 
   > span:not(:first-child) {
     margin-top: 0.7rem;
@@ -199,6 +208,10 @@ export const SubText = styled.div`
   align-items: center;
   margin-bottom: 2rem;
   transition: all 2s ease;
+
+  span {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
   > span:not(:first-child) {
     margin-top: 0.3rem;
     transition: opacity 2s ease;
@@ -225,7 +238,7 @@ export const SubTitle = styled.div`
 
 export const Inline = styled.span`
   color: ${(props) => props.theme.purple60};
-  font-weight: bold;
+  font-weight: 700;
   font-family: 'Roboto Condensed', sans-serif;
   line-height: 4.9rem;
 `;
@@ -235,10 +248,6 @@ export const Outline = styled.span`
   -webkit-text-stroke-color: ${(props) => props.theme.purple60};
   -webkit-text-stroke-width: 1px;
   font-family: 'Roboto Condensed', sans-serif;
-`;
-
-export const Head = styled.header`
-  position: relative;
 `;
 
 export const Gradation = styled.div`
