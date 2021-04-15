@@ -13,6 +13,8 @@ html,body{
     margin: 0;
     font-family: 'Roboto', sans-serif;
   }
+  
+  color: ${(props) => props.theme.ink50};
 
   .react-icons {
     font-size: 1rem;

@@ -77,21 +77,38 @@ export function cardCode() {
 
     const CardLayout = styled.div\`
       position: relative;
-
       width: 380px;
       height: 200px;
       border: 1px solid #f2f3f5;
       border-radius: ${borderRadius}px;
-
+      box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+      transition: transform 0.5s ease;
+      
       display: flex;
-      flex-direction: column;
+      flex-direction: column;   
 
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
+     :not(:first-child) {
+    margin-bottom: 2rem;
+    }
 
-      :hover {
-        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-      }
+    :hover {
+      transform: translateY(-0.35em) scale(1.002);
+    }
+    ::after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      border-radius: ${({ radius }) => `${radius}px`};
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      box-shadow: 0 0.5rem 1rem -0.25em rgba(0, 0, 0, 0.2);
+    }
+    :hover::after {
+      opacity: 1;
+    }
     \`;
 
     const PhotoCardLayout = styled(CardLayout)\`
