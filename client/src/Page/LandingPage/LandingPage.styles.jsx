@@ -110,7 +110,7 @@ const smallStyles = css`
   text-align: left;
   display: flex;
   flex-direction: column;
-
+  padding: 0;
   > span {
     width: 100%;
     font-size: 1.5rem;
@@ -140,6 +140,7 @@ const thirdStyles = css`
 `;
 
 export const MainTitle = styled.div`
+  padding-top: 20vh;
   text-align: center;
   word-break: keep-all;
   z-index: 2;
