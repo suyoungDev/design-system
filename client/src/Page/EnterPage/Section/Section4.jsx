@@ -32,7 +32,7 @@ const Title = styled.div`
     font-size: 1.5rem;
 
     :not(:nth-child(7)) {
-      border-bottom: 1px solid ${(props) => props.theme.ink30};
+      border-bottom: 1px solid ${(props) => props.theme.neutral60};
     }
   }
 `;
@@ -41,17 +41,18 @@ const Content = styled.div`
   display: flex;
   height: 100px;
   align-items: center;
-  padding: 1rem 0;
-  margin-bottom: 1rem;
+  padding: 0 0 1rem 0;
+  margin-bottom: 0;
   font-size: 1rem;
   color: ${(props) => props.theme.ink50};
   letter-spacing: 1px;
   word-break: keep-all;
   :not(:last-child) {
-    border-bottom: 1px solid ${(props) => props.theme.ink30};
+    border-bottom: 1px solid ${(props) => props.theme.neutral60};
   }
 
   @media screen and (min-width: 768px) {
+    padding: 1rem 0;
     margin-bottom: 0;
     height: 140px;
   }
@@ -94,7 +95,7 @@ const description = [
   },
 ];
 
-const Section = () => {
+const Section4 = () => {
   return (
     <Container>
       <Dotted />
@@ -119,4 +120,4 @@ const Section = () => {
   );
 };
 
-export default Section;
+export default Section4;

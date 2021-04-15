@@ -1,25 +1,53 @@
 import React from 'react';
 import {
-  BasicContainer,
-  TitleContainer,
-  MainTitle,
+  Container,
+  Inline,
+  Outline,
+  SubTitle,
   SubText,
 } from '../EnterPage.styles';
-import { Button } from '../../../Components/Button';
+import circles from '../../../constance/circle/circles';
 
 const Section2 = () => {
   return (
-    <BasicContainer>
-      <TitleContainer>
-        <MainTitle small>
-          <span>더이상 색상을 고르느라 시간을 낭비하지 마세요.</span>
-        </MainTitle>
-        <SubText subSmall>
-          <span>한번 저장해둔 셋팅을 불러와서 다시 사용 할 수 있습니다.</span>
-        </SubText>
-        <Button primary>바로 시작하기</Button>
-      </TitleContainer>
-    </BasicContainer>
+    <Container>
+      <img
+        src={circles.four}
+        alt='circles'
+        style={{
+          position: 'absolute',
+          top: '2em',
+          right: '12em',
+        }}
+      />
+      <img
+        src={circles.five}
+        alt='circles'
+        style={{
+          position: 'absolute',
+          top: '9em',
+          right: '2em',
+        }}
+      />
+      <SubText>
+        <span>DO IT EASILY.</span>
+        <span>IT'S TIME FOR A CHANGE.</span>
+      </SubText>
+      <SubTitle>
+        <Inline>
+          <div>
+            COLORS<Outline> FOR</Outline>
+          </div>
+          WEB
+        </Inline>
+      </SubTitle>
+
+      <SubText sub>
+        <span>DESIGN EASILY</span>
+        <span>PICK COLORS EASILY</span>
+        <span>ON YOUR WAY</span>
+      </SubText>
+    </Container>
   );
 };
 

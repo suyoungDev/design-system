@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Head,
-  Container,
-  Inline,
-  Outline,
-  MainTitle,
-  SubTitle,
-  SubText,
-  Dotted,
-} from './EnterPage.styles';
-import Section from './Section/Section';
+import { Head } from './EnterPage.styles';
+import Section1 from './Section/Section1';
 import Section2 from './Section/Section2';
 import Section3 from './Section/Section3';
+import Section4 from './Section/Section4';
+import Section5 from './Section/Section5';
+import Section6 from './Section/Section6';
 
 const EnterPage = () => {
   const [positionY, setPositionY] = useState(0);
@@ -29,46 +23,12 @@ const EnterPage = () => {
 
   return (
     <Head>
-      <Container>
-        <MainTitle>
-          <h2>
-            <Inline>
-              THE FUTURE OF <Outline>DESIGN SYSTEM</Outline> IS HERE
-            </Inline>
-          </h2>
-        </MainTitle>
-      </Container>
-      <Container>
-        <SubText>
-          <span>DO IT EASILY.</span>
-          <span>IT'S TIME FOR A CHANGE.</span>
-        </SubText>
-        <SubTitle>
-          <Inline>
-            <div>
-              COLORS<Outline> FOR</Outline>
-            </div>
-            WEB
-          </Inline>
-        </SubTitle>
-
-        <SubText sub>
-          <span>DESIGN EASILY</span>
-          <span>PICK COLORS EASILY</span>
-          <span>ON YOUR WAY</span>
-        </SubText>
-      </Container>
-      <Dotted>
-        <Container gradation>
-          <MainTitle third>
-            <Inline>쉽고</Inline>
-            <Inline>편하게</Inline>
-          </MainTitle>
-        </Container>
-      </Dotted>
+      <Section1 />
       <Section2 />
-      <Section />
       <Section3 />
+      <Section4 />
+      <Section5 />
+      <Section6 />
     </Head>
   );
 };

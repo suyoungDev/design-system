@@ -28,6 +28,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
 `;
 
@@ -93,13 +94,16 @@ const smallStyles = css`
   flex-direction: column;
 
   > span {
-    width: 80%;
+    width: 100%;
     font-size: 1.5rem;
     font-weight: bold;
     color: ${(props) => props.theme.white};
   }
 
   @media screen and (min-width: 768px) {
+    align-items: flex-start;
+    width: 80%;
+    max-width: 800px;
     > span {
       font-size: 3rem;
     }
@@ -121,9 +125,16 @@ export const MainTitle = styled.div`
   text-align: center;
   word-break: keep-all;
   z-index: 2;
+  width: 100%;
 
   h2 {
     font-size: 7rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    width: 70%;
   }
 
   ${defineTitleStyles}
@@ -206,7 +217,9 @@ export const Outline = styled.span`
   font-family: 'Roboto Condensed', sans-serif;
 `;
 
-export const Head = styled.header``;
+export const Head = styled.header`
+  position: relative;
+`;
 
 export const Gradation = styled.div`
   position: absolute;
