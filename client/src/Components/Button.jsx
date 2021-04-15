@@ -24,6 +24,36 @@ export const Button = styled.button`
   ${defineButtonStyle};
 `;
 
+export const MenuButton = styled(Button)`
+  color: ${(props) => props.theme.purple70};
+  background: ${(props) => props.theme.white};
+  padding: 1em 1em;
+  margin: 0;
+
+  display: none;
+
+  align-items: center;
+  border-radius: 35px;
+
+  font-weight: bold;
+  font-size: 0.95rem;
+
+  :hover {
+    border: 1px solid ${(props) => props.theme.purple20};
+  }
+  :focus {
+    border: 2px solid ${(props) => props.theme.purple10};
+  }
+  :active {
+    background: ${(props) => props.theme.purple70};
+    color: white;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+`;
+
 export const SmallButton = styled(Button)`
   align-self: center;
   height: 32px;

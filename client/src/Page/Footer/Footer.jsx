@@ -1,10 +1,12 @@
 import React from 'react';
 import { DiGithubAlt } from 'react-icons/di';
 import { Container, WrapperBottom, WrapperUp } from './Footer.styles';
+import { Dotted } from '../LandingPage/LandingPage.styles';
 
 const Footer = () => {
   return (
     <Container>
+      <Dotted />
       <WrapperUp>
         <h2>DESIGN and Code BY</h2>
         <span>poked.by.mocha@gmail.com</span>

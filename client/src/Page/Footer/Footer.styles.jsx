@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.footer`
   display: grid;
   grid-template-columns: repeat(24, 1fr);
-  margin-top: 24px;
   background-image: linear-gradient(rgba(0, 0, 0, 0), #f3efa1);
+  position: relative;
 `;
 
 export const WrapperUp = styled.div`
@@ -28,7 +28,7 @@ export const WrapperUp = styled.div`
       font-size: 2.5rem;
       color: ${(props) => props.theme.ink40};
       :hover {
-        color: ${(props) => props.theme.purple50};
+        color: ${(props) => props.theme.purple70};
       }
     }
   }
