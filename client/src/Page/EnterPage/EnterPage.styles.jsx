@@ -180,7 +180,7 @@ export const SubText = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  margin-bottom: 2rem;
   > span:not(:first-child) {
     margin-top: 0.3rem;
   }
@@ -208,6 +208,7 @@ export const Inline = styled.span`
   color: ${(props) => props.theme.purple60};
   font-weight: bold;
   font-family: 'Roboto Condensed', sans-serif;
+  line-height: 4.9rem;
 `;
 
 export const Outline = styled.span`

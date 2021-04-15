@@ -6,31 +6,13 @@ import {
   SubTitle,
   SubText,
 } from '../EnterPage.styles';
-import circles from '../../../constance/circle/circles';
+import SectionElem from './SectionElem';
 
 const Section2 = () => {
   return (
     <Container>
-      <img
-        src={circles.four}
-        alt='circles'
-        style={{
-          position: 'absolute',
-          top: '2em',
-          right: '12em',
-        }}
-      />
-      <img
-        src={circles.five}
-        alt='circles'
-        style={{
-          position: 'absolute',
-          top: '9em',
-          right: '2em',
-        }}
-      />
+      <SectionElem />
       <SubText>
-        <span>DO IT EASILY.</span>
         <span>IT'S TIME FOR A CHANGE.</span>
       </SubText>
       <SubTitle>

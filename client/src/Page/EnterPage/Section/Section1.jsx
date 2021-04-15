@@ -1,18 +1,18 @@
 import React from 'react';
-import circles from '../../../constance/circle/circles';
+import elements from '../../../constance/elements';
 import { Container, Inline, Outline, MainTitle } from '../EnterPage.styles';
 
 const Section1 = () => {
   return (
     <Container>
       <img
-        src={circles.one}
-        alt='circles'
+        src={elements.one}
+        alt='elements'
         style={{ position: 'absolute', top: '2em', left: '-10em' }}
       />
       <img
-        src={circles.six}
-        alt='circles'
+        src={elements.six}
+        alt='elements'
         style={{
           position: 'absolute',
           top: '2em',
@@ -21,8 +21,8 @@ const Section1 = () => {
         }}
       />
       <img
-        src={circles.two}
-        alt='circles'
+        src={elements.two}
+        alt='elements'
         style={{
           position: 'absolute',
           bottom: '2em',
@@ -30,31 +30,22 @@ const Section1 = () => {
         }}
       />
       <img
-        src={circles.three}
-        alt='circles'
+        src={elements.three}
+        alt='elements'
         style={{
           position: 'absolute',
           bottom: '5em',
-          right: '8em',
+          right: '2em',
         }}
       />
       <img
-        src={circles.six}
-        alt='circles'
+        src={elements.six}
+        alt='elements'
         style={{
           position: 'absolute',
           top: '8em',
           right: '6em',
           transform: 'rotate(160deg) scale(0.7)',
-        }}
-      />
-      <img
-        src={circles.seven}
-        alt='circles'
-        style={{
-          position: 'absolute',
-          bottom: '1em',
-          left: '10em',
         }}
       />
       <MainTitle style={{}}>
