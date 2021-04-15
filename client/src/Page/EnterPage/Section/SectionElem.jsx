@@ -1,38 +1,61 @@
 import React from 'react';
 import elements from '../../../constance/elements';
 
-const SectionElem = () => {
+const SectionElem = ({ offset }) => {
   return (
     <>
       <img
         alt='marks'
         src={elements.curlyO}
-        style={{ position: 'absolute', bottom: '22em', left: '2.2em' }}
+        style={{
+          position: 'absolute',
+          bottom: '2em',
+          left: '2.2em',
+          transform: `translateY(-${offset * 0.42}px)`,
+        }}
       />
       <img
         alt='marks'
         src={elements.curlyC}
-        style={{ position: 'absolute', top: '-2em', right: '5.7em' }}
+        style={{
+          position: 'absolute',
+          bottom: '-2em',
+          right: '1.7em',
+          transform: `translateY(-${offset * 0.82}px) scale(.8)`,
+        }}
       />
       <img
         alt='marks'
         src={elements.mark}
-        style={{ position: 'absolute', bottom: '12em', right: '2em' }}
+        style={{
+          position: 'absolute',
+          bottom: '-30em',
+          right: '-1em',
+          transform: `translateY(-${offset * 0.802}px)`,
+        }}
       />
       <img
         alt='marks'
         src={elements.inline}
         style={{
           position: 'absolute',
-          bottom: '-1em',
+          bottom: '-30em',
           left: '1em',
           opacity: '0.9',
+          transform: `translateY(-${offset * 0.52}px) translateX(-${
+            offset * 0.15
+          }px)`,
         }}
       />
       <img
         alt='marks'
         src={elements.outline}
-        style={{ position: 'absolute', bottom: '4em', left: '-6em' }}
+        style={{
+          position: 'absolute',
+          bottom: '-34em',
+          left: '-6em',
+          transform: `translateY(-${offset * 0.62}px)`,
+        }}
       />
       <img
         src={elements.four}
@@ -41,6 +64,7 @@ const SectionElem = () => {
           position: 'absolute',
           top: '5em',
           right: '2em',
+          transform: `translateY(-${offset * 1.82}px)`,
         }}
       />
       <img
@@ -48,8 +72,9 @@ const SectionElem = () => {
         alt='bubbles'
         style={{
           position: 'absolute',
-          top: '15em',
-          right: '-1.2em',
+          bottom: '-30em',
+          right: '-6.2em',
+          transform: `translateY(-${offset * 0.42}px)`,
         }}
       />
       <img
@@ -59,6 +84,7 @@ const SectionElem = () => {
           position: 'absolute',
           top: '-7em',
           left: '2em',
+          transform: `translateY(-${offset * 0.52}px)`,
         }}
       />
       <img
@@ -68,6 +94,7 @@ const SectionElem = () => {
           position: 'absolute',
           top: '-3em',
           left: '2em',
+          transform: `translateY(-${offset * 0.96}px)`,
         }}
       />
       <img
@@ -76,18 +103,9 @@ const SectionElem = () => {
         style={{
           position: 'absolute',
           top: '6em',
-          left: '9em',
+          left: '2em',
           transform: 'rotate(60deg)',
-        }}
-      />
-      <img
-        src={elements.six}
-        alt='bubbles'
-        style={{
-          position: 'absolute',
-          top: '2em',
-          right: '20em',
-          transform: 'rotate(30deg) scale(0.7)',
+          transform: `translateY(-${offset * 0.72 - 200}px)`,
         }}
       />
       <img
@@ -97,7 +115,8 @@ const SectionElem = () => {
           position: 'absolute',
           bottom: '2em',
           right: '13em',
-          transform: 'rotate(-70deg) ',
+          transform: `rotate(-70deg)`,
+          transform: `translateY(-${offset * 0.4}px)`,
         }}
       />
       <img
@@ -105,9 +124,10 @@ const SectionElem = () => {
         alt='bubbles'
         style={{
           position: 'absolute',
-          bottom: '3em',
-          right: '10em',
-          transform: 'rotate(-70deg) ',
+          bottom: '-35em',
+          right: '5em',
+          transform: `rotate(-70deg)`,
+          transform: `translateY(-${offset * 0.7}px)`,
         }}
       />
     </>

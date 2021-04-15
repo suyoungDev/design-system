@@ -4,8 +4,6 @@ import BrghtGradation from '../../constance/brightGradation.webp';
 import DarktGradation from '../../constance/darkgradation.webp';
 
 export const TitleContainer = styled.div`
-  position: absolute;
-  top: 0;
   z-index: 2;
   padding: 2.3rem;
   display: flex;
@@ -15,6 +13,18 @@ export const TitleContainer = styled.div`
   width: 100%;
   height: 100%;
   background-image: linear-gradient(176deg, #3430bd 20%, transparent 70%);
+
+  &.fixed {
+    position: fixed;
+  }
+  &.settled {
+    position: relative;
+  }
+
+  @media screen and (min-width: 768px) {
+    align-items: flex-start;
+    padding-left: 6rem;
+  }
 `;
 
 export const Container = styled.div`
@@ -75,6 +85,7 @@ const miniStyles = css`
 
   > span {
     text-transform: capitalize;
+    text-align: center;
     width: 100%;
     font-weight: bold;
     font-size: 2rem;
@@ -102,7 +113,8 @@ const smallStyles = css`
 
   @media screen and (min-width: 768px) {
     align-items: flex-start;
-    width: 80%;
+    text-align: left;
+    width: 100%;
     max-width: 800px;
     > span {
       font-size: 3rem;
@@ -129,11 +141,12 @@ export const MainTitle = styled.div`
 
   h2 {
     font-size: 7rem;
+    font-weight: bolder;
   }
 
   @media screen and (min-width: 768px) {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 70%;
   }
 
@@ -147,13 +160,17 @@ const defineStyle = (props) => {
 
 const subSmallStyles = css`
   color: ${(props) => props.theme.white};
+  align-items: flex-start;
 
   > span {
     font-size: 0.9rem;
     margin-top: 1.5rem;
   }
+
   @media screen and (min-width: 768px) {
+    align-items: flex-start;
     > span {
+      text-align: left;
       font-size: 1.2rem;
       margin-top: 1.5rem;
     }
@@ -181,8 +198,10 @@ export const SubText = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  transition: all 2s ease;
   > span:not(:first-child) {
     margin-top: 0.3rem;
+    transition: opacity 2s ease;
   }
 
   ${defineStyle}

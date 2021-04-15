@@ -8,11 +8,12 @@ import {
 } from '../EnterPage.styles';
 import SectionElem from './SectionElem';
 
-const Section2 = () => {
+const Section2 = ({ offset }) => {
+  console.log(offset);
   return (
     <Container>
-      <SectionElem />
-      <SubText>
+      <SectionElem offset={offset} />
+      <SubText style={{ opacity: (offset - 500) / 10 }}>
         <span>IT'S TIME FOR A CHANGE.</span>
       </SubText>
       <SubTitle>
@@ -25,9 +26,15 @@ const Section2 = () => {
       </SubTitle>
 
       <SubText sub>
-        <span>DESIGN EASILY</span>
-        <span>PICK COLORS EASILY</span>
-        <span>ON YOUR WAY</span>
+        <span
+          style={{
+            opacity: (offset - 700) / 10,
+          }}
+        >
+          DESIGN EASILY
+        </span>
+        <span style={{ opacity: (offset - 750) / 10 }}>PICK COLORS EASILY</span>
+        <span style={{ opacity: (offset - 800) / 10 }}>ON YOUR WAY</span>
       </SubText>
     </Container>
   );

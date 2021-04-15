@@ -5,30 +5,25 @@ import Section2 from './Section/Section2';
 import Section3 from './Section/Section3';
 import Section4 from './Section/Section4';
 import Section5 from './Section/Section5';
-import Section6 from './Section/Section6';
 
 const EnterPage = () => {
-  const [positionY, setPositionY] = useState(0);
-
-  const parallex = () => {
-    setPositionY(window.scrollY);
-  };
+  const [offset, setOffset] = useState(0);
+  const onScroll = () => setOffset(window.pageYOffset);
 
   useEffect(() => {
-    window.addEventListener('scroll', parallex);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      window.removeEventListener('scroll', parallex);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
   return (
     <Head>
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
+      <Section1 offset={offset} />
+      <Section2 offset={offset} />
+      <Section3 offset={offset} />
+      <Section4 offset={offset} />
+      <Section5 offset={offset} />
     </Head>
   );
 };

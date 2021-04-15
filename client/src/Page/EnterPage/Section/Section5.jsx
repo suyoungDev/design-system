@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { anOldHope } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { BiPalette, BiWorld, BiCodeAlt } from 'react-icons/bi';
+import { BiPalette, BiCodeAlt, BiPlus } from 'react-icons/bi';
 
 import { Button } from '../../../Components/Button';
 import { SimpleContainer, MainTitle, Dotted } from '../EnterPage.styles';
@@ -17,18 +17,32 @@ const GridColumn = styled.div`
   }
 `;
 
-const GradationBox = styled.div`
+const ImageBox = styled.div`
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  z-index: -1;
   background-image: url(${Moving});
-  background-size: cover;
+  background-size: contain;
+  background-origin: border-box;
 
+  &.offset {
+    transform: scale(1.1) rotate(15deg);
+    transition: all 16s ease;
+  }
+`;
+
+const GradationBox = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   grid-area: gradation;
-
   display: flex;
   align-items: center;
   justify-content: space-around;
+  overflow: hidden;
+
   > p {
     color: white;
     width: 70%;
@@ -120,7 +134,7 @@ export const Group = styled.div\`
 \`;
 `;
 
-const Section5 = () => {
+const Section5 = ({ offset }) => {
   return (
     <SimpleContainer>
       <Dotted small />
@@ -132,9 +146,11 @@ const Section5 = () => {
               <div>
                 <BiCodeAlt />
                 <BiPalette />
+                <BiPlus />
               </div>
             </WindowSection>
             <GradationBox>
+              <ImageBox className={`${offset > 2200 && 'offset'}`} />
               <MainTitle mini>
                 <span>Custom Code</span>
               </MainTitle>

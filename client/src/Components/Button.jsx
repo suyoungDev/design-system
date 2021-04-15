@@ -92,7 +92,7 @@ const primaryStyles = css`
   display: flex;
   align-items: center;
   border-radius: 35px;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
 
   font-size: 0.7rem;
   font-weight: bold;
