@@ -4,7 +4,7 @@ import {
   TitleContainer,
   MainTitle,
   SubText,
-} from '../EnterPage.styles';
+} from '../LandingPage.styles';
 import { Button } from '../../../Components/Button';
 
 const Section3 = ({ offset }) => {

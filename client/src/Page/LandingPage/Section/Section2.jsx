@@ -5,11 +5,10 @@ import {
   Outline,
   SubTitle,
   SubText,
-} from '../EnterPage.styles';
+} from '../LandingPage.styles';
 import SectionElem from './SectionElem';
 
 const Section2 = ({ offset }) => {
-  console.log(offset);
   return (
     <Container>
       <SectionElem offset={offset} />

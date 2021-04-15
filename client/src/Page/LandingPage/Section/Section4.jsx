@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Dotted } from '../EnterPage.styles';
+import { Dotted } from '../LandingPage.styles';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const GridLayout = styled.div`

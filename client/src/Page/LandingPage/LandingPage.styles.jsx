@@ -65,11 +65,11 @@ export const Dotted = styled.div`
   top: 0;
   z-index: ${({ section }) => (section ? '0' : '-1')};
   width: 100vw;
-  height: 100%;
   max-width: 100%;
+  height: 100%;
   background-image: url(${Doted});
   opacity: ${({ screen }) => (screen ? '1' : '.7')};
-  background-size: ${({ small }) => (small ? '100vw' : '190vw')};
+  background-size: ${({ small }) => (small ? '100vw' : '140vw')};
 `;
 const defineTitleStyles = (props) => {
   if (props.third) return thirdStyles;

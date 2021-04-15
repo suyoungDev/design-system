@@ -1,6 +1,6 @@
 import React from 'react';
 import elements from '../../../constance/elements';
-import { Container, Inline, Outline, MainTitle } from '../EnterPage.styles';
+import { Container, Inline, Outline, MainTitle } from '../LandingPage.styles';
 
 const Section1 = ({ offset }) => {
   return (
@@ -22,8 +22,7 @@ const Section1 = ({ offset }) => {
           position: 'absolute',
           top: '2em',
           left: '6em',
-          transform: 'scale(1.2)',
-          transform: `translateY(-${offset * 0.67}px)`,
+          transform: `translateY(-${offset * 0.67}px) scale(1.2)`,
         }}
       />
       <img
@@ -53,8 +52,7 @@ const Section1 = ({ offset }) => {
           position: 'absolute',
           top: '8em',
           right: '6em',
-          transform: 'rotate(160deg) scale(0.7)',
-          transform: `translateY(-${offset * 1.7}px)`,
+          transform: `translateY(-${offset * 1.7}px) rotate(160deg) scale(0.7)`,
         }}
       />
       <MainTitle>

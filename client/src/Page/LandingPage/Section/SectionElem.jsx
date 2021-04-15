@@ -104,8 +104,7 @@ const SectionElem = ({ offset }) => {
           position: 'absolute',
           top: '6em',
           left: '2em',
-          transform: 'rotate(60deg)',
-          transform: `translateY(-${offset * 0.72 - 200}px)`,
+          transform: `translateY(-${offset * 0.72 - 200}px) rotate(60deg)`,
         }}
       />
       <img
@@ -115,8 +114,7 @@ const SectionElem = ({ offset }) => {
           position: 'absolute',
           bottom: '2em',
           right: '13em',
-          transform: `rotate(-70deg)`,
-          transform: `translateY(-${offset * 0.4}px)`,
+          transform: `translateY(-${offset * 0.4}px) rotate(-70deg)`,
         }}
       />
       <img
@@ -126,8 +124,7 @@ const SectionElem = ({ offset }) => {
           position: 'absolute',
           bottom: '-35em',
           right: '5em',
-          transform: `rotate(-70deg)`,
-          transform: `translateY(-${offset * 0.7}px)`,
+          transform: `translateY(-${offset * 0.7}px) rotate(-70deg)`,
         }}
       />
     </>

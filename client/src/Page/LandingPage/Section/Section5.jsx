@@ -5,7 +5,7 @@ import { anOldHope } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { BiPalette, BiCodeAlt, BiPlus } from 'react-icons/bi';
 
 import { Button } from '../../../Components/Button';
-import { SimpleContainer, MainTitle, Dotted } from '../EnterPage.styles';
+import { SimpleContainer, MainTitle, Dotted } from '../LandingPage.styles';
 import Moving from '../../../constance/movingGradation.webp';
 
 const GridColumn = styled.div`
@@ -137,7 +137,7 @@ export const Group = styled.div\`
 const Section5 = ({ offset }) => {
   return (
     <SimpleContainer>
-      <Dotted small />
+      <Dotted />
       <GridColumn>
         <BgBox>
           <GridRow>

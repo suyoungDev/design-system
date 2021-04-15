@@ -1,29 +1,30 @@
-import React from 'react';
-import ColorSection from '../HexColorChip/ColorSection';
-import Typography from '../Typography/Typography';
-import BaseColor from '../BaseColor/BaseColor';
-import Card from '../Card/Card';
-import ThemeName from './section/ThemeName';
-import Menu from '../Menu/Menu';
-import Save from '../Save/Save';
-import EnterPage from '../EnterPage/EnterPage';
-import Footer from '../Footer/Footer';
+import React, { useEffect, useState } from 'react';
+import { Head } from './LandingPage.styles';
+import Section1 from './Section/Section1';
+import Section2 from './Section/Section2';
+import Section3 from './Section/Section3';
+import Section4 from './Section/Section4';
+import Section5 from './Section/Section5';
 
 const LandingPage = () => {
+  const [offset, setOffset] = useState(0);
+  const onScroll = () => setOffset(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
-    <>
-      <Menu />
-      <EnterPage />
-      <main>
-        <ThemeName />
-        <ColorSection />
-        <BaseColor />
-        <Typography />
-        <Card />
-        <Save />
-        <Footer />
-      </main>
-    </>
+    <Head>
+      <Section1 offset={offset} />
+      <Section2 offset={offset} />
+      <Section3 offset={offset} />
+      <Section4 offset={offset} />
+      <Section5 offset={offset} />
+    </Head>
   );
 };
 
