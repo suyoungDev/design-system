@@ -55,6 +55,9 @@ const Content = styled.div`
     padding: 1rem 0;
     margin-bottom: 0;
     height: 140px;
+    > p {
+      max-width: 600px;
+    }
   }
 `;
 

@@ -88,7 +88,7 @@ const hoverStyles = css`
 const primaryStyles = css`
   color: ${(props) => props.theme.ink70};
   background: ${(props) => props.theme.white};
-  padding: 1.2em 3em;
+  padding: 1.2em 2em;
   display: flex;
   align-items: center;
   border-radius: 35px;
@@ -157,7 +157,7 @@ const tertiaryStyles = css`
 const codeBoxStyles = css`
   color: ${(props) => props.theme.ink70};
   background: ${(props) => props.theme.white};
-  padding: 1.5em 2em;
+  padding: 1.2em 2em;
   border-radius: 35px;
   margin: 2rem 0;
   display: flex;

@@ -53,21 +53,22 @@ const BgBox = styled.div`
   height: 80vh;
   max-height: 700px;
 
-  box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.9em 1.5em 0 rgba(0, 0, 0, 0.4);
 `;
 
 const GridRow = styled.div`
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 5fr 2fr;
+  grid-template-rows: 40px 5fr 230px;
   grid-template-areas: 'windowSection' 'gradation' 'code';
 `;
 
 const Code = styled.div`
+  grid-area: code;
   margin: 0;
-  height: 100%;
   font-size: 0.7rem;
   background-color: ${(props) => props.theme.white};
+  overflow: hidden;
 `;
 
 const WindowSection = styled.div`
@@ -78,6 +79,7 @@ const WindowSection = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0.2rem 0;
 
   > span {
     margin-left: 1.5rem;
@@ -94,28 +96,29 @@ const WindowSection = styled.div`
 
   .react-icons {
     font-size: 0.8rem;
-    color: ${(props) => props.theme.ink40};
+    color: ${(props) => props.theme.ink30};
     :not(:last-child) {
       margin-right: 1rem;
     }
   }
 `;
 
-const codeBlock = `const Title = styled.div\`
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: \${(props) => props.theme.ink50};
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+const codeBlock = `import styled, { css } from 'styled-components';
 
-    .react-icons {
-        color: \${(props) => props.theme.ink50};
-        font-size: 1.5rem;
-        margin-right: 0.5rem;
-    }
-\`;`;
+export const Label = styled.label\`
+        position: absolute;
+        top: -12px;
+        z-index: 1;
+        font-size: 14px;
+        font-weight: 300;
+        color: \${(props) => props.theme.ink30};
+\`;
+
+export const Group = styled.div\`
+      position: relative;
+      width: 78%;
+\`;
+`;
 
 const Section5 = () => {
   return (
@@ -128,7 +131,6 @@ const Section5 = () => {
               <span>Custon Code</span>
               <div>
                 <BiCodeAlt />
-                <BiWorld />
                 <BiPalette />
               </div>
             </WindowSection>
