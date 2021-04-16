@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  Inline,
-  Outline,
-  SubTitle,
-  SubText,
-} from '../LandingPage.styles';
+import { Container, SubTitle, SubText } from '../LandingPage.styles';
 import SectionElem from './SectionElem';
 
 const Section2 = ({ offset }) => {
@@ -15,7 +9,12 @@ const Section2 = ({ offset }) => {
       <SubText style={{ opacity: (offset - 500) / 10 }}>
         <span>IT'S TIME FOR A CHANGE.</span>
       </SubText>
-      <SubTitle>
+      <SubTitle
+        style={{
+          backgroundPositionX: (500 - offset) / 16,
+          backgroundPositionY: (500 - offset) / 26,
+        }}
+      >
         <span>COLORS FOR WEB</span>
       </SubTitle>
 

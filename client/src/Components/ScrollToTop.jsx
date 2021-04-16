@@ -1,17 +1,15 @@
-import { useLayoutEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useEffect } from 'react';
+import { withRouter, useLocation } from 'react-router-dom';
+import { animateScroll } from 'react-scroll';
 
-function ScrollToTop({ history, children }) {
-  useLayoutEffect(() => {
-    const unlisten = history.listen(() => {
-      window.scrollTo(0, 0);
-    });
-    return () => {
-      unlisten();
-    };
-  }, []);
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
-  return <>{children}</>;
+  useEffect(() => {
+    animateScroll.scrollToTop({ duration: 700, smooth: 'easeOutQuad' });
+  }, [pathname]);
+
+  return null;
 }
 
 export default withRouter(ScrollToTop);

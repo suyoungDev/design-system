@@ -4,11 +4,12 @@ import { BsArrowUpShort, BsArrowUp } from 'react-icons/bs';
 import { Container, WrapperBottom, WrapperUp } from './Footer.styles';
 import { Dotted } from '../LandingPage/LandingPage.styles';
 import { ButtonToTop } from '../../Components/Button';
+import { animateScroll } from 'react-scroll';
 
 const Footer = () => {
   const [isHover, setIsHover] = useState(false);
   const scrollTop = () => {
-    window.scrollTo(0, 0);
+    animateScroll.scrollToTop({ duration: 800, smooth: 'easeOutQuad' });
   };
 
   return (

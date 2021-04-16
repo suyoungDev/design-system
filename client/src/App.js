@@ -11,7 +11,6 @@ import LandingPage from './Page/LandingPage/LandingPage';
 
 import NavBar from './Page/Menu/NavBar';
 import Footer from './Page/Footer/Footer';
-import ScrollToTop from './Components/ScrollToTop';
 
 const options = {
   timeout: 2000,
@@ -24,16 +23,12 @@ function App() {
       <IconContext.Provider value={{ className: 'react-icons' }}>
         <Provider template={AlertTemplate} {...options}>
           <GlobalStyle />
-          <BrowserRouter>
-            <NavBar />
-            <ScrollToTop>
-              <Switch>
-                <Route exact path='/' component={LandingPage} />
-                <Route exact path='/main' component={MainPage} />
-              </Switch>
-            </ScrollToTop>
-            <Footer />
-          </BrowserRouter>
+          <NavBar />
+          <Switch>
+            <Route exact path='/' component={LandingPage} />
+            <Route exact path='/main' component={MainPage} />
+          </Switch>
+          <Footer />
         </Provider>
       </IconContext.Provider>
     </ThemeProvider>
