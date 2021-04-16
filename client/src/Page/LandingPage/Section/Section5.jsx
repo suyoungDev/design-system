@@ -19,8 +19,9 @@ import {
 } from './Section5.styles';
 
 import codeBlock from './codeBlock';
+import { withRouter } from 'react-router';
 
-const Section5 = () => {
+const Section5 = (props) => {
   return (
     <SimpleContainer>
       <Dotted />
@@ -48,7 +49,9 @@ const Section5 = () => {
                 </p>
               </Text>
               <ButtonBox>
-                <Button codeBox>만들어보기</Button>
+                <Button codeBox onClick={() => props.history.push('/main')}>
+                  만들어보기
+                </Button>
               </ButtonBox>
             </GradationBox>
             <Code>
@@ -69,4 +72,4 @@ const Section5 = () => {
   );
 };
 
-export default Section5;
+export default withRouter(Section5);
