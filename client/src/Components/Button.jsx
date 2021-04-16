@@ -179,13 +179,10 @@ const primaryStyles = css`
     opacity: 0.8;
   }
   :focus {
-    border: 2px solid ${(props) => props.theme.purple10};
+    background: white;
   }
   :active {
-    background: ${(props) => props.theme.purple90};
-  }
-  :disabled {
-    background: ${(props) => props.theme.purple20};
+    background: white;
   }
 
   @media screen and (min-width: 768px) {
@@ -240,7 +237,6 @@ const codeBoxStyles = css`
   margin: 2rem 0;
   display: flex;
   align-items: center;
-
   font-size: 0.7rem;
   font-weight: bold;
 
@@ -248,13 +244,10 @@ const codeBoxStyles = css`
     opacity: 0.8;
   }
   :focus {
-    border: 2px solid ${(props) => props.theme.purple10};
+    border: 2px solid transparent;
   }
   :active {
-    background: ${(props) => props.theme.purple90};
-  }
-  :disabled {
-    background: ${(props) => props.theme.purple20};
+    background: ${(props) => props.theme.white};
   }
 
   @media screen and (min-width: 768px) {
