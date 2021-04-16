@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const defineButtonStyle = (props) => {
   if (props.primary) return primaryStyles;
@@ -24,10 +25,11 @@ export const Button = styled.button`
   ${defineButtonStyle};
 `;
 
-export const MenuButton = styled(Button)`
-  color: ${(props) => props.theme.purple70};
-  background: ${(props) => props.theme.white};
-  padding: 1em 1em;
+export const MenuButton = styled(Link)`
+  color: ${(props) => props.theme.white};
+  background: ${(props) => props.theme.purple60};
+
+  padding: 0.7em 1.7em;
   margin: 0;
 
   display: none;
@@ -37,16 +39,17 @@ export const MenuButton = styled(Button)`
 
   font-weight: bold;
   font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
 
   :hover {
-    border: 1px solid ${(props) => props.theme.purple20};
-  }
-  :focus {
-    border: 2px solid ${(props) => props.theme.purple10};
+    background: ${(props) => props.theme.purple20};
+    color: white;
   }
   :active {
     background: ${(props) => props.theme.purple70};
     color: white;
+    transform: scale(0.97);
   }
 
   @media screen and (min-width: 768px) {

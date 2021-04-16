@@ -5,15 +5,16 @@ import { BsType } from 'react-icons/bs';
 import { animateScroll as scroll } from 'react-scroll';
 import { NavMenu, NavLinkS, NavItem, NavContainer } from './Menu.styles';
 import { withRouter } from 'react-router-dom';
-import useIsOpen from '../../Hook/useIsOpen';
 
 const Menu = ({ history }) => {
   const [scrollNav, setScrollNav] = useState(false);
-  const [isOpen, setIsOpen] = useIsOpen();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (history.location.pathname === '/main') {
-      setIsOpen();
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
     }
     // eslint-disable-next-line
   }, [history.location.pathname]);

@@ -1,80 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import { withRouter } from 'react-router';
 import { MenuButton } from '../../Components/Button';
 import Menu from './Menu';
+import { Nav, Container, Navigation } from './NavbBar.styles';
 
-const Nav = styled.header`
-  position: fixed;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  height: 80px;
-  padding: 0 2em;
-  background: ${(props) => props.theme.lemon};
-  display: none;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease;
-  @media screen and (min-width: 768px) {
-    display: flex;
-  }
-`;
-
-const Navigation = styled.nav`
-  color: ${(props) => props.theme.purple40};
-  height: 100%;
-  left: 4rem;
-  top: 0;
-  display: flex;
-  align-items: center;
-
-  ul {
-    display: flex;
-    flex-direction: row;
-
-    list-style: none;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: bold;
-    font-size: 1rem;
-
-    li {
-      text-transform: uppercase;
-      :not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
-  }
-`;
-
-const Container = styled.div`
-  width: 100%;
-  max-width: 1250px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const NavBar = () => {
-  const [visiblility, setvisiblility] = useState(true);
+const NavBar = ({ history }) => {
+  const [visiblility, setVisiblility] = useState(true);
+  const [location, setLocation] = useState('');
 
   const onScroll = () => {
     const offset = window.pageYOffset;
     const height = window.innerHeight;
-    if (offset >= height * 1.7) setvisiblility(false);
-    else setvisiblility(true);
+
+    if (offset >= height * 2.6) setVisiblility(false);
+    else setVisiblility(true);
   };
 
   useEffect(() => {
+    const path = history.location.pathname;
+    setLocation(path);
+
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  }, [history.location.pathname]);
 
   return (
-    <Nav style={{ opacity: !visiblility && 0 }}>
-      <Container>
+    <Nav visiblility={visiblility} location={location}>
+      <Container visiblility={visiblility} location={location}>
         <Navigation>
           <ul>
             <li>pallete</li>
@@ -83,11 +37,12 @@ const NavBar = () => {
             <li>card</li>
           </ul>
         </Navigation>
-        <MenuButton>시작하기</MenuButton>
+        {location === '/main' && <MenuButton to='/'>돌아가기</MenuButton>}
+        {location === '/' && <MenuButton to='/main'>시작하기</MenuButton>}
       </Container>
       <Menu />
     </Nav>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);
