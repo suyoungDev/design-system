@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth
   }
   
   color: ${(props) => props.theme.ink50};

@@ -1,5 +1,4 @@
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-
 import { IconContext } from 'react-icons';
 import { positions, Provider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
@@ -12,6 +11,7 @@ import LandingPage from './Page/LandingPage/LandingPage';
 
 import NavBar from './Page/Menu/NavBar';
 import Footer from './Page/Footer/Footer';
+import ScrollToTop from './Components/ScrollToTop';
 
 const options = {
   timeout: 2000,
@@ -26,10 +26,12 @@ function App() {
           <GlobalStyle />
           <BrowserRouter>
             <NavBar />
-            <Switch>
-              <Route exact path='/' component={LandingPage} />
-              <Route exact path='/main' component={MainPage} />
-            </Switch>
+            <ScrollToTop>
+              <Switch>
+                <Route exact path='/' component={LandingPage} />
+                <Route exact path='/main' component={MainPage} />
+              </Switch>
+            </ScrollToTop>
             <Footer />
           </BrowserRouter>
         </Provider>

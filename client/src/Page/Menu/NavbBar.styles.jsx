@@ -61,5 +61,7 @@ export const Container = styled.div`
         : !visiblility && location === '/'
         ? 'flex'
         : 'flex'};
+
+    justify-content: ${({ location }) => location === '/main' && 'flex-end'};
   }
 `;

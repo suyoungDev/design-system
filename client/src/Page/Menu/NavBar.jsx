@@ -29,14 +29,16 @@ const NavBar = ({ history }) => {
   return (
     <Nav visiblility={visiblility} location={location}>
       <Container visiblility={visiblility} location={location}>
-        <Navigation>
-          <ul>
-            <li>pallete</li>
-            <li>colors</li>
-            <li>typography</li>
-            <li>card</li>
-          </ul>
-        </Navigation>
+        {location === '/' && (
+          <Navigation>
+            <ul>
+              <li>pallete</li>
+              <li>colors</li>
+              <li>typography</li>
+              <li>card</li>
+            </ul>
+          </Navigation>
+        )}
         {location === '/main' && <MenuButton to='/'>돌아가기</MenuButton>}
         {location === '/' && <MenuButton to='/main'>시작하기</MenuButton>}
       </Container>

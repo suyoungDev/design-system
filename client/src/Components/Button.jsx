@@ -25,6 +25,51 @@ export const Button = styled.button`
   ${defineButtonStyle};
 `;
 
+export const ButtonToTop = styled(Button)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${(props) => props.theme.ink40};
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+
+  > span {
+    display: none;
+  }
+
+  .react-icons {
+    font-size: 1rem;
+    margin-left: 0;
+    color: ${(props) => props.theme.ink40};
+  }
+  :hover {
+    color: ${(props) => props.theme.purple60};
+    background: transparent;
+
+    .react-icons {
+      color: ${(props) => props.theme.purple60};
+    }
+  }
+  :focus {
+    background: transparent;
+    border: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: auto;
+    height: auto;
+    padding: 0;
+
+    > span {
+      display: flex;
+    }
+    .react-icons {
+      margin-left: 0.7rem;
+    }
+  }
+`;
+
 export const MenuButton = styled(Link)`
   color: ${(props) => props.theme.white};
   background: ${(props) => props.theme.purple60};

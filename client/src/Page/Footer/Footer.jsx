@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DiGithubAlt } from 'react-icons/di';
+import { BsArrowUpShort, BsArrowUp } from 'react-icons/bs';
 import { Container, WrapperBottom, WrapperUp } from './Footer.styles';
 import { Dotted } from '../LandingPage/LandingPage.styles';
+import { ButtonToTop } from '../../Components/Button';
 
 const Footer = () => {
+  const [isHover, setIsHover] = useState(false);
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Container>
       <Dotted />
@@ -23,6 +30,19 @@ const Footer = () => {
       </WrapperUp>
       <WrapperBottom>
         <p>side project 2021</p>
+        <ButtonToTop
+          secondary
+          onMouseEnter={() => {
+            setIsHover(true);
+          }}
+          onMouseLeave={() => {
+            setIsHover(false);
+          }}
+          onClick={scrollTop}
+        >
+          <span>위로 가기</span>
+          {isHover ? <BsArrowUp /> : <BsArrowUpShort />}
+        </ButtonToTop>
       </WrapperBottom>
     </Container>
   );

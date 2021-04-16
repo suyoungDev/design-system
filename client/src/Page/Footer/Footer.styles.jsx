@@ -37,11 +37,13 @@ export const WrapperUp = styled.div`
 
 export const WrapperBottom = styled.div`
   grid-column: span 16 / 20;
-  padding-top: 3rem;
   border-top: 1px solid ${(props) => props.theme.ink50};
   margin: 15vh 0 20vh 0;
+  padding-top: 2.5rem;
   color: ${(props) => props.theme.ink50};
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   > p {
     font-family: 'Open Sans', sans-serif;
     text-transform: capitalize;
