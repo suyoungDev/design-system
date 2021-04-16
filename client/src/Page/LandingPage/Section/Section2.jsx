@@ -16,12 +16,7 @@ const Section2 = ({ offset }) => {
         <span>IT'S TIME FOR A CHANGE.</span>
       </SubText>
       <SubTitle>
-        <Inline>
-          <div>
-            COLORS<Outline> FOR</Outline>
-          </div>
-          WEB
-        </Inline>
+        <span>COLORS FOR WEB</span>
       </SubTitle>
 
       <SubText sub>

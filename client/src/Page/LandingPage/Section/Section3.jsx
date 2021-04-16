@@ -4,6 +4,7 @@ import {
   TitleContainer,
   MainTitle,
   SubText,
+  BlueGradation,
 } from '../LandingPage.styles';
 import { Button } from '../../../Components/Button';
 
@@ -17,8 +18,8 @@ const Section3 = () => {
     if (offset < height * 2) setIsSticky(false);
     if (offset >= height * 2) setIsSticky(true);
     if (offset > height * 3) setIsSticky(false);
-    if (offset > height * 2.6) setvisibility(false);
-    if (offset <= height * 2.6) setvisibility(true);
+    if (offset > height * 2.7) setvisibility(false);
+    if (offset <= height * 2.7) setvisibility(true);
   };
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const Section3 = () => {
         className={`${isSticky && 'fixed'}`}
         style={{ opacity: visibility ? 1 : 0 }}
       >
+        <BlueGradation />
         <MainTitle small>
           <span>더이상 시간을 낭비하지 마세요.</span>
         </MainTitle>

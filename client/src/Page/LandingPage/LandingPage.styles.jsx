@@ -3,8 +3,27 @@ import Doted from '../../constance/dot.webp';
 import BrghtGradation from '../../constance/brightGradation.webp';
 import DarktGradation from '../../constance/darkgradation.webp';
 import Blue from '../../constance/blueGradation.webp';
+import Purple from '../../constance/purple.png';
+
+export const BlueGradation = styled.div`
+  position: absolute;
+  top: -5rem;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url(${Blue});
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    top: -20rem;
+    height: 100vh;
+  }
+`;
 
 export const TitleContainer = styled.div`
+  position: relative;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -12,14 +31,17 @@ export const TitleContainer = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: 100%;
-  background-image: url(${Blue});
-  background-repeat: no-repeat;
   transition: opacity 0.5s ease;
+  overflow: hidden;
 
   &.fixed {
     position: fixed;
     top: 0;
     z-index: 10;
+
+    @media screen and (min-width: 768px) {
+      top: 80px;
+    }
   }
 
   &.settled {
@@ -59,7 +81,7 @@ export const BasicContainer = styled(Container)`
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 70vh;
+  height: 60vh;
   max-height: 700px;
   align-items: flex-start;
   z-index: 1;
@@ -85,10 +107,11 @@ const defineTitleStyles = (props) => {
 };
 
 const miniStyles = css`
-  margin: 3rem 0 2rem 0;
+  margin: 0rem 0 2rem 0;
   text-align: left;
   display: flex;
   flex-direction: column;
+  padding: 0;
 
   > span {
     text-transform: capitalize;
@@ -100,6 +123,7 @@ const miniStyles = css`
   }
 
   @media screen and (min-width: 768px) {
+    padding: 5rem 0 0 0;
     > span {
       font-size: 2.8rem;
     }
@@ -151,7 +175,11 @@ export const MainTitle = styled.div`
   }
 
   h2 {
-    font-size: 7rem;
+    margin-top: -8rem;
+    font-size: 4rem;
+    @media screen and (min-width: 768px) {
+      font-size: 7rem;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -171,6 +199,7 @@ const defineStyle = (props) => {
 const subSmallStyles = css`
   color: ${(props) => props.theme.white};
   align-items: flex-start;
+  font-style: normal;
 
   > span {
     font-size: 0.9rem;
@@ -192,6 +221,7 @@ const subStyles = css`
   font-size: 1.5rem;
   font-weight: 200;
   margin-top: 2rem;
+  font-style: normal;
 
   > span:not(:first-child) {
     margin-top: 0.7rem;
@@ -208,6 +238,7 @@ export const SubText = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  font-style: italic;
   transition: all 2s ease;
 
   span {
@@ -222,19 +253,26 @@ export const SubText = styled.div`
 `;
 
 export const SubTitle = styled.div`
-  word-break: keep-all;
-
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   font-size: 5rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
 
-  > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  > span {
+    width: 80%;
+    max-width: 500px;
   }
+
+  background-image: url(${Purple});
+  background-position: 0% 120%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 export const Inline = styled.span`
@@ -242,6 +280,7 @@ export const Inline = styled.span`
   font-weight: 700;
   font-family: 'Roboto Condensed', sans-serif;
   line-height: 4.9rem;
+  transition: all 1s ease;
 `;
 
 export const Outline = styled.span`

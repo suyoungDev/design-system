@@ -10,7 +10,7 @@ const Section1 = ({ offset }) => {
         alt='elements'
         style={{
           position: 'absolute',
-          top: '2em',
+          top: '5em',
           left: '-10em',
           transform: `translateY(-${offset * 1.2}px)`,
         }}
@@ -20,8 +20,8 @@ const Section1 = ({ offset }) => {
         alt='elements'
         style={{
           position: 'absolute',
-          top: '2em',
-          left: '6em',
+          top: '28em',
+          left: '2em',
           transform: `translateY(-${offset * 0.67}px) scale(1.2)`,
         }}
       />
@@ -50,8 +50,8 @@ const Section1 = ({ offset }) => {
         alt='elements'
         style={{
           position: 'absolute',
-          top: '8em',
-          right: '6em',
+          top: '18em',
+          right: '4em',
           transform: `translateY(-${offset * 1.7}px) rotate(160deg) scale(0.7)`,
         }}
       />
