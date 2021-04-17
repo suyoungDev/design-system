@@ -164,7 +164,6 @@ const thirdStyles = css`
 `;
 
 export const MainTitle = styled.div`
-  padding-top: 20vh;
   text-align: center;
   word-break: keep-all;
   z-index: 2;
