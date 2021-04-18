@@ -21,7 +21,7 @@ const ColorSection = () => {
       <Modal>
         <SubmitHex />
       </Modal>
-      <Head title='All Colors' addNew={openModal} viewCode={setIsOpen} />
+      <Head title='palette' addNew={openModal} viewCode={setIsOpen} />
       <Suspense fallback={<div>...loading..</div>}>
         {isOpen && <ViewCode />}
       </Suspense>

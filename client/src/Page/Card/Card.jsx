@@ -26,7 +26,7 @@ const Card = () => {
   return (
     <Wrapper id='cards'>
       <HeadingRow>
-        <h2>Cards</h2>
+        <h2>Card</h2>
         <div>
           <SmallButton narrow onClick={setIsCodeOpen}>
             <BiCodeAlt />

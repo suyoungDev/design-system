@@ -47,6 +47,7 @@ export const HeadingRow = styled.div`
   margin: 0 0 1.4rem 0;
 
   h1 {
+    font-family: 'Ubuntu', sans-serif;
     font-size: 2rem;
   }
 
