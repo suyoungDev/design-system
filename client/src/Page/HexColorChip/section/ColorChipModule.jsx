@@ -1,27 +1,29 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
-import { CgClose } from 'react-icons/cg';
+import { CgClose, CgOptions } from 'react-icons/cg';
 import chroma from 'chroma-js';
 
 import ColorBox from './ColorBox';
 import { colorChipListStore } from '../../../Store/ColorListStore';
-import { Row } from '../../../Components/Row';
 import { Button } from '../../../Components/Button';
 import { openModalStore } from '../../../Store/ModalStore';
 
 const ButtonContainer = styled.div`
-  box-sizing: border-box;
   position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
   top: 0px;
-  width: 100%;
   z-index: 0;
 `;
 
 const Item = styled.div`
-  margin: 0.3rem;
   position: relative;
-  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Chip = observer(({ item }) => {
@@ -38,26 +40,28 @@ const Chip = observer(({ item }) => {
   return (
     <Item>
       <ButtonContainer>
-        <Row className='jc_sb'>
-          <Button
-            colorChip
-            color={buttonColor}
-            onClick={() => openModalStore.setModalOpen(true, item)}
-          >
-            수정
-          </Button>
-          <Button
-            colorChip
-            color={buttonColor}
-            onClick={() => {
-              colorChipListStore.deleteColorChip(item.id);
-            }}
-          >
-            <CgClose />
-          </Button>
-        </Row>
+        <Button
+          colorChip
+          color={buttonColor}
+          onClick={() => openModalStore.setModalOpen(true, item)}
+        >
+          <CgOptions />
+        </Button>
+        <Button
+          colorChip
+          color={buttonColor}
+          onClick={() => {
+            colorChipListStore.deleteColorChip(item.id);
+          }}
+        >
+          <CgClose />
+        </Button>
       </ButtonContainer>
-      <ColorBox item={item} borderColor={borderColor} />
+      <ColorBox
+        item={item}
+        borderColor={borderColor}
+        buttonColor={buttonColor}
+      />
     </Item>
   );
 });

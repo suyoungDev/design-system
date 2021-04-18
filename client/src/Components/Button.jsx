@@ -148,12 +148,14 @@ export const CopyButton = styled(SmallButton)`
 const colorChipStyles = css`
   color: ${(props) => props.color};
   font-weight: 200;
+  opacity: 0.6;
+
   :hover {
-    opacity: 0.5;
+    opacity: 1;
   }
 
   .react-icons {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     color: ${(props) => props.color};
   }
 `;

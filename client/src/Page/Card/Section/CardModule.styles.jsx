@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h2`
-  margin: 1rem 1.5rem;
   color: ${(props) => props.headHex};
   text-transform: capitalize;
 `;
 
 export const ContextContainer = styled.div`
+  padding: 1rem 1.5rem;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+  grid-template-rows: 0.5fr 1.5fr 1fr;
 `;
 
 export const ButtonBox = styled.div`
-  padding: 0 1.5rem;
-  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CardButton = styled.button`
@@ -40,7 +42,6 @@ export const CardButton = styled.button`
 `;
 
 export const Context = styled.div`
-  padding: 0 1.5rem;
   width: 100%;
   font-size: 0.85rem;
   color: ${(props) => props.contentHex};
@@ -50,14 +51,13 @@ export const CardLayout = styled.div`
   position: relative;
 
   width: 300px;
-  height: 200px;
+  height: auto;
+
   border: 1px solid ${(props) => props.theme.neutral50};
   border-radius: ${({ radius }) => `${radius}px`};
   box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
 
   :not(:first-child) {
     margin-bottom: 2rem;
@@ -88,8 +88,8 @@ export const CardLayout = styled.div`
 `;
 
 export const PhotoCardLayout = styled(CardLayout)`
-  height: 390px;
+  height: auto;
   padding: 0;
   display: grid;
-  grid-template-rows: 190px 200px;
+  grid-template-rows: 190px auto;
 `;

@@ -4,12 +4,15 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import ColorChipListItems from './ColorChipListItems';
 
+const Wrapper = styled.div`
+  width: 100%;
+`;
+
 const ChipList = styled.div`
   width: 100%;
-  max-width: 540px;
   display: grid;
-  grid-gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 0.7rem;
 `;
 
 const ColorChipList = observer(({ colorChipListStore }) => {
@@ -26,7 +29,7 @@ const ColorChipList = observer(({ colorChipListStore }) => {
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId='droppable-1' direction='horizontal'>
         {(provided, snapshot) => (
-          <div
+          <Wrapper
             ref={provided.innerRef}
             {...provided.droppableProps}
             style={{
@@ -41,7 +44,7 @@ const ColorChipList = observer(({ colorChipListStore }) => {
               />
             </ChipList>
             {provided.placeholder}
-          </div>
+          </Wrapper>
         )}
       </Droppable>
     </DragDropContext>
