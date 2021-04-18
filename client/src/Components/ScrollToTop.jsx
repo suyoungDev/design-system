@@ -6,7 +6,7 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    animateScroll.scrollToTop({ duration: 700, smooth: 'easeOutQuad' });
+    animateScroll.scrollToTop({ duration: 500, smooth: 'easeOutQuad' });
   }, [pathname]);
 
   return null;

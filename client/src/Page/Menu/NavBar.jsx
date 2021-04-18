@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter } from 'react-router';
+import { withRouter, useLocation } from 'react-router-dom';
 import { MenuButton } from '../../Components/Button';
 import Menu from './Menu';
 import { Nav, Container, Navigation } from './NavbBar.styles';
@@ -7,6 +7,7 @@ import { Nav, Container, Navigation } from './NavbBar.styles';
 const NavBar = ({ history }) => {
   const [visiblility, setVisiblility] = useState(true);
   const [location, setLocation] = useState('');
+  const { pathname } = useLocation();
 
   const onScroll = () => {
     const offset = window.pageYOffset;
@@ -17,28 +18,22 @@ const NavBar = ({ history }) => {
   };
 
   useEffect(() => {
-    const path = history.location.pathname;
-    setLocation(path);
+    setLocation(pathname);
 
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  }, [history.location.pathname]);
+  }, [pathname]);
 
   return (
     <Nav visiblility={visiblility} location={location}>
       <Container visiblility={visiblility} location={location}>
-        {location === '/' && (
-          <Navigation>
-            <ul>
-              <li>pallete</li>
-              <li>colors</li>
-              <li>typography</li>
-              <li>card</li>
-            </ul>
-          </Navigation>
-        )}
+        <Navigation>
+          <ul>
+            <li onClick={() => history.push('/')}>Dd</li>
+          </ul>
+        </Navigation>
         {location === '/main' && <MenuButton to='/'>돌아가기</MenuButton>}
         {location === '/' && <MenuButton to='/main'>시작하기</MenuButton>}
       </Container>

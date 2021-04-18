@@ -6,7 +6,7 @@ const Section1 = () => {
   const [offset, setOffset] = useState(0);
 
   const onScroll = () => {
-    if (window.pageYOffset <= window.innerHeight * 0.6)
+    if (window.pageYOffset <= window.innerHeight * 0.56)
       setOffset(window.pageYOffset);
   };
 

@@ -33,6 +33,7 @@ export const ButtonToTop = styled(Button)`
   background: transparent;
   padding: 0;
   border-radius: 0;
+  font-size: 0.9rem;
 
   > span {
     display: none;
@@ -43,6 +44,7 @@ export const ButtonToTop = styled(Button)`
     margin-left: 0;
     color: ${(props) => props.theme.ink40};
   }
+
   :hover {
     color: ${(props) => props.theme.purple60};
     background: transparent;
@@ -51,6 +53,7 @@ export const ButtonToTop = styled(Button)`
       color: ${(props) => props.theme.purple60};
     }
   }
+
   :focus {
     background: transparent;
     border: none;

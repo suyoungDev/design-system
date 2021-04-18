@@ -20,6 +20,7 @@ export const WrapperUp = styled.div`
     font-size: 4vw;
     color: ${(props) => props.theme.ink50};
     font-family: 'Open Sans', sans-serif;
+    word-break: keep-all;
   }
 
   > div {
@@ -36,7 +37,7 @@ export const WrapperUp = styled.div`
 
   @media screen and (min-width: 768px) {
     span {
-      font-size: 3rem;
+      font-size: 3vw;
     }
   }
 `;

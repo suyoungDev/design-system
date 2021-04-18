@@ -32,14 +32,13 @@ export const Navigation = styled.nav`
   ul {
     display: flex;
     flex-direction: row;
-
+    cursor: pointer;
     list-style: none;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: bold;
     font-size: 1rem;
 
     li {
-      text-transform: uppercase;
       :not(:last-child) {
         margin-right: 1rem;
       }
@@ -62,6 +61,6 @@ export const Container = styled.div`
         ? 'flex'
         : 'flex'};
 
-    justify-content: ${({ location }) => location === '/main' && 'flex-end'};
+    justify-content: space-between;
   }
 `;
