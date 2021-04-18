@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 export const RadioLabel = styled.label`
   color: ${(props) => props.theme.ink40};
   font-weight: 200;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   cursor: pointer;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 0;
   border-radius: 0.5rem;
   width: 100%;
   display: flex;
@@ -47,6 +47,15 @@ export const OptionContainer = styled.form`
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px 10px;
   }
+`;
+
+export const OptionWrapper = styled.div`
+  width: 100%;
+`;
+
+export const SelectWrapper = styled.div`
+  width: 100%;
+  padding-top: 1rem;
 `;
 
 const defineStyles = (props) => {

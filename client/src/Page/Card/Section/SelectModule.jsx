@@ -104,7 +104,7 @@ const SelectModule = observer(({ label, value }) => {
 
   return (
     <Container>
-      <Label card>{label}</Label>
+      {label && <Label card>{label}</Label>}
       <OptionWrapper>
         {!isReEnter && (
           <Select

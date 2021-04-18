@@ -1,7 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import SelectModule from './SelectModule';
-import { OptionContainer, Container } from './SetButtonHover.styles';
+import {
+  OptionContainer,
+  Container,
+  OptionWrapper,
+  SelectWrapper,
+} from './SetButtonHover.styles';
 import RadioComponents from './RadioComponents';
 import { Label } from '../../../Components/Label';
 import { cardColorStore } from '../../../Store/CardColorStore';
@@ -28,20 +33,24 @@ const SetButtonHover = observer(() => {
 
   return (
     <Container>
-      <Label card>버튼 호버 색상</Label>
-      <OptionContainer onClick={(e) => changeHoverColorType(e)}>
-        {OPTIONS.map((option) => (
-          <div key={option.value}>
-            <RadioComponents
-              value={option.value}
-              label={option.label}
-              name='hover'
-              defaultChecked={buttonHoverType}
-            />
-          </div>
-        ))}
-      </OptionContainer>
-      {buttonHoverType === 'colors' && <SelectModule value='hoverColor' />}
+      <Label cardHover>버튼 호버 색상</Label>
+      <OptionWrapper>
+        <OptionContainer onClick={(e) => changeHoverColorType(e)}>
+          {OPTIONS.map((option) => (
+            <div key={option.value}>
+              <RadioComponents
+                value={option.value}
+                label={option.label}
+                name='hover'
+                defaultChecked={buttonHoverType}
+              />
+            </div>
+          ))}
+        </OptionContainer>
+        <SelectWrapper>
+          {buttonHoverType === 'colors' && <SelectModule value='hoverColor' />}
+        </SelectWrapper>
+      </OptionWrapper>
     </Container>
   );
 });

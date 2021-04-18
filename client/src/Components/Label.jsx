@@ -2,7 +2,15 @@ import styled, { css } from 'styled-components';
 
 const definedStyles = (props) => {
   if (props.card) return cardModuleStyles;
+  if (props.cardHover) return cardHoverModuleStyles;
 };
+
+const cardHoverModuleStyles = css`
+  @media screen and (min-width: 768px) {
+    align-self: flex-start;
+    padding-top: 0.6rem;
+  }
+`;
 
 const cardModuleStyles = css`
   align-items: center;
@@ -20,6 +28,7 @@ export const Label = styled.label`
   height: 36px;
   display: flex;
   align-items: ${({ center }) => (center ? 'center' : 'flex-start')};
+  word-break: keep-all;
 
   ${definedStyles}
 `;
