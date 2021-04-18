@@ -171,6 +171,9 @@ export const code = (base) => {
     --${source[i].label}: ${source[i].hexId};`;
   }
 
+  cssBlock += `
+};`;
+
   let result =
     `// css styles` +
     `
