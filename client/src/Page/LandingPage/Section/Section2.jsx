@@ -21,15 +21,11 @@ const Section2 = ({ offset }) => {
       </SubTitle>
 
       <SubText sub>
-        <span
-          style={{
-            opacity: (offset - 700) / 10,
-          }}
-        >
-          DESIGN EASILY
+        <span className={`${offset > 700 && 'movingText'}`}>DESIGN EASILY</span>
+        <span className={`${offset > 900 && 'movingText'}`}>
+          PICK COLORS EASILY
         </span>
-        <span style={{ opacity: (offset - 750) / 10 }}>PICK COLORS EASILY</span>
-        <span style={{ opacity: (offset - 800) / 10 }}>ON YOUR WAY</span>
+        <span className={`${offset > 1100 && 'movingText'}`}>ON YOUR WAY</span>
       </SubText>
     </Container>
   );

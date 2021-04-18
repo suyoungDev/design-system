@@ -3,7 +3,6 @@ import Doted from '../../constance/dot.webp';
 import BrghtGradation from '../../constance/brightGradation.webp';
 import DarktGradation from '../../constance/darkgradation.webp';
 import Blue from '../../constance/blueGradation.webp';
-import Purple from '../../constance/purple.png';
 
 export const BlueGradation = styled.div`
   position: absolute;
@@ -234,8 +233,19 @@ const subStyles = css`
   color: ${(props) => props.theme.purple60};
   font-size: 1.5rem;
   font-weight: 200;
-  margin-top: 2rem;
+  margin-top: 5rem;
   font-style: normal;
+  position: relative;
+
+  span {
+    opacity: 0;
+    &.movingText {
+      opacity: 1;
+      transform: translateY(-1em);
+      transition: all 1s ease-out;
+    }
+  }
+  will-change: transform, opacity;
 
   > span:not(:first-child) {
     margin-top: 0.7rem;
