@@ -34,33 +34,40 @@ export function cardCode() {
     import styled from 'styled-components';
 
     const Heading = styled.h2\`
-      display: flex;
-      align-items: center;
-      margin: 15px 20px;
       text-transform: capitalize;
       color: ${headColor};
+    \`;
+
+    export const ContextContainer = styled.div\`
+      padding: 1rem 1.5rem;
+      display: grid;
+      grid-gap: 0.5rem;
+      grid-template-rows: 0.5fr 1.5fr 1fr;
+\`;
+
+    export const ButtonBox = styled.div\`
+      display: flex;
+      justify-content: center;
+      align-items: center;
     \`;
 
     const CardButton = styled.button\`
       display: block;
       align-items: center;
-      align-self: center;
       justify-content: center;
-      width: 340px;
+      width: 100%;
       height: 35px;
       border: none;
       border-radius: 5px;
       outline: none;
       cursor: pointer;
-      margin: 0px 20px;
       font-weight: 400;
-      font-size: 0.6rem;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
       background-color: ${buttonColor};
       color: ${textHex};
-      position: absolute;
-      bottom: 20px;
       transition: all 0.3s ease;
-
+      text-transform: uppercase;
       :hover {
         background-color: ${hoverColor};
         color: ${hoverText};
@@ -68,8 +75,6 @@ export function cardCode() {
     \`;
 
     const Content = styled.span\`
-      display: flex;
-      margin: 0 20px;
       width: 340px;
       font-size: 0.85rem;
       color: ${contentColor};
@@ -77,54 +82,60 @@ export function cardCode() {
 
     const CardLayout = styled.div\`
       position: relative;
-      width: 380px;
-      height: 200px;
+      width: 300px;
+      height: auto;
       border: 1px solid #f2f3f5;
       border-radius: ${borderRadius}px;
-      box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.1);
       transition: transform 0.5s ease;
+      overflow: hidden;
       
-      display: flex;
-      flex-direction: column;   
 
      :not(:first-child) {
-    margin-bottom: 2rem;
-    }
+        margin-bottom: 2rem;
+      }
 
-    :hover {
-      transform: translateY(-0.35em) scale(1.002);
-    }
-    ::after {
-      z-index: -1;
-      content: '';
-      position: absolute;
-      border-radius: ${({ radius }) => `${radius}px`};
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0;
-      box-shadow: 0 0.5rem 1rem -0.25em rgba(0, 0, 0, 0.2);
-    }
-    :hover::after {
-      opacity: 1;
-    }
+      :hover {
+        transform: translateY(-0.35em);
+      }
+      ::after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        border-radius: ${borderRadius}px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        box-shadow: 0 0.5rem 1rem -0.25em rgba(0, 0, 0, 0.2);
+      }
+      :hover::after {
+        opacity: 1;
+      }
+      @media screen and (min-width: 768px) {
+         width: 350px;
+      }
     \`;
 
     const PhotoCardLayout = styled(CardLayout)\`
-      height: 390px;
+      height: auto;
       padding: 0;
       display: grid;
-      grid-template-rows: 190px 200px;
+      grid-template-rows: 190px auto;
     \`;
 
     
     const Card = () => {
       return (
         <CardLayout>
-          <Heading>Heading</Heading>
-          <Content>content</Content>
-          <CardButton>submit</CardButton>
+          <ContextContainer>
+            <Heading>Heading</Heading>
+            <Content>content</Content>
+            <ButtonBox>
+              <CardButton>submit</CardButton>
+            </ButtonBox>
+          </ContextContainer>
         </CardLayout>
       )
     }
