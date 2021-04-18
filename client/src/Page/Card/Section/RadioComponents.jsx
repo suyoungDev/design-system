@@ -9,9 +9,9 @@ const RadioComponents = ({ value, label, name, defaultChecked }) => {
   }, [defaultChecked]);
 
   return (
-    <div>
+    <>
       {isLoading && (
-        <div>
+        <>
           <Radio
             type='radio'
             value={value}
@@ -20,9 +20,9 @@ const RadioComponents = ({ value, label, name, defaultChecked }) => {
             defaultChecked={defaultChecked === value ? true : false}
           />
           <RadioLabel htmlFor={value}>{label}</RadioLabel>
-        </div>
+        </>
       )}
-    </div>
+    </>
   );
 };
 

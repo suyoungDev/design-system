@@ -14,6 +14,9 @@ export const Row = styled.div`
   &.al_ct {
     align-items: center;
   }
+  &.mb-4 {
+    margin-bottom: 0.4rem;
+  }
   &.mb-5 {
     margin-bottom: 0.8rem;
   }
@@ -30,12 +33,12 @@ const defineHeadingStyles = (props) => {
 };
 
 const fristStyles = css`
-  margin: 3rem 0 1.4rem 0;
+  margin: 0;
 `;
 
 export const HeadingRow = styled.div`
   display: flex;
-  width: 540px;
+  width: 100%;
   margin: 3rem 0 1.4rem 0;
   align-items: center;
   justify-content: space-between;
@@ -43,17 +46,29 @@ export const HeadingRow = styled.div`
   text-transform: capitalize;
   margin: 0 0 1.4rem 0;
 
-  ${defineHeadingStyles}
+  h1 {
+    font-size: 2rem;
+  }
+
   :hover {
     .react-icons {
       color: ${(props) => props.theme.ink30};
     }
   }
+
   button {
     :hover {
       background: ${(props) => props.theme.neutral50};
+      color: ${(props) => props.theme.purple50};
     }
   }
+
+  @media screen and (min-width: 768px) {
+    max-width: 540px;
+    padding: 0;
+  }
+
+  ${defineHeadingStyles}
 `;
 
 export const ListItemRow = styled(Row)`
@@ -64,5 +79,5 @@ export const ListItemRow = styled(Row)`
 `;
 
 export const BaseColorItemRow = styled(Row)`
-  padding: 0.5rem 0.7rem;
+  padding: 0.5rem 1rem;
 `;

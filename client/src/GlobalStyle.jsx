@@ -14,6 +14,12 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth
   }
+
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   
   color: ${(props) => props.theme.ink50};
 

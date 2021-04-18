@@ -194,6 +194,7 @@ const primaryStyles = css`
 `;
 
 const secondaryStyles = css`
+  width: 80px;
   background: ${(props) => props.theme.neutral50};
   color: ${(props) => props.theme.ink50};
   :hover {
@@ -213,6 +214,7 @@ const secondaryStyles = css`
 `;
 
 const tertiaryStyles = css`
+  width: 80px;
   color: ${(props) => props.theme.purple50};
   border-radius: 8px;
   :hover {

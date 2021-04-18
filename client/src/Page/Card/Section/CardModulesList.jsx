@@ -8,7 +8,7 @@ import PhotoCardModule from './PhotoCardModule';
 
 import { cardColorStore } from '../../../Store/CardColorStore';
 
-const CardModulesList = observer(({ language }) => {
+const CardModulesList = observer(({ language, style }) => {
   const {
     buttonColor,
     hoverColor,
@@ -26,27 +26,30 @@ const CardModulesList = observer(({ language }) => {
     hoverColor && chroma.contrast(hoverColor, 'white') > 2 ? 'white' : 'black';
 
   return (
-    <Column className='center'>
-      <CardModule
-        mainHex={buttonColor}
-        headHex={headColor}
-        contentHex={contentColor}
-        hoverHex={hoverColor}
-        textHex={textHex}
-        language={language}
-        radius={borderRadius}
-        hoverText={hoverText}
-      />
-      <PhotoCardModule
-        mainHex={buttonColor}
-        headHex={headColor}
-        contentHex={contentColor}
-        hoverHex={hoverColor}
-        textHex={textHex}
-        language={language}
-        radius={borderRadius}
-        hoverText={hoverText}
-      />
+    <Column className='center mt-02'>
+      {style ? (
+        <CardModule
+          mainHex={buttonColor}
+          headHex={headColor}
+          contentHex={contentColor}
+          hoverHex={hoverColor}
+          textHex={textHex}
+          language={language}
+          radius={borderRadius}
+          hoverText={hoverText}
+        />
+      ) : (
+        <PhotoCardModule
+          mainHex={buttonColor}
+          headHex={headColor}
+          contentHex={contentColor}
+          hoverHex={hoverColor}
+          textHex={textHex}
+          language={language}
+          radius={borderRadius}
+          hoverText={hoverText}
+        />
+      )}
     </Column>
   );
 });

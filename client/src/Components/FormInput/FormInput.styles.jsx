@@ -23,7 +23,7 @@ export const Input = styled.input`
   background: none;
   background-color: white;
   color: black;
-  font-size: 18px;
+  font-size: 1rem;
   display: block;
   width: 150px;
   border: none;

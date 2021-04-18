@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import Slider, { SliderTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { observer } from 'mobx-react-lite';
-import { Row } from '../../../Components/Row';
 import { Label } from '../../../Components/Label';
 import { cardColorStore } from '../../../Store/CardColorStore';
+import { Container } from './SetButtonHover.styles';
+import styled from 'styled-components';
+
+const SlideWrapper = styled.div`
+  width: 100%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+`;
 
 const { Handle } = Slider;
 
@@ -32,9 +40,9 @@ const CardSlider = observer(() => {
   };
 
   return (
-    <Row className='al_ct'>
-      <Label>라운드 값</Label>
-      <div style={{ width: 340 }}>
+    <Container slider>
+      <Label card>라운드 값</Label>
+      <SlideWrapper>
         <Slider
           min={0}
           max={30}
@@ -49,8 +57,8 @@ const CardSlider = observer(() => {
           }}
           onChange={changeHandle}
         />
-      </div>
-    </Row>
+      </SlideWrapper>
+    </Container>
   );
 });
 

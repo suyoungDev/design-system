@@ -36,9 +36,7 @@ const ChangeBaseColorList = observer(({ changeColor }) => {
     <Container>
       {colorChipListStore.colorList.map((item) => (
         <Button
-          onClick={(e) =>
-            changeColor(e.currentTarget.name, e.currentTarget.value)
-          }
+          onClick={(e) => changeColor(e.currentTarget.value)}
           key={item.id}
           value={item.hexId}
           name={item.label}

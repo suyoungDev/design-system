@@ -5,8 +5,11 @@ import styled from 'styled-components';
 import ColorChipListItems from './ColorChipListItems';
 
 const ChipList = styled.div`
+  width: 100%;
+  max-width: 540px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 `;
 
 const ColorChipList = observer(({ colorChipListStore }) => {

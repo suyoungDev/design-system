@@ -6,10 +6,10 @@ const defineWrapperStyles = (props) => {
 };
 
 const lastStyles = css`
-  margin: 0 0 15em 0;
+  margin: 0 0 5em 0;
 `;
 const fristStyles = css`
-  margin: 0 0 1em 0;
+  margin: 0 0 2em 0;
 `;
 
 export const Wrapper = styled.section`
@@ -17,6 +17,15 @@ export const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   margin: 0 0 4em 0;
+  width: 100%;
+  padding: 1rem;
+  background: white;
+  max-width: 540px;
+
+  @media screen and (min-width: 768px) {
+    padding: 1.5rem;
+  }
+
   ${defineWrapperStyles}
 `;
 

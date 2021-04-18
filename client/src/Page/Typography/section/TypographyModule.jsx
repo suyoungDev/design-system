@@ -13,15 +13,15 @@ const { korean, english } = lorem;
 
 const TypographyWrapper = styled.div`
   color: ${({ hexId }) => hexId};
-  width: 540px;
-  padding: 1rem 0.5rem;
+  width: 100%;
+  max-width: 540px;
+  padding: 1rem 1rem;
 
   h1 {
     margin-right: 1.5rem;
   }
 
   h3 {
-    margin-bottom: 0.5rem;
   }
 
   p {
@@ -35,9 +35,8 @@ const TypographyModule = ({ item, hexId }) => {
   const [isOpen, setIsOpen] = useIsOpen();
   const [language, setLanguage] = useState(true);
 
-  const changeColor = (name, value) => {
+  const changeColor = (value) => {
     item.changeHexId(value);
-    setIsOpen();
   };
 
   const deleteItem = () => {
@@ -50,10 +49,9 @@ const TypographyModule = ({ item, hexId }) => {
         <Row>
           <Column>
             <h1>{language ? korean.a : english.a}</h1>
-            <h2>{language ? korean.a : english.a}</h2>
           </Column>
           <Column>
-            <Row className='jc_sb'>
+            <Row className='jc_sb al_ct mb-4'>
               <h3>{language ? korean.a : english.a}</h3>
 
               <div>

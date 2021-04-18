@@ -4,20 +4,21 @@ import { IoMdBrush } from 'react-icons/io';
 import { BsType } from 'react-icons/bs';
 import { animateScroll as scroll } from 'react-scroll';
 import { NavMenu, NavLinkS, NavItem, NavContainer } from './Menu.styles';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useLocation } from 'react-router-dom';
 
-const Menu = ({ history }) => {
+const Menu = () => {
   const [scrollNav, setScrollNav] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    if (history.location.pathname === '/main') {
+    if (pathname === '/main') {
       setIsOpen(true);
     } else {
       setIsOpen(false);
     }
     // eslint-disable-next-line
-  }, [history.location.pathname]);
+  }, [pathname]);
 
   const changeNav = () => {
     if (window.scrollY >= 70) setScrollNav(true);
@@ -32,7 +33,7 @@ const Menu = ({ history }) => {
   }, []);
 
   const toggleTop = () => {
-    scroll.scrollToTop();
+    scroll.scrollToTop({ duration: 500, smooth: 'easeOutQuad' });
   };
 
   return (

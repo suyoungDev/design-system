@@ -106,7 +106,6 @@ export const Dotted = styled.div`
   width: 100vw;
   max-width: 100%;
   height: 100%;
-  opacity: ${({ screen }) => (screen ? '1' : '1')};
   background-image: url(${Doted});
   background-size: ${({ small }) => (small ? '100vw' : '120vw')};
 `;

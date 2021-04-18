@@ -1,5 +1,5 @@
 import React, { useState, Suspense } from 'react';
-import { BiPalette, BiWorld, BiCodeAlt } from 'react-icons/bi';
+import { BiPalette, BiWorld, BiCodeAlt, BiExtension } from 'react-icons/bi';
 
 import { HeadingRow } from '../../Components/Row';
 import { Wrapper } from '../../Components/Wrapper';
@@ -13,9 +13,14 @@ const Card = () => {
   const [language, setLanguage] = useState(true);
   const [isCodeOpen, setIsCodeOpen] = useIsOpen();
   const [isOpen, setIsOpen] = useIsOpen();
+  const [style, setStyle] = useState(false);
 
   const changeLanguage = () => {
     setLanguage(!language);
+  };
+
+  const changeStyle = () => {
+    setStyle(!style);
   };
 
   return (
@@ -29,6 +34,9 @@ const Card = () => {
           <SmallButton narrow onClick={changeLanguage}>
             <BiWorld />
           </SmallButton>
+          <SmallButton narrow onClick={changeStyle}>
+            <BiExtension />
+          </SmallButton>
           <SmallButton narrow onClick={setIsOpen}>
             <BiPalette />
           </SmallButton>
@@ -40,7 +48,7 @@ const Card = () => {
       <Suspense fallback={<div>...loading...</div>}>
         {isOpen && <SetColorsList isOpen={isOpen} />}
       </Suspense>
-      <CardModulesList language={language} />
+      <CardModulesList language={language} style={style} />
     </Wrapper>
   );
 };

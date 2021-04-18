@@ -10,11 +10,11 @@ export const Container = styled.div`
   grid-template-rows: 70px 50px;
   border: 1px solid ${({ borderColor }) => `${borderColor}`};
   border-radius: 13px;
+  overflow: hidden;
 `;
 
 export const Color = styled.div`
   border: 1px solid ${({ hexId }) => `${hexId}`};
-  border-radius: 13px 13px 0 0;
   background-color: ${({ hexId }) => `${hexId}`};
 `;
 

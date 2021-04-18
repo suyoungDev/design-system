@@ -4,6 +4,8 @@ import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 
 const ListModule = styled.div`
+  width: 100%;
+  max-width: 540px;
   border-top: 1px solid ${(props) => props.theme.neutral50};
   border-bottom: 1px solid ${(props) => props.theme.neutral50};
 

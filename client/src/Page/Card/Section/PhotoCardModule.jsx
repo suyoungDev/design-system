@@ -4,7 +4,9 @@ import {
   Heading,
   CardButton,
   PhotoCardLayout,
+  ButtonBox,
   Context,
+  ContextContainer,
 } from './CardModule.styles';
 import BGImage from '../../../constance/background.jpg';
 import lorem from '../../../lorem';
@@ -34,22 +36,24 @@ const PhotoCardModule = ({
   return (
     <PhotoCardLayout radius={radius}>
       <BG radius={radius} />
-      <div>
+      <ContextContainer>
         <Heading headHex={headHex}>
           {language ? korean.heading : english.heading}
         </Heading>
         <Context contentHex={contentHex}>
           {language ? korean.short_content : english.short_content}
         </Context>
-        <CardButton
-          mainHex={mainHex}
-          hoverHex={hoverHex}
-          textHex={textHex}
-          hoverText={hoverText}
-        >
-          {language ? korean.button : english.button}
-        </CardButton>
-      </div>
+        <ButtonBox>
+          <CardButton
+            mainHex={mainHex}
+            hoverHex={hoverHex}
+            textHex={textHex}
+            hoverText={hoverText}
+          >
+            {language ? korean.button : english.button}
+          </CardButton>
+        </ButtonBox>
+      </ContextContainer>
     </PhotoCardLayout>
   );
 };

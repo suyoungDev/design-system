@@ -14,4 +14,8 @@ export const Column = styled.div`
   &.jc-ct {
     justify-content: center;
   }
+
+  &.mt-02 {
+    margin-top: 2rem;
+  }
 `;

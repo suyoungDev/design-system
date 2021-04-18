@@ -21,6 +21,8 @@ const Container = styled.div`
   margin-bottom: 2rem;
   border-bottom: 1px solid ${(props) => props.theme.neutral50};
   border-top: 1px solid ${(props) => props.theme.neutral50};
+  width: 100%;
+  max-width: 540px;
 `;
 
 const SetColorsList = observer(({ isOpen }) => {
