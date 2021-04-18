@@ -167,24 +167,26 @@ export const MainTitle = styled.div`
   text-align: center;
   word-break: keep-all;
   z-index: 2;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
 
   span {
     font-family: 'Noto Sans KR', sans-serif;
   }
 
   h2 {
-    margin-top: -8rem;
-    font-size: 4rem;
-    @media screen and (min-width: 768px) {
-      font-size: 7rem;
-    }
+    font-size: 5rem;
   }
 
   @media screen and (min-width: 768px) {
+    h2 {
+      max-width: 800px;
+      font-size: 6rem;
+    }
     display: flex;
     align-items: flex-start;
-    width: 70%;
   }
 
   ${defineTitleStyles}
@@ -259,19 +261,13 @@ export const SubTitle = styled.div`
   font-size: 5rem;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
+  color: ${(props) => props.theme.purple60};
 
   > span {
+    z-index: 10;
     width: 80%;
     max-width: 500px;
   }
-
-  background-image: url(${Purple});
-  background-position: 0% 120%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 `;
 
 export const Inline = styled.span`

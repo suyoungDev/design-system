@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, SubTitle, SubText } from '../LandingPage.styles';
+import { Container, SubTitle, SubText, Outline } from '../LandingPage.styles';
 import SectionElem from './SectionElem';
 
 const Section2 = ({ offset }) => {
@@ -15,7 +15,9 @@ const Section2 = ({ offset }) => {
           backgroundPositionY: (500 - offset) / 26,
         }}
       >
-        <span>COLORS FOR WEB</span>
+        <span>
+          COLORS <Outline> FOR</Outline> WEB
+        </span>
       </SubTitle>
 
       <SubText sub>
