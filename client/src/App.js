@@ -1,4 +1,4 @@
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import { positions, Provider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
