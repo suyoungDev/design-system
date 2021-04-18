@@ -18,11 +18,11 @@ const LandingPage = () => {
 
   return (
     <body>
-      <Section1 offset={offset} />
+      <Section1 />
       <Section2 offset={offset} />
-      <Section3 offset={offset} />
+      <Section3 />
       <Section4 />
-      <Section5 offset={offset} />
+      <Section5 />
     </body>
   );
 };

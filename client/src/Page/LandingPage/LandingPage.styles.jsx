@@ -67,6 +67,18 @@ export const Container = styled.section`
   align-items: center;
   position: relative;
   z-index: -2;
+  overflow: visible;
+
+  img {
+    z-index: -5;
+    display: none;
+    opacity: 0.8;
+  }
+  @media screen and (min-width: 768px) {
+    img {
+      display: block;
+    }
+  }
 `;
 
 export const SimpleContainer = styled.section`
@@ -98,8 +110,8 @@ export const Dotted = styled.div`
   opacity: ${({ screen }) => (screen ? '1' : '1')};
   background-image: url(${Doted});
   background-size: ${({ small }) => (small ? '100vw' : '120vw')};
-  background-blend-mode: multiply;
 `;
+
 const defineTitleStyles = (props) => {
   if (props.third) return thirdStyles;
   if (props.small) return smallStyles;
@@ -131,6 +143,7 @@ const miniStyles = css`
 `;
 
 const smallStyles = css`
+  margin: 0;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -170,7 +183,7 @@ export const MainTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: -4rem;
 
   span {
     font-family: 'Noto Sans KR', sans-serif;
@@ -265,20 +278,25 @@ export const SubTitle = styled.div`
 
   > span {
     z-index: 10;
-    width: 80%;
+    width: 100%;
     max-width: 500px;
   }
 `;
 
-export const Inline = styled.span`
+export const Inline = styled.div`
   color: ${(props) => props.theme.purple60};
   font-weight: 700;
   font-family: 'Roboto Condensed', sans-serif;
   line-height: 4.9rem;
   transition: all 1s ease;
+  span {
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+  }
 `;
 
-export const Outline = styled.span`
+export const Outline = styled.div`
   color: transparent;
   -webkit-text-stroke-color: ${(props) => props.theme.purple60};
   -webkit-text-stroke-width: 1px;
