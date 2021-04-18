@@ -16,14 +16,14 @@ export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 0 4em 0;
   width: 100%;
+  margin: 0 0 4em 0;
   padding: 1rem;
   background: white;
-  max-width: 540px;
 
   @media screen and (min-width: 768px) {
-    padding: 1.5rem;
+    padding: 1.5rem 0;
+    max-width: 700px;
   }
 
   ${defineWrapperStyles}

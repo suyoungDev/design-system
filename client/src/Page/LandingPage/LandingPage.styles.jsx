@@ -232,9 +232,11 @@ const subStyles = css`
   color: ${(props) => props.theme.purple60};
   font-size: 1.5rem;
   font-weight: 200;
-  margin-top: 5rem;
+  margin-top: 3rem;
   font-style: normal;
   position: relative;
+  will-change: transform, opacity;
+  transform: translateY(1em);
 
   span {
     opacity: 0;
@@ -244,7 +246,6 @@ const subStyles = css`
       transition: all 1s ease-out;
     }
   }
-  will-change: transform, opacity;
 
   > span:not(:first-child) {
     margin-top: 0.7rem;

@@ -9,6 +9,7 @@ const cardHoverModuleStyles = css`
   @media screen and (min-width: 768px) {
     align-self: flex-start;
     padding-top: 0.6rem;
+    width: 250px;
   }
 `;
 
@@ -18,12 +19,13 @@ const cardModuleStyles = css`
   @media screen and (min-width: 768px) {
     padding: 0;
     margin: 0;
+    width: 250px;
   }
 `;
 
 export const Label = styled.label`
   color: ${(props) => props.theme.ink50};
-  font-weight: 200;
+  font-weight: 400;
   width: 160px;
   height: 36px;
   display: flex;

@@ -12,7 +12,6 @@ import { cardCode, code } from './ViewCodeCard';
 const Container = styled.div`
   font-size: 14px;
   width: 100%;
-  max-width: 540px;
   max-height: 600px;
   overflow: auto;
   margin-bottom: 1rem;

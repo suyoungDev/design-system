@@ -65,7 +65,6 @@ export const HeadingRow = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 540px;
     padding: 0;
   }
 

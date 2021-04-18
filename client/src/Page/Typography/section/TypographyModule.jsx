@@ -14,7 +14,6 @@ const { korean, english } = lorem;
 const TypographyWrapper = styled.div`
   color: ${({ hexId }) => hexId};
   width: 100%;
-  max-width: 540px;
   padding: 1rem 1rem;
 
   h1 {
