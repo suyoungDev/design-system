@@ -9,13 +9,14 @@ const ViewCode = React.lazy(() => import('../../Components/ViewCode'));
 
 const BaseColor = () => {
   const [isOpen, setIsOpen] = useIsOpen();
-  const clickHandle = () => {
+
+  const addNew = () => {
     baseColorListStore.addNewBaseColor();
   };
 
   return (
     <Wrapper id='maincolors'>
-      <Head title='Main Colors' addNew={clickHandle} viewCode={setIsOpen} />
+      <Head title='Main Colors' addNew={addNew} viewCode={setIsOpen} />
       <Suspense fallback={<div>loading..</div>}>
         {isOpen && <ViewCode base />}
       </Suspense>

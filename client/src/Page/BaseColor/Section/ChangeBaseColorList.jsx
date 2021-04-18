@@ -9,7 +9,7 @@ const Container = styled.div`
   background: ${(props) => props.theme.neutral40};
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(14, 25px);
+  grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
   padding: 1rem 1.5rem;
 `;
 
@@ -36,7 +36,9 @@ const ChangeBaseColorList = observer(({ changeColor }) => {
     <Container>
       {colorChipListStore.colorList.map((item) => (
         <Button
-          onClick={(e) => changeColor(e.currentTarget.value)}
+          onClick={(e) => {
+            changeColor(e.currentTarget.name, e.currentTarget.value);
+          }}
           key={item.id}
           value={item.hexId}
           name={item.label}
