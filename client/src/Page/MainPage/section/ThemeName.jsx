@@ -17,8 +17,8 @@ const ThemeName = observer(() => {
   const { title } = input;
 
   useEffect(() => {
-    const themeName = localStorage.getItem('themeName');
-    setThemeTitle(themeName);
+    const title = themeNameStore.loadName();
+    setThemeTitle(title);
   }, []);
 
   const handleSubmit = (e) => {
@@ -52,7 +52,7 @@ const ThemeName = observer(() => {
       <HeadingRow first onDoubleClick={() => setWillChangeName(true)}>
         {!willChangeName && (
           <Row className='al_ct jc_sb'>
-            <h1>{themeTitle ? themeTitle : '사용자 테마 이름'}</h1>
+            <h1>{themeTitle}</h1>
             <Button
               onClick={() => {
                 setWillChangeName(true);
