@@ -17,7 +17,7 @@ export const Title = styled.span`
 export const Label = styled.span`
   font-size: ${({ small }) => (small ? '0.5rem' : '0.7rem')};
   font-weight: 200;
-  color: ${(props) => props.theme.neutral70};
+  color: ${(props) => props.theme.ink30};
   margin-right: 0.5rem;
   display: flex;
   align-items: center;

@@ -32,6 +32,7 @@ const Footer = () => {
       <WrapperBottom>
         <p>side project 2021</p>
         <ButtonToTop
+          title='위로 가기'
           secondary
           onMouseEnter={() => {
             setIsHover(true);
