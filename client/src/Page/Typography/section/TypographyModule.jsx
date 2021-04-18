@@ -35,7 +35,7 @@ const TypographyModule = ({ item, hexId }) => {
   const [isOpen, setIsOpen] = useIsOpen();
   const [language, setLanguage] = useState(true);
 
-  const changeColor = (value) => {
+  const changeColor = (label, value) => {
     item.changeHexId(value);
   };
 
