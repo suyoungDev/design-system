@@ -153,7 +153,7 @@ const getCode = (base) => {
 
 export const code = (base) => {
   const source = base ? getCode('base') : getCode();
-  const name = base ? 'mainColors' : 'allColors';
+  const name = base ? 'mainColors' : 'palette';
   let block = `export const ${name} = {`;
 
   for (let i = 0; i < source.length; i++) {
@@ -163,5 +163,24 @@ export const code = (base) => {
 
   block += `
   };`;
-  return block;
+
+  let cssBlock = `:root {`;
+
+  for (let i = 0; i < source.length; i++) {
+    cssBlock += `
+    --${source[i].label}: ${source[i].hexId};`;
+  }
+
+  let result =
+    `// css styles` +
+    `
+  ` +
+    cssBlock +
+    `
+  
+  // styled-components : theme provider styles
+  ` +
+    block;
+
+  return result;
 };
