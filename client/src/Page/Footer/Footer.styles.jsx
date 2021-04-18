@@ -33,6 +33,12 @@ export const WrapperUp = styled.div`
       }
     }
   }
+
+  @media screen and (min-width: 768px) {
+    span {
+      font-size: 3rem;
+    }
+  }
 `;
 
 export const WrapperBottom = styled.div`
