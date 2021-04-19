@@ -1,13 +1,19 @@
 import React from 'react';
 import { BiPlus, BiCodeAlt } from 'react-icons/bi';
 import { SmallButton } from './Button';
+import { FiBox } from 'react-icons/fi';
 
-const AddButton = ({ addNew, viewCode, typo }) => {
+const AddButton = ({ addNew, viewCode, addRandom }) => {
   return (
     <div>
-      {!typo && (
+      {viewCode && (
         <SmallButton narrow onClick={viewCode}>
           <BiCodeAlt />
+        </SmallButton>
+      )}
+      {addRandom && (
+        <SmallButton narrow onClick={addRandom}>
+          <FiBox />
         </SmallButton>
       )}
       <SmallButton narrow onClick={addNew}>

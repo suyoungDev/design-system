@@ -135,7 +135,12 @@ export const ModalSubmitButton = styled(Button)`
 
   :hover {
     background: ${(props) => props.buttonColor};
-    color: ${(props) => props.theme.white};
+    color: ${(props) => props.textColor};
+
+    .react-icons {
+      color: ${(props) => props.theme.purple50};
+      transition: color 0.3s ease;
+    }
   }
 `;
 
