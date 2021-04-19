@@ -8,7 +8,7 @@ import {
   Context,
   ContextContainer,
 } from './CardModule.styles';
-import BGImage from '../../../constance/background.jpg';
+import Woman from '../../../constance/woman.jpg';
 import lorem from '../../../lorem';
 
 const { korean, english } = lorem;
@@ -17,7 +17,7 @@ const BG = styled.div`
   border-radius: ${({ radius }) => `${radius}px`}
     ${({ radius }) => `${radius}px`} 0 0;
   height: 190px;
-  background-image: url(${BGImage});
+  background-image: url(${Woman});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

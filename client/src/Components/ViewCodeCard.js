@@ -87,31 +87,27 @@ export function cardCode() {
       border: 1px solid #f2f3f5;
       border-radius: ${borderRadius}px;
       box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.1);
-      transition: transform 0.5s ease;
-      overflow: hidden;
-      
-
-     :not(:first-child) {
-        margin-bottom: 2rem;
-      }
+      transition: all 0.5s ease;
+      will-change: transfrom, opacity;
 
       :hover {
         transform: translateY(-0.35em);
       }
       ::after {
-        z-index: -1;
         content: '';
+        width: 100%;
+        height: 100%;
         position: absolute;
         border-radius: ${borderRadius}px;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
         opacity: 0;
         box-shadow: 0 0.5rem 1rem -0.25em rgba(0, 0, 0, 0.2);
       }
-      :hover::after {
-        opacity: 1;
+      :hover {
+        ::after {
+          opacity: 1;
+        }
       }
       @media screen and (min-width: 768px) {
          width: 350px;
