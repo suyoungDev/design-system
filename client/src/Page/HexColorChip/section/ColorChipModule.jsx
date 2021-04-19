@@ -35,6 +35,7 @@ const Chip = observer(({ item }) => {
     <Item>
       <ButtonContainer>
         <Button
+          title='수정'
           colorChip
           color={buttonColor}
           onClick={() => openModalStore.setModalOpen(true, item)}
@@ -42,6 +43,7 @@ const Chip = observer(({ item }) => {
           <CgOptions />
         </Button>
         <Button
+          title='삭제'
           colorChip
           color={buttonColor}
           onClick={() => {

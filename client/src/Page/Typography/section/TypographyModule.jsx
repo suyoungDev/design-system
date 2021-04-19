@@ -55,6 +55,7 @@ const TypographyModule = ({ item, hexId }) => {
 
               <div>
                 <SmallButton
+                  title='언어 변경'
                   narrow
                   onClick={() => {
                     setLanguage(!language);
@@ -62,10 +63,10 @@ const TypographyModule = ({ item, hexId }) => {
                 >
                   <BiWorld />
                 </SmallButton>
-                <SmallButton narrow onClick={setIsOpen}>
+                <SmallButton narrow onClick={setIsOpen} title='색상 변경'>
                   <BiPalette />
                 </SmallButton>
-                <SmallButton narrow onClick={deleteItem}>
+                <SmallButton narrow onClick={deleteItem} title='삭제'>
                   <BiX />
                 </SmallButton>
               </div>

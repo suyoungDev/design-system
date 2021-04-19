@@ -54,6 +54,7 @@ const ThemeName = observer(() => {
           <Row className='al_ct jc_sb'>
             <h1>{themeTitle}</h1>
             <Button
+              title='제목 변경'
               onClick={() => {
                 setWillChangeName(true);
               }}

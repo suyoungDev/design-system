@@ -64,10 +64,14 @@ const BaseColorModule = ({ item }) => {
             )}
           </Row>
         </Row>
-        <SmallButton narrow onClick={(e) => clickHandler('role', e)}>
+        <SmallButton
+          narrow
+          onClick={(e) => clickHandler('role', e)}
+          title='이름 변경'
+        >
           <BiPencil />
         </SmallButton>
-        <SmallButton narrow onClick={deleteItem}>
+        <SmallButton narrow onClick={deleteItem} title='삭제'>
           <BiX />
         </SmallButton>
       </BaseColorItemRow>
