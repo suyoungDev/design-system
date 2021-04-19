@@ -18,16 +18,14 @@ const Main = styled.main`
 
 const MainPage = () => {
   return (
-    <body>
-      <Main>
-        <ThemeName />
-        <ColorSection />
-        <BaseColor />
-        <Typography />
-        <Card />
-        <Save />
-      </Main>
-    </body>
+    <Main>
+      <ThemeName />
+      <ColorSection />
+      <BaseColor />
+      <Typography />
+      <Card />
+      <Save />
+    </Main>
   );
 };
 
