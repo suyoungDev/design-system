@@ -110,9 +110,16 @@ export const SmallButton = styled(Button)`
   height: 32px;
   font-size: 12px;
   font-weight: 400;
-  margin-right: 0.2rem;
   padding: ${({ narrow }) => narrow && '0.2rem 0.3rem'};
   border: none;
+  :not(:last-of-type) {
+    margin-right: 0.2rem;
+  }
+  :hover {
+    .react-icons {
+      color: ${(props) => props.buttonColor};
+    }
+  }
 `;
 
 export const ModalButton = styled(Button)`

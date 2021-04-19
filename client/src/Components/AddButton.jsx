@@ -5,9 +5,13 @@ import {
   BiExtension,
   BiCodeAlt,
   BiWorld,
+  BiPencil,
+  BiX,
 } from 'react-icons/bi';
-import { SmallButton } from './Button';
+import { CgOptions } from 'react-icons/cg';
 import { FiBox } from 'react-icons/fi';
+
+import { SmallButton } from './Button';
 
 const AddButton = ({
   palette,
@@ -16,12 +20,26 @@ const AddButton = ({
   viewCode,
   changeLanguage,
   addRandom,
+  options,
+  changeName,
+  deleteItem,
 }) => {
   return (
     <div>
       {viewCode && (
         <SmallButton narrow onClick={viewCode} title='코드 보기'>
           <BiCodeAlt />
+        </SmallButton>
+      )}
+
+      {changeName && (
+        <SmallButton narrow onClick={changeName} title='이름 변경'>
+          <BiPencil />
+        </SmallButton>
+      )}
+      {options && (
+        <SmallButton narrow onClick={options} title='옵션'>
+          <CgOptions />
         </SmallButton>
       )}
       {changeLanguage && (
@@ -47,6 +65,11 @@ const AddButton = ({
       {palette && (
         <SmallButton narrow onClick={palette} title='색상 변경'>
           <BiPalette />
+        </SmallButton>
+      )}
+      {deleteItem && (
+        <SmallButton narrow onClick={deleteItem} title='색상 변경'>
+          <BiX />
         </SmallButton>
       )}
     </div>
