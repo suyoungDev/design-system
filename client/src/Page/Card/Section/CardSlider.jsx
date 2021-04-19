@@ -39,7 +39,7 @@ const CardSlider = observer(({ label, name }) => {
       setDefaultSliderValue(cardColorStore.borderRadius || 0);
     if (name === 'buttonRadius')
       setDefaultSliderValue(cardColorStore.buttonRadius || 0);
-  }, []);
+  }, [name]);
 
   const changeHandle = (value) => {
     cardColorStore.setCardColor(name, value);

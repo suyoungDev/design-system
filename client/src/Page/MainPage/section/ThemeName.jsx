@@ -73,6 +73,8 @@ const ThemeName = observer(() => {
                 name='title'
                 id='themeName'
                 setThemeName
+                required
+                autoFocus
               />
               <Button secondary type='submit'>
                 저장
