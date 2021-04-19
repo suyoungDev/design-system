@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
 import { CgOptions } from 'react-icons/cg';
-
+import { observer } from 'mobx-react-lite';
 import { ColorBox } from '../../../Components/ColorCircle';
 import { SmallButton } from '../../../Components/Button';
 import useContrast from '../../../Hook/useContrast';
-import { mixinStore } from '../../../Store/MixinStore';
 
-const SmallMixin = ({ smallColor, index }) => {
+const SmallMixin = observer(({ smallColor, index, open }) => {
   const [isHover, setIsHover] = useState(false);
   const { getColor, getBorderColor } = useContrast();
   const bordercolor = getBorderColor(smallColor);
   const buttonColor = getColor(smallColor);
 
-  const onClick = () => {
-    console.log(mixinStore.mixinList);
-    console.log(index);
-    console.log(smallColor);
+  const onHover = (value) => {
+    if (index === 1 || index === 3) return null;
+    else setIsHover(value);
   };
 
   return (
     <ColorBox
-      onMouseOver={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
+      onMouseOver={() => onHover(true)}
+      onMouseLeave={() => onHover(false)}
       hexId={smallColor}
       borderColor={bordercolor}
-      onClick={onClick}
       buttonColor={buttonColor}
+      onClick={() => open(index)}
     >
       {isHover && (
         <SmallButton buttonColor={buttonColor}>
@@ -34,6 +32,6 @@ const SmallMixin = ({ smallColor, index }) => {
       )}
     </ColorBox>
   );
-};
+});
 
 export default SmallMixin;

@@ -38,6 +38,7 @@ export class mixinColorsList {
       mixinList: observable,
       addNewMixin: action,
       deleteMixin: action,
+      changeVariation: action,
     });
 
     this.mixinList = mixinList;
@@ -53,6 +54,31 @@ export class mixinColorsList {
     if (!id) return null;
     const index = this.mixinList.findIndex((item) => item.id === id);
     if (index > -1) this.mixinList.splice(index, 1);
+  }
+
+  changeVariation(hexId, mixinIndex, id) {
+    if (!id || !hexId) return null;
+
+    const index = this.mixinList.findIndex((item) => item.id === id);
+    let list = [];
+
+    if (mixinIndex === 0) {
+      const origin = this.mixinList[index].listOfColors[4];
+      list = chroma.scale([hexId, origin]).mode('lch').colors(5);
+    }
+    if (mixinIndex === 2) {
+      const first = this.mixinList[index].listOfColors[0];
+      const last = this.mixinList[index].listOfColors[4];
+      list = chroma.scale([first, hexId, last]).mode('lch').colors(5);
+    }
+    if (mixinIndex === 4) {
+      const first = this.mixinList[index].listOfColors[0];
+      list = chroma.scale([first, hexId]).mode('lch').colors(5);
+    }
+
+    if (list.length) {
+      this.mixinList[index].listOfColors = list;
+    }
   }
 }
 

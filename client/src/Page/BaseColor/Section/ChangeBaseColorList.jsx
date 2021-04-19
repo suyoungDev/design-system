@@ -10,7 +10,7 @@ const Container = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
-  padding: 1rem 1.5rem;
+  padding: ${({ small }) => (small ? '0' : '1rem 1.5rem')};
 `;
 
 const Button = styled.button`
@@ -31,9 +31,9 @@ const Button = styled.button`
   transition: all 0.3s ease;
 `;
 
-const ChangeBaseColorList = observer(({ changeColor }) => {
+const ChangeBaseColorList = observer(({ changeColor, ...props }) => {
   return (
-    <Container>
+    <Container {...props}>
       {colorChipListStore.colorList.map((item) => (
         <Button
           onClick={(e) => {

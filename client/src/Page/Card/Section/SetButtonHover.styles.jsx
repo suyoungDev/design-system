@@ -13,20 +13,6 @@ export const RadioLabel = styled.label`
   justify-content: center;
 `;
 
-export const CheckLabel = styled.label`
-  width: 25px;
-  height: 25px;
-  border: 2px solid ${(props) => props.theme.ink50};
-  border-radius: 50%;
-
-  .check {
-    width: 5px;
-    height: 5px;
-    background: yellow;
-    display: inline-block;
-  }
-`;
-
 export const Radio = styled.input`
   display: none;
   &:checked + ${RadioLabel} {

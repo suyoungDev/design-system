@@ -3,7 +3,14 @@ import styled, { css } from 'styled-components';
 const definedStyles = (props) => {
   if (props.card) return cardModuleStyles;
   if (props.cardHover) return cardHoverModuleStyles;
+  if (props.mixin) return mixinOptionStyles;
 };
+
+const mixinOptionStyles = css`
+  font-size: 0.8rem;
+  align-items: center;
+  margin-bottom: 0.4rem;
+`;
 
 const cardHoverModuleStyles = css`
   @media screen and (min-width: 768px) {

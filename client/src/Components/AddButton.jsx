@@ -6,6 +6,7 @@ import {
   BiCodeAlt,
   BiWorld,
   BiPencil,
+  BiSave,
   BiX,
 } from 'react-icons/bi';
 import { CgOptions } from 'react-icons/cg';
@@ -22,6 +23,7 @@ const AddButton = ({
   addRandom,
   options,
   changeName,
+  save,
   deleteItem,
 }) => {
   return (
@@ -35,6 +37,11 @@ const AddButton = ({
       {changeName && (
         <SmallButton narrow onClick={changeName} title='이름 변경'>
           <BiPencil />
+        </SmallButton>
+      )}
+      {save && (
+        <SmallButton narrow onClick={save} title='옵션'>
+          <BiSave />
         </SmallButton>
       )}
       {options && (
