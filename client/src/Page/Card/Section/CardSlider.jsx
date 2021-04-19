@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider, { SliderTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { observer } from 'mobx-react-lite';
@@ -32,21 +32,27 @@ const handle = (props) => {
   );
 };
 
-const CardSlider = observer(() => {
-  const [borderRadius] = useState(cardColorStore.borderRadius || 0);
+const CardSlider = observer(({ label, name }) => {
+  const [defaultSliderValue, setDefaultSliderValue] = useState(0);
+  useEffect(() => {
+    if (name === 'borderRadius')
+      setDefaultSliderValue(cardColorStore.borderRadius || 0);
+    if (name === 'buttonRadius')
+      setDefaultSliderValue(cardColorStore.buttonRadius || 0);
+  }, []);
 
   const changeHandle = (value) => {
-    cardColorStore.setCardColor('borderRadius', value);
+    cardColorStore.setCardColor(name, value);
   };
 
   return (
     <Container slider>
-      <Label card>라운드 값</Label>
+      <Label card>{label}</Label>
       <SlideWrapper>
         <Slider
           min={0}
           max={30}
-          defaultValue={borderRadius}
+          defaultValue={defaultSliderValue}
           handle={handle}
           trackStyle={{ backgroundColor: '#AD9EE5' }}
           handleStyle={{

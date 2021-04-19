@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Copy = styled.div`
   position: absolute;
-  left: 45px;
+  left: 55px;
   top: 40px;
 
   .react-icons {

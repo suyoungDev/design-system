@@ -4,6 +4,7 @@ import chroma from 'chroma-js';
 export class cardColor {
   borderRadius = '';
   buttonColor = '';
+  buttonRadius = '';
   hoverColor = '';
   headColor = '';
   contentColor = '';
@@ -15,7 +16,8 @@ export class cardColor {
     hoverColor,
     headColor,
     contentColor,
-    hoverType
+    hoverType,
+    buttonRadius
   ) {
     makeObservable(this, {
       borderRadius: observable,
@@ -24,6 +26,7 @@ export class cardColor {
       headColor: observable,
       contentColor: observable,
       hoverType: observable,
+      buttonRadius: observable,
       setCardColor: action,
       setHoverColor: action,
     });
@@ -34,19 +37,21 @@ export class cardColor {
     this.headColor = headColor;
     this.contentColor = contentColor;
     this.hoverType = hoverType;
+    this.buttonRadius = buttonRadius;
   }
 
   setCardColor(name, value) {
     if (!name || !value) return;
     if (name === 'borderRadius') this.borderRadius = value;
+    if (name === 'hoverColor') this.hoverColor = value;
+    if (name === 'headColor') this.headColor = value;
+    if (name === 'contentColor') this.contentColor = value;
+    if (name === 'buttonRadius') this.buttonRadius = value;
     if (name === 'buttonColor') {
       this.buttonColor = value;
       this.hoverColor = '';
       this.hoverType = '';
     }
-    if (name === 'hoverColor') this.hoverColor = value;
-    if (name === 'headColor') this.headColor = value;
-    if (name === 'contentColor') this.contentColor = value;
   }
 
   setHoverColor(value) {

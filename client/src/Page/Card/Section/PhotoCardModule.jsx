@@ -32,6 +32,7 @@ const PhotoCardModule = ({
   language,
   radius,
   hoverText,
+  buttonRadius,
 }) => {
   return (
     <PhotoCardLayout radius={radius}>
@@ -49,6 +50,7 @@ const PhotoCardModule = ({
             hoverHex={hoverHex}
             textHex={textHex}
             hoverText={hoverText}
+            buttonRadius={buttonRadius}
           >
             {language ? korean.button : english.button}
           </CardButton>

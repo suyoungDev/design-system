@@ -37,7 +37,8 @@ const SetColorsList = observer(({ isOpen }) => {
             />
           ))}
           {cardColorStore.buttonColor && <SetButtonHover />}
-          <CardSlider />
+          <CardSlider label='버튼 라운드 값' name='buttonRadius' />
+          <CardSlider label='카드 라운드 값' name='borderRadius' />
         </Container>
       )}
     </>

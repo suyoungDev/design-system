@@ -13,6 +13,7 @@ const CardModulesList = observer(({ language, style }) => {
     headColor,
     contentColor,
     borderRadius,
+    buttonRadius,
   } = cardColorStore;
 
   const { getColor } = useContrast();
@@ -32,6 +33,7 @@ const CardModulesList = observer(({ language, style }) => {
             language={language}
             radius={borderRadius}
             hoverText={hoverText}
+            buttonRadius={buttonRadius}
           />
         </Suspense>
       ) : (
@@ -46,6 +48,7 @@ const CardModulesList = observer(({ language, style }) => {
               language={language}
               radius={borderRadius}
               hoverText={hoverText}
+              buttonRadius={buttonRadius}
             />
           )}
         </Suspense>

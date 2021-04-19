@@ -10,6 +10,7 @@ export function cardCode() {
     headColor,
     contentColor,
     borderRadius,
+    buttonRadius,
   } = cardColorStore;
 
   const textHex =
@@ -58,7 +59,7 @@ export function cardCode() {
       width: 100%;
       height: 35px;
       border: none;
-      border-radius: 5px;
+      border-radius: ${buttonRadius}px;
       outline: none;
       cursor: pointer;
       font-weight: 400;

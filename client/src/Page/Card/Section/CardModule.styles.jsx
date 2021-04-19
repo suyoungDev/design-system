@@ -25,7 +25,7 @@ export const CardButton = styled.button`
   width: 100%;
   height: 35px;
   border: none;
-  border-radius: 5px;
+  border-radius: ${({ buttonRadius }) => `${buttonRadius}px`};
   outline: none;
   cursor: pointer;
   font-weight: 400;

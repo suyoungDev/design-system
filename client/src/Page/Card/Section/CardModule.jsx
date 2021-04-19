@@ -20,6 +20,7 @@ const CardModule = ({
   language,
   radius,
   hoverText,
+  buttonRadius,
 }) => {
   return (
     <CardLayout radius={radius}>
@@ -36,6 +37,7 @@ const CardModule = ({
             hoverHex={hoverHex}
             textHex={textHex}
             hoverText={hoverText}
+            buttonRadius={buttonRadius}
           >
             {language ? korean.button : english.button}
           </CardButton>
