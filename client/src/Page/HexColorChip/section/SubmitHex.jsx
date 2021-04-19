@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import chroma from 'chroma-js';
 import { ChromePicker } from 'react-color';
 
 import FormInput from '../../../Components/FormInput/FormInput';
@@ -10,19 +9,17 @@ import { Column } from '../../../Components/Column';
 import { Row } from '../../../Components/Row';
 import { ColorCircle } from '../../../Components/ColorCircle';
 import { openModalStore } from '../../../Store/ModalStore';
+import useContrast from '../../../Hook/useContrast';
 
 const SubmitHex = () => {
   const [label, setLabel] = useState('');
   const [hexId, setHexId] = useState('#F2F3F5');
-
   const { payload } = openModalStore;
+  const { getColor } = useContrast();
+  const textColor = getColor(hexId);
 
   const handleColor = useCallback((color) => {
     setHexId(color.hex);
-  }, []);
-
-  const textColor = useCallback((hexId) => {
-    return chroma.contrast(hexId, 'white') > 2 ? 'white' : '#393B3F';
   }, []);
 
   const handleSubmit = useCallback(
@@ -64,7 +61,7 @@ const SubmitHex = () => {
         <ModalSubmitButton
           type='submit'
           buttonColor={hexId}
-          textColor={() => textColor(hexId)}
+          textColor={textColor}
         >
           {payload ? '수정' : '추가'}
         </ModalSubmitButton>

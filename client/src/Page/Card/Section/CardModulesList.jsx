@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
-import chroma from 'chroma-js';
 import { observer } from 'mobx-react-lite';
-
+import useContrast from '../../../Hook/useContrast';
 import { Column } from '../../../Components/Column';
 import { cardColorStore } from '../../../Store/CardColorStore';
 const PhotoCardModule = React.lazy(() => import('./PhotoCardModule'));
@@ -16,13 +15,9 @@ const CardModulesList = observer(({ language, style }) => {
     borderRadius,
   } = cardColorStore;
 
-  const textHex =
-    buttonColor && chroma.contrast(buttonColor, 'white') > 2
-      ? 'white'
-      : 'black';
-
-  const hoverText =
-    hoverColor && chroma.contrast(hoverColor, 'white') > 2 ? 'white' : 'black';
+  const { getColor } = useContrast();
+  const textHex = getColor(buttonColor);
+  const hoverText = getColor(hoverColor);
 
   return (
     <Column className='center mt-02'>
