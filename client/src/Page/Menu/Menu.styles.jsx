@@ -32,10 +32,6 @@ export const NavItem = styled.li`
       color: ${(props) => props.theme.purple50};
     }
   }
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 `;
 
 export const NavLinkS = styled(LinkScroll)`
@@ -59,4 +55,9 @@ export const NavLinkS = styled(LinkScroll)`
 
 export const NavContainer = styled.nav`
   z-index: 1;
+  display: flex;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
