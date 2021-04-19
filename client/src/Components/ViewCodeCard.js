@@ -94,6 +94,7 @@ export function cardCode() {
         transform: translateY(-0.35em);
       }
       ::after {
+        z-index: -1;
         content: '';
         width: 100%;
         height: 100%;

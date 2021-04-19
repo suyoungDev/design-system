@@ -64,6 +64,7 @@ export const CardLayout = styled.div`
   }
 
   ::after {
+    z-index: -1;
     content: '';
     width: 100%;
     height: 100%;

@@ -1,9 +1,7 @@
 import React, { useState, Suspense } from 'react';
-import { BiPalette, BiWorld, BiCodeAlt, BiExtension } from 'react-icons/bi';
 
-import { HeadingRow } from '../../Components/Row';
+import Head from '../../Components/Head';
 import { Wrapper } from '../../Components/Wrapper';
-import { SmallButton } from '../../Components/Button';
 import CardModulesList from './Section/CardModulesList';
 import useIsOpen from '../../Hook/useIsOpen';
 const SetColorsList = React.lazy(() => import('./Section/SetColorsList'));
@@ -25,23 +23,13 @@ const Card = () => {
 
   return (
     <Wrapper id='cards'>
-      <HeadingRow>
-        <h2>Card</h2>
-        <div>
-          <SmallButton narrow onClick={setIsCodeOpen}>
-            <BiCodeAlt />
-          </SmallButton>
-          <SmallButton narrow onClick={changeLanguage}>
-            <BiWorld />
-          </SmallButton>
-          <SmallButton narrow onClick={changeStyle}>
-            <BiExtension />
-          </SmallButton>
-          <SmallButton narrow onClick={setIsOpen}>
-            <BiPalette />
-          </SmallButton>
-        </div>
-      </HeadingRow>
+      <Head
+        title='card'
+        viewCode={setIsCodeOpen}
+        changeLanguage={changeLanguage}
+        changeStyle={changeStyle}
+        palette={setIsOpen}
+      />
       <Suspense fallback={<div>...loading..</div>}>
         {isCodeOpen && <ViewCode card />}
       </Suspense>

@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import chroma from 'chroma-js';
 import { observer } from 'mobx-react-lite';
 
 import { Column } from '../../../Components/Column';
-import CardModule from './CardModule';
-import PhotoCardModule from './PhotoCardModule';
-
 import { cardColorStore } from '../../../Store/CardColorStore';
+const PhotoCardModule = React.lazy(() => import('./PhotoCardModule'));
+const CardModule = React.lazy(() => import('./CardModule'));
 
 const CardModulesList = observer(({ language, style }) => {
   const {
@@ -28,27 +27,33 @@ const CardModulesList = observer(({ language, style }) => {
   return (
     <Column className='center mt-02'>
       {style ? (
-        <CardModule
-          mainHex={buttonColor}
-          headHex={headColor}
-          contentHex={contentColor}
-          hoverHex={hoverColor}
-          textHex={textHex}
-          language={language}
-          radius={borderRadius}
-          hoverText={hoverText}
-        />
+        <Suspense fallback={<div>...loading...</div>}>
+          <CardModule
+            mainHex={buttonColor}
+            headHex={headColor}
+            contentHex={contentColor}
+            hoverHex={hoverColor}
+            textHex={textHex}
+            language={language}
+            radius={borderRadius}
+            hoverText={hoverText}
+          />
+        </Suspense>
       ) : (
-        <PhotoCardModule
-          mainHex={buttonColor}
-          headHex={headColor}
-          contentHex={contentColor}
-          hoverHex={hoverColor}
-          textHex={textHex}
-          language={language}
-          radius={borderRadius}
-          hoverText={hoverText}
-        />
+        <Suspense fallback={<div>...loading..</div>}>
+          {!style && (
+            <PhotoCardModule
+              mainHex={buttonColor}
+              headHex={headColor}
+              contentHex={contentColor}
+              hoverHex={hoverColor}
+              textHex={textHex}
+              language={language}
+              radius={borderRadius}
+              hoverText={hoverText}
+            />
+          )}
+        </Suspense>
       )}
     </Column>
   );

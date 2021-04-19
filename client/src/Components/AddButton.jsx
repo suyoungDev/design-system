@@ -1,9 +1,22 @@
 import React from 'react';
-import { BiPlus, BiCodeAlt } from 'react-icons/bi';
+import {
+  BiPlus,
+  BiPalette,
+  BiExtension,
+  BiCodeAlt,
+  BiWorld,
+} from 'react-icons/bi';
 import { SmallButton } from './Button';
 import { FiBox } from 'react-icons/fi';
 
-const AddButton = ({ addNew, viewCode, addRandom }) => {
+const AddButton = ({
+  palette,
+  changeStyle,
+  addNew,
+  viewCode,
+  changeLanguage,
+  addRandom,
+}) => {
   return (
     <div>
       {viewCode && (
@@ -11,14 +24,31 @@ const AddButton = ({ addNew, viewCode, addRandom }) => {
           <BiCodeAlt />
         </SmallButton>
       )}
+      {changeLanguage && (
+        <SmallButton narrow onClick={changeLanguage}>
+          <BiWorld />
+        </SmallButton>
+      )}
       {addRandom && (
         <SmallButton narrow onClick={addRandom}>
           <FiBox />
         </SmallButton>
       )}
-      <SmallButton narrow onClick={addNew}>
-        <BiPlus />
-      </SmallButton>
+      {addNew && (
+        <SmallButton narrow onClick={addNew}>
+          <BiPlus />
+        </SmallButton>
+      )}
+      {changeStyle && (
+        <SmallButton narrow onClick={changeStyle}>
+          <BiExtension />
+        </SmallButton>
+      )}
+      {palette && (
+        <SmallButton narrow onClick={palette}>
+          <BiPalette />
+        </SmallButton>
+      )}
     </div>
   );
 };
