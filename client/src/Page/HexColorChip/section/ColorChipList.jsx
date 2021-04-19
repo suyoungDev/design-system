@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const ChipList = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   grid-gap: 0.7rem;
 `;
 
