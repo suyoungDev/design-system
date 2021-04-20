@@ -64,7 +64,7 @@ const MixinModule = observer(({ item }) => {
             />
           ))}
         </Row>
-        <SaveMixin />
+        <SaveMixin id={item.id} />
       </Row>
       {isOptionOpen && (
         <MixinOptions

@@ -1,5 +1,6 @@
 import { action, makeObservable, observable } from 'mobx';
 import chroma from 'chroma-js';
+import { colorChipListStore } from './ColorListStore';
 
 export class mixinColors {
   id = Math.random().toFixed(4);
@@ -39,6 +40,7 @@ export class mixinColorsList {
       addNewMixin: action,
       deleteMixin: action,
       changeVariation: action,
+      addMixinToPalette: action,
     });
 
     this.mixinList = mixinList;
@@ -54,6 +56,19 @@ export class mixinColorsList {
     if (!id) return null;
     const index = this.mixinList.findIndex((item) => item.id === id);
     if (index > -1) this.mixinList.splice(index, 1);
+  }
+
+  addMixinToPalette(id) {
+    const index = this.mixinList.findIndex((item) => item.id === id);
+    const mixinList = this.mixinList[index].listOfColors;
+    const label = this.mixinList[index].title;
+
+    for (let i = 0; i < mixinList.length; i++) {
+      colorChipListStore.addColorChip({
+        hexId: mixinList[i],
+        label: `${label}0${i + 1}`,
+      });
+    }
   }
 
   changeVariation(hexId, takeMiddle, mixinIndex, id) {
