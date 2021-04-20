@@ -6,7 +6,7 @@ export const OptionContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 1rem 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.7rem;
   border-bottom: 1px solid ${(props) => props.theme.neutral50};
   border-top: 1px solid ${(props) => props.theme.neutral50};
   width: 100%;

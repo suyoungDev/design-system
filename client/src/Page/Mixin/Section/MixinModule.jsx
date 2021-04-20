@@ -15,6 +15,7 @@ import { mixinStore } from '../../../Store/MixinStore';
 const Title = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
   justify-content: space-between;
   span {
     color: ${(props) => props.theme.ink40};
@@ -23,8 +24,17 @@ const Title = styled.div`
   margin-bottom: 0.5rem;
 `;
 
+const ModuleWrapper = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
 const Container = styled.div`
-  margin-bottom: 1.5rem;
+  max-width: 200px;
 `;
 
 const MixinModule = observer(({ item }) => {
@@ -47,35 +57,44 @@ const MixinModule = observer(({ item }) => {
     }
   };
 
+  const addToPalette = () => {
+    mixinStore.addMixinToPalette(item.id);
+  };
+
   return (
-    <Container>
-      <Title>
-        <ModifyName isOpen={isOpen} setIsOpen={setIsOpen} item={item} />
-        <AddButton changeName={setIsOpen} deleteItem={deleteItem} />
-      </Title>
-      <Row className='mb-5'>
-        <Row>
-          {item.listOfColors.map((smallColor, index) => (
-            <SmallMixin
-              key={`${smallColor}_${index}`}
-              smallColor={smallColor}
-              index={index}
-              open={openOptions}
-            />
-          ))}
+    <ModuleWrapper>
+      <Container>
+        <Title>
+          <ModifyName isOpen={isOpen} setIsOpen={setIsOpen} item={item} />
+          <AddButton
+            changeName={setIsOpen}
+            deleteItem={deleteItem}
+            save={addToPalette}
+          />
+        </Title>
+        <Row className='mb-5'>
+          <Row>
+            {item.listOfColors.map((smallColor, index) => (
+              <SmallMixin
+                key={`${smallColor}_${index}`}
+                smallColor={smallColor}
+                index={index}
+                open={openOptions}
+              />
+            ))}
+          </Row>
         </Row>
-        <SaveMixin id={item.id} />
-      </Row>
-      {isOptionOpen && (
-        <MixinOptions
-          index={indexLog}
-          setIsOptionOpen={setIsOptionOpen}
-          id={item.id}
-          isChecked={isChecked}
-          setIsChecked={setIsChecked}
-        />
-      )}
-    </Container>
+        {isOptionOpen && (
+          <MixinOptions
+            index={indexLog}
+            setIsOptionOpen={setIsOptionOpen}
+            id={item.id}
+            isChecked={isChecked}
+            setIsChecked={setIsChecked}
+          />
+        )}
+      </Container>
+    </ModuleWrapper>
   );
 });
 
