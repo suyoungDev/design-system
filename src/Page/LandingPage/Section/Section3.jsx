@@ -9,7 +9,7 @@ import {
 import { Button } from '../../../Components/Button';
 import { withRouter } from 'react-router';
 
-const Section3 = (props) => {
+const Section3 = ({ history }) => {
   const [isSticky, setIsSticky] = useState(false);
   const [visibility, setvisibility] = useState(true);
 
@@ -44,7 +44,7 @@ const Section3 = (props) => {
           <span>색상을 쉽게 고르고 저장하세요.</span>
           <span>한번 저장해둔 셋팅을 불러와서 다시 사용 할 수 있습니다.</span>
         </SubText>
-        <Button primary onClick={() => props.history.push('/main')}>
+        <Button primary onClick={() => history.push('/main')}>
           바로 시작하기
         </Button>
       </TitleContainer>

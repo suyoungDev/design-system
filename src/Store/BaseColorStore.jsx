@@ -37,7 +37,6 @@ export class baseColorList {
     makeObservable(this, {
       baseColorList: observable,
       deleteBaseColor: action,
-      deleteAll: action,
       addNewBaseColor: action,
       changeOrder: action,
       clearList: action,
@@ -57,10 +56,6 @@ export class baseColorList {
     if (!id) return null;
     const index = this.baseColorList.findIndex((item) => item.id === id);
     if (index > -1) this.baseColorList.splice(index, 1);
-  }
-
-  deleteAll() {
-    this.baseColorList = [];
   }
 
   changeOrder(sourceIndex, destinationIndex) {
@@ -94,8 +89,7 @@ export class baseColorList {
     this.clearList();
     for (let i = 0; i < dataList.length; i++) {
       const { role, label, hexId } = dataList[i];
-      const newItem = new baseColor(hexId, label, role);
-      this.baseColorList.push(newItem);
+      this.addNewBaseColor(hexId, label, role);
     }
   }
 }
