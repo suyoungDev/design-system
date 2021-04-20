@@ -9,7 +9,7 @@ import { animateScroll } from 'react-scroll';
 const Footer = () => {
   const [isHover, setIsHover] = useState(false);
   const scrollTop = () => {
-    animateScroll.scrollToTop({ duration: 800, smooth: 'easeOutQuad' });
+    animateScroll.scrollToTop();
   };
 
   return (
