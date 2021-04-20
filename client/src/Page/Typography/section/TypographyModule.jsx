@@ -36,6 +36,7 @@ const TypographyModule = ({ item, hexId }) => {
 
   const changeColor = (label, value) => {
     item.changeHexId(value);
+    setIsOpen();
   };
 
   const deleteItem = () => {

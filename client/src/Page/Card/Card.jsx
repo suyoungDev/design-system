@@ -1,9 +1,10 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useLayoutEffect } from 'react';
 
 import Head from '../../Components/Head';
 import { Wrapper } from '../../Components/Wrapper';
 import CardModulesList from './Section/CardModulesList';
 import useIsOpen from '../../Hook/useIsOpen';
+import { cardColorStore } from '../../Store/CardColorStore';
 const SetColorsList = React.lazy(() => import('./Section/SetColorsList'));
 const ViewCode = React.lazy(() => import('../../Components/ViewCode'));
 
@@ -20,6 +21,10 @@ const Card = () => {
   const changeStyle = () => {
     setStyle(!style);
   };
+
+  useLayoutEffect(() => {
+    cardColorStore.loadOptions();
+  }, []);
 
   return (
     <Wrapper id='cards'>

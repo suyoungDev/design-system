@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { observer } from 'mobx-react-lite';
+
 import useContrast from '../../../Hook/useContrast';
 import { Column } from '../../../Components/Column';
 import { cardColorStore } from '../../../Store/CardColorStore';

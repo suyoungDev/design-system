@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import {
   Heading,
@@ -23,41 +24,43 @@ const BG = styled.div`
   background-position: center;
 `;
 
-const PhotoCardModule = ({
-  headHex,
-  contentHex,
-  mainHex,
-  hoverHex,
-  textHex,
-  language,
-  radius,
-  hoverText,
-  buttonRadius,
-}) => {
-  return (
-    <PhotoCardLayout radius={radius}>
-      <BG radius={radius} />
-      <ContextContainer>
-        <Heading headHex={headHex}>
-          {language ? korean.heading : english.heading}
-        </Heading>
-        <Context contentHex={contentHex}>
-          {language ? korean.short_content : english.short_content}
-        </Context>
-        <ButtonBox>
-          <CardButton
-            mainHex={mainHex}
-            hoverHex={hoverHex}
-            textHex={textHex}
-            hoverText={hoverText}
-            buttonRadius={buttonRadius}
-          >
-            {language ? korean.button : english.button}
-          </CardButton>
-        </ButtonBox>
-      </ContextContainer>
-    </PhotoCardLayout>
-  );
-};
+const PhotoCardModule = observer(
+  ({
+    headHex,
+    contentHex,
+    mainHex,
+    hoverHex,
+    textHex,
+    language,
+    radius,
+    hoverText,
+    buttonRadius,
+  }) => {
+    return (
+      <PhotoCardLayout radius={radius}>
+        <BG radius={radius} />
+        <ContextContainer>
+          <Heading headHex={headHex}>
+            {language ? korean.heading : english.heading}
+          </Heading>
+          <Context contentHex={contentHex}>
+            {language ? korean.short_content : english.short_content}
+          </Context>
+          <ButtonBox>
+            <CardButton
+              mainHex={mainHex}
+              hoverHex={hoverHex}
+              textHex={textHex}
+              hoverText={hoverText}
+              buttonRadius={buttonRadius}
+            >
+              {language ? korean.button : english.button}
+            </CardButton>
+          </ButtonBox>
+        </ContextContainer>
+      </PhotoCardLayout>
+    );
+  }
+);
 
 export default PhotoCardModule;

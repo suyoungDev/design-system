@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
+import styled from 'styled-components';
 import Slider, { SliderTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { observer } from 'mobx-react-lite';
+
 import { Label } from '../../../Components/Label';
-import { cardColorStore } from '../../../Store/CardColorStore';
 import { Container } from './SetButtonHover.styles';
-import styled from 'styled-components';
+import { cardColorStore } from '../../../Store/CardColorStore';
+import useIsOpen from '../../../Hook/useIsOpen';
 
 const SlideWrapper = styled.div`
   width: 100%;
@@ -33,12 +35,19 @@ const handle = (props) => {
 };
 
 const CardSlider = observer(({ label, name }) => {
+  const [isOpen, handler] = useIsOpen();
   const [defaultSliderValue, setDefaultSliderValue] = useState(0);
-  useEffect(() => {
-    if (name === 'borderRadius')
-      setDefaultSliderValue(cardColorStore.borderRadius || 0);
+
+  useLayoutEffect(() => {
+    if (name === 'borderRadius') {
+      if (cardColorStore.borderRadius >= 0)
+        setDefaultSliderValue(cardColorStore.borderRadius);
+    }
     if (name === 'buttonRadius')
-      setDefaultSliderValue(cardColorStore.buttonRadius || 0);
+      if (cardColorStore.buttonRadius >= 0)
+        setDefaultSliderValue(cardColorStore.buttonRadius);
+
+    handler();
   }, [name]);
 
   const changeHandle = (value) => {
@@ -49,20 +58,22 @@ const CardSlider = observer(({ label, name }) => {
     <Container slider>
       <Label card>{label}</Label>
       <SlideWrapper>
-        <Slider
-          min={0}
-          max={30}
-          defaultValue={defaultSliderValue}
-          handle={handle}
-          trackStyle={{ backgroundColor: '#AD9EE5' }}
-          handleStyle={{
-            borderColor: '#AD9EE5',
-            height: 15,
-            width: 15,
-            backgroundColor: 'white',
-          }}
-          onChange={changeHandle}
-        />
+        {isOpen && (
+          <Slider
+            min={0}
+            max={30}
+            defaultValue={defaultSliderValue}
+            handle={handle}
+            trackStyle={{ backgroundColor: '#AD9EE5' }}
+            handleStyle={{
+              borderColor: '#AD9EE5',
+              height: 15,
+              width: 15,
+              backgroundColor: 'white',
+            }}
+            onChange={changeHandle}
+          />
+        )}
       </SlideWrapper>
     </Container>
   );

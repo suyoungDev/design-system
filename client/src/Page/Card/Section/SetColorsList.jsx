@@ -4,7 +4,6 @@ import CardSlider from './CardSlider';
 import { OptionContainer } from '../../../Components/OptionContainer';
 import SetButtonHover from './SetButtonHover';
 import { cardColorStore } from '../../../Store/CardColorStore';
-import { observer } from 'mobx-react-lite';
 
 const LIST = [
   { label: '제목 색상', value: 'headColor' },
@@ -12,7 +11,7 @@ const LIST = [
   { label: '버튼 색상', value: 'buttonColor' },
 ];
 
-const SetColorsList = observer(({ isOpen }) => {
+const SetColorsList = ({ isOpen }) => {
   return (
     <>
       {isOpen && (
@@ -31,6 +30,6 @@ const SetColorsList = observer(({ isOpen }) => {
       )}
     </>
   );
-});
+};
 
 export default SetColorsList;

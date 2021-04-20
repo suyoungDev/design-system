@@ -5,6 +5,7 @@ import { Wrapper, SaveExplain } from '../../Components/Wrapper';
 import { Loading, SavingButton } from './Save.styles';
 
 import { baseColorListStore } from '../../Store/BaseColorStore';
+import { cardColorStore } from '../../Store/CardColorStore';
 import { colorChipListStore } from '../../Store/ColorListStore';
 import { themeNameStore } from '../../Store/ThemeNameStore';
 import { typoColorStore } from '../../Store/TypoStore';
@@ -19,6 +20,7 @@ const Save = () => {
     colorChipListStore.saveList();
     baseColorListStore.saveList();
     typoColorStore.saveList();
+    cardColorStore.saveOptions();
 
     setTimeout(() => {
       setIsLoading(false);
@@ -32,10 +34,9 @@ const Save = () => {
         <p>설정한 모든 옵션을 로컬스토리지에 저장합니다.</p>
         <p>다음 접속 시, 저장된 옵션을 불러옵니다.</p>
         <div className='ex'>
-          <p>저장에서 제외되는 설정들:</p>
+          <p>저장에서 제외됨:</p>
           <ul>
-            <li>Mixin 셋팅</li>
-            <li>카드 옵션</li>
+            <li>Mixin</li>
           </ul>
         </div>
       </SaveExplain>

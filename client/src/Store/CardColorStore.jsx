@@ -59,9 +59,11 @@ export class cardColor {
   setHoverColor(value) {
     if (!this.buttonColor) return;
     let newColor;
-    if (value === 'brighten') newColor = chroma(this.buttonColor).brighten();
-    if (value === 'darken') newColor = chroma(this.buttonColor).darken();
-    if (value === 'saturate') newColor = chroma(this.buttonColor).saturate();
+    if (value === 'brighten')
+      newColor = chroma(this.buttonColor).brighten().hex();
+    if (value === 'darken') newColor = chroma(this.buttonColor).darken().hex();
+    if (value === 'saturate')
+      newColor = chroma(this.buttonColor).saturate().hex();
     if (value === 'desaturate')
       newColor = chroma(this.buttonColor).desaturate();
     this.setCardColor('hoverColor', newColor);
@@ -86,13 +88,14 @@ export class cardColor {
 
   loadOptions() {
     const data = localStorage.getItem('cardOptions');
-    this.borderRadius = data.borderRadius;
-    this.buttonColor = data.buttonColor;
-    this.buttonRadius = data.buttonRadius;
-    this.hoverColor = data.hoverColor;
-    this.headColor = data.headColor;
-    this.contentColor = data.contentColor;
-    this.hoverType = data.hoverType;
+    const dataList = JSON.parse(data);
+    this.borderRadius = dataList[0].borderRadius;
+    this.buttonColor = dataList[0].buttonColor;
+    this.buttonRadius = dataList[0].buttonRadius;
+    this.hoverColor = dataList[0].hoverColor;
+    this.headColor = dataList[0].headColor;
+    this.contentColor = dataList[0].contentColor;
+    this.hoverType = dataList[0].hoverType;
   }
 }
 
