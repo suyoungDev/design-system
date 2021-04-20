@@ -40,12 +40,12 @@ const AddButton = ({
         </SmallButton>
       )}
       {save && (
-        <SmallButton narrow onClick={save} title='옵션'>
+        <SmallButton narrow onClick={save} title='저장하기'>
           <BiSave />
         </SmallButton>
       )}
       {options && (
-        <SmallButton narrow onClick={options} title='옵션'>
+        <SmallButton narrow onClick={options} title='옵션 변경'>
           <CgOptions />
         </SmallButton>
       )}
@@ -75,7 +75,7 @@ const AddButton = ({
         </SmallButton>
       )}
       {deleteItem && (
-        <SmallButton narrow onClick={deleteItem} title='색상 변경'>
+        <SmallButton narrow onClick={deleteItem} title='삭제하기'>
           <BiX />
         </SmallButton>
       )}
