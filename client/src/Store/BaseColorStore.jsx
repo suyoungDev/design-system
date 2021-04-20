@@ -40,6 +40,9 @@ export class baseColorList {
       deleteAll: action,
       addNewBaseColor: action,
       changeOrder: action,
+      clearList: action,
+      saveList: action,
+      loadList: action,
     });
 
     this.baseColorList = baseColorList;
@@ -69,11 +72,34 @@ export class baseColorList {
     result.splice(destinationIndex, 0, removed);
     this.baseColorList = result;
   }
+
+  clearList() {
+    this.baseColorList = [];
+  }
+
+  saveList() {
+    const baseColorList = this.baseColorList.map((item) => ({
+      hexId: item.hexId,
+      label: item.label,
+      role: item.role,
+    }));
+    localStorage.setItem('baseColorList', JSON.stringify(baseColorList));
+  }
+
+  loadList() {
+    const list = localStorage.getItem('baseColorList');
+    const dataList = JSON.parse(list);
+    if (dataList.length) this.clearList();
+    for (let i = 0; i < dataList.length; i++) {
+      const { role, label, hexId } = dataList[i];
+      const newItem = new baseColor(hexId, label, role);
+      this.baseColorList.push(newItem);
+    }
+  }
 }
 
 export const baseColorListStore = new baseColorList([
   new baseColor('#AD9EE5', 'lavender', 'primary'),
   new baseColor('#393B3F', 'ash', 'ink'),
-  new baseColor('#f68a6e', 'orange', 'warning'),
   new baseColor('#F3EFA1', 'lemon', 'secondary'),
 ]);

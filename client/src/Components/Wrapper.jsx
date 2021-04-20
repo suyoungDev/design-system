@@ -44,4 +44,24 @@ export const SaveExplain = styled.div`
   p:last-child {
     margin-bottom: 1rem;
   }
+
+  .ex {
+    width: 100%;
+    border-radius: 5px;
+    background-color: ${(props) => props.theme.neutral50};
+    padding: 1rem;
+    margin: 2rem 0;
+
+    p {
+      font-size: 0.8rem;
+      color: ${(props) => props.theme.ink40};
+      font-weight: bold;
+    }
+    ul {
+      margin: 0.5rem 0 0 0.7rem;
+      list-style: none;
+      font-size: 0.7rem;
+      color: ${(props) => props.theme.ink40};
+    }
+  }
 `;

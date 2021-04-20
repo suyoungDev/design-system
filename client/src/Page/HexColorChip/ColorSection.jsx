@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useRef } from 'react';
+import React, { Suspense, useCallback, useRef, useLayoutEffect } from 'react';
 import chroma from 'chroma-js';
 
 import { Wrapper } from '../../Components/Wrapper';
@@ -15,12 +15,16 @@ const ColorSection = () => {
   const [isOpen, setIsOpen] = useIsOpen();
   const number = useRef(0);
 
+  useLayoutEffect(() => {
+    colorChipListStore.loadList();
+  }, []);
+
   const openModal = useCallback(() => {
     openModalStore.setModalOpen(true);
   }, []);
 
   const addRandom = useCallback(() => {
-    const hexId = chroma.random();
+    const hexId = chroma.random().hex();
     colorChipListStore.addColorChip({
       hexId,
       label: `random${number.current}`,

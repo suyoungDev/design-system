@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useLayoutEffect } from 'react';
 
 import { Wrapper } from '../../Components/Wrapper';
 import Head from '../../Components/Head';
@@ -13,6 +13,10 @@ const BaseColor = () => {
   const addNew = () => {
     baseColorListStore.addNewBaseColor();
   };
+
+  useLayoutEffect(() => {
+    baseColorListStore.loadList();
+  }, []);
 
   return (
     <Wrapper id='maincolors'>

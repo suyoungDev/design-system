@@ -26,6 +26,9 @@ export class typoColorList {
       colorList: observable,
       addNewColor: action,
       deleteColor: action,
+      clearList: action,
+      saveList: action,
+      loadList: action,
     });
 
     this.colorList = colorList;
@@ -40,6 +43,25 @@ export class typoColorList {
     if (!id) return null;
     const index = this.colorList.findIndex((item) => item.id === id);
     if (index > -1) this.colorList.splice(index, 1);
+  }
+
+  clearList() {
+    this.colorList = [];
+  }
+
+  saveList() {
+    const data = this.colorList;
+    const dataList = data.map((item) => ({ hexId: item.hexId }));
+    localStorage.setItem('typo', JSON.stringify(dataList));
+  }
+
+  loadList() {
+    const data = localStorage.getItem('typo');
+    const dataList = JSON.parse(data);
+    if (data.length) this.clearList();
+    for (let i = 0; i < dataList.length; i++) {
+      this.addNewColor(dataList[i].hexId);
+    }
   }
 }
 

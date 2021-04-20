@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, Suspense } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  Suspense,
+  useLayoutEffect,
+} from 'react';
 import useInput from '../../../Hook/useInput';
 
 import { HeadingRow } from '../../../Components/Row';
@@ -10,14 +16,9 @@ const BasicName = React.lazy(() => import('./BasicName'));
 
 const ThemeName = observer(() => {
   const [willChangeName, setWillChangeName] = useState(false);
-  const [themeTitle, setThemeTitle] = useState('');
+  const [themeTitle, setThemeTitle] = useState('사용자 테마 제목');
   const [input, handler] = useInput({ title: '' });
   const { title } = input;
-
-  useEffect(() => {
-    const title = themeNameStore.loadName();
-    setThemeTitle(title);
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,6 +41,13 @@ const ThemeName = observer(() => {
     [willChangeName]
   );
 
+  useLayoutEffect(() => {
+    themeNameStore.loadName();
+    if (themeNameStore.name) {
+      setThemeTitle(themeNameStore.name);
+    }
+  }, []);
+
   useEffect(() => {
     document.addEventListener('keydown', keyPress);
     return () => document.removeEventListener('keydown', keyPress);
@@ -61,8 +69,8 @@ const ThemeName = observer(() => {
             <ChangeName
               handler={handler}
               handleSubmit={handleSubmit}
-              title={title}
               cancleSubmit={cancleSubmit}
+              title={title}
             />
           </Suspense>
         )}

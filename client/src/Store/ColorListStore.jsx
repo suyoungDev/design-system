@@ -32,6 +32,9 @@ class ColorChipList {
       deleteColorChip: action,
       changeOrder: action,
       modifyColorChip: action,
+      clearList: action,
+      saveList: action,
+      loadList: action,
     });
     this.colorList = colorList;
   }
@@ -64,12 +67,32 @@ class ColorChipList {
       this.colorList[index].hexId = hexId;
     }
   }
+
+  clearList() {
+    this.colorList = [];
+  }
+
+  saveList() {
+    const palette = this.colorList.map((item) => ({
+      hexId: item.hexId,
+      label: item.label,
+    }));
+    localStorage.setItem('palette', JSON.stringify(palette));
+  }
+
+  loadList() {
+    const list = localStorage.getItem('palette');
+    const dataList = JSON.parse(list);
+    if (dataList.length) this.clearList();
+    for (let i = 0; i < dataList.length; i++) {
+      const { hexId, label } = dataList[i];
+      this.addColorChip({ hexId, label });
+    }
+  }
 }
 
 export const colorChipListStore = new ColorChipList([
   new colorChip('#AD9EE5', 'lavender'),
   new colorChip('#393B3F', 'ash'),
-  new colorChip('#fa8888', 'pink'),
-  new colorChip('#f68a6e', 'orange'),
   new colorChip('#F3EFA1', 'lemon'),
 ]);

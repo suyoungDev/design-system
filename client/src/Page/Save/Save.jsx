@@ -5,35 +5,24 @@ import { Wrapper, SaveExplain } from '../../Components/Wrapper';
 import { Loading, SavingButton } from './Save.styles';
 
 import { baseColorListStore } from '../../Store/BaseColorStore';
-import { cardColorStore } from '../../Store/CardColorStore';
 import { colorChipListStore } from '../../Store/ColorListStore';
 import { themeNameStore } from '../../Store/ThemeNameStore';
+import { typoColorStore } from '../../Store/TypoStore';
 
 const Save = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const saveInLocal = () => {
     setIsLoading(true);
-    const baseColorList = baseColorListStore.baseColorList.map((item) => ({
-      hexId: item.hexId,
-      label: item.label,
-      role: item.role,
-    }));
-    const allColorsList = colorChipListStore.colorList.map((item) => ({
-      hexId: item.hexId,
-      label: item.label,
-    }));
-    const cardSettings = { ...cardColorStore };
-    const themeName = themeNameStore.name;
 
-    localStorage.setItem('baseColorList', JSON.stringify(baseColorList));
-    localStorage.setItem('allColorsList', JSON.stringify(allColorsList));
-    localStorage.setItem('cardSettings', JSON.stringify(cardSettings));
-    localStorage.setItem('themeName', themeName);
+    themeNameStore.saveName();
+    colorChipListStore.saveList();
+    baseColorListStore.saveList();
+    typoColorStore.saveList();
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 700);
   };
 
   return (
@@ -42,6 +31,13 @@ const Save = () => {
         <p>저장하시겠습니까?</p>
         <p>설정한 모든 옵션을 로컬스토리지에 저장합니다.</p>
         <p>다음 접속 시, 저장된 옵션을 불러옵니다.</p>
+        <div className='ex'>
+          <p>저장에서 제외되는 설정들:</p>
+          <ul>
+            <li>Mixin 셋팅</li>
+            <li>카드 옵션</li>
+          </ul>
+        </div>
       </SaveExplain>
       <SavingButton
         onClick={saveInLocal}

@@ -29,6 +29,8 @@ export class cardColor {
       buttonRadius: observable,
       setCardColor: action,
       setHoverColor: action,
+      saveOptions: action,
+      loadOptions: action,
     });
 
     this.borderRadius = borderRadius;
@@ -64,6 +66,33 @@ export class cardColor {
       newColor = chroma(this.buttonColor).desaturate();
     this.setCardColor('hoverColor', newColor);
     this.hoverType = value;
+  }
+
+  saveOptions() {
+    const data = [
+      {
+        borderRadius: this.borderRadius,
+        buttonColor: this.buttonColor,
+        buttonRadius: this.buttonRadius,
+        hoverColor: this.hoverColor,
+        headColor: this.headColor,
+        contentColor: this.contentColor,
+        hoverType: this.hoverType,
+      },
+    ];
+
+    localStorage.setItem('cardOptions', JSON.stringify(data));
+  }
+
+  loadOptions() {
+    const data = localStorage.getItem('cardOptions');
+    this.borderRadius = data.borderRadius;
+    this.buttonColor = data.buttonColor;
+    this.buttonRadius = data.buttonRadius;
+    this.hoverColor = data.hoverColor;
+    this.headColor = data.headColor;
+    this.contentColor = data.contentColor;
+    this.hoverType = data.hoverType;
   }
 }
 

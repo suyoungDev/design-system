@@ -3,7 +3,6 @@ import { SmallButton } from '../../../Components/Button';
 import FormInput from '../../../Components/FormInput/FormInput';
 import useInput from '../../../Hook/useInput';
 import { BiPencil } from 'react-icons/bi';
-import { Row } from '../../../Components/Row';
 import { Form } from '../../../Components/Form';
 
 const ChangeName = ({ setIsOpen, item }) => {
