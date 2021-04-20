@@ -7,7 +7,7 @@ const ListOfMixin = observer(() => {
   return (
     <div>
       {mixinStore.mixinList?.map((item) => (
-        <MixinModule item={item} key={item.id} id={item.id} />
+        <MixinModule item={item} key={item.id} />
       ))}
     </div>
   );

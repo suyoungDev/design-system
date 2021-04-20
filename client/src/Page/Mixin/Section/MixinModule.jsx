@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 
 import { Row } from '../../../Components/Row';
-import MixinOptionsButton from './MixinOptionsButton';
+import SaveMixin from './SaveMixin';
 import MixinOptions from './MixinOptions';
 import AddButton from '../../../Components/AddButton';
 import ModifyName from './ModifyName';
@@ -27,10 +27,11 @@ const Container = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-const MixinModule = observer(({ item, id }) => {
+const MixinModule = observer(({ item }) => {
   const [isOpen, setIsOpen] = useIsOpen();
   const [isOptionOpen, setIsOptionOpen] = useState(false);
   const [indexLog, setIndexLog] = useState();
+  const [isChecked, setIsChecked] = useState(false);
 
   const deleteItem = () => mixinStore.deleteMixin(item.id);
 
@@ -56,20 +57,22 @@ const MixinModule = observer(({ item, id }) => {
         <Row>
           {item.listOfColors?.map((smallColor, index) => (
             <SmallMixin
-              key={smallColor}
+              key={`${smallColor}_${index}`}
               smallColor={smallColor}
               index={index}
               open={openOptions}
             />
           ))}
         </Row>
-        <MixinOptionsButton setIsOptionOpen={setIsOptionOpen} />
+        <SaveMixin />
       </Row>
       {isOptionOpen && (
         <MixinOptions
           index={indexLog}
           setIsOptionOpen={setIsOptionOpen}
-          id={id}
+          id={item.id}
+          isChecked={isChecked}
+          setIsChecked={setIsChecked}
         />
       )}
     </Container>

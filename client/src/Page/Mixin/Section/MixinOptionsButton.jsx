@@ -2,9 +2,9 @@ import React from 'react';
 import { AddContainer } from '../../../Components/ColorCircle';
 import { CgOptions } from 'react-icons/cg';
 
-const MixinOptionsButton = ({ setIsOptionOpen }) => {
+const MixinOptionsButton = () => {
   return (
-    <AddContainer onClick={(props) => setIsOptionOpen(!props)}>
+    <AddContainer>
       <CgOptions />
     </AddContainer>
   );

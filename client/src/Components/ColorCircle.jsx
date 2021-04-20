@@ -51,6 +51,7 @@ export const AddContainer = styled.button`
   justify-content: center;
   align-items: center;
   margin-left: 0.7rem;
+  transition: all 0.5s ease;
 
   :hover {
     background: ${(props) => props.theme.neutral50};

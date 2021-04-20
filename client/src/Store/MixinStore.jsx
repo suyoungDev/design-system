@@ -56,26 +56,40 @@ export class mixinColorsList {
     if (index > -1) this.mixinList.splice(index, 1);
   }
 
-  changeVariation(hexId, mixinIndex, id) {
+  changeVariation(hexId, takeMiddle, mixinIndex, id) {
     if (!id || !hexId) return null;
 
     const index = this.mixinList.findIndex((item) => item.id === id);
     let list = [];
 
+    // 첫번째 값 수정
     if (mixinIndex === 0) {
-      const origin = this.mixinList[index].listOfColors[4];
-      list = chroma.scale([hexId, origin]).mode('lch').colors(5);
+      const last = this.mixinList[index].listOfColors[4];
+      if (takeMiddle) {
+        const middle = this.mixinList[index].listOfColors[2];
+        list = chroma.scale([hexId, middle, last]).mode('lch').colors(5);
+      } else {
+        list = chroma.scale([hexId, last]).mode('lch').colors(5);
+      }
     }
+
+    // 중간 값 수정 (첫값, 마지막값 보존)
     if (mixinIndex === 2) {
       const first = this.mixinList[index].listOfColors[0];
       const last = this.mixinList[index].listOfColors[4];
       list = chroma.scale([first, hexId, last]).mode('lch').colors(5);
     }
+
+    // 마지막 값 수정
     if (mixinIndex === 4) {
       const first = this.mixinList[index].listOfColors[0];
-      list = chroma.scale([first, hexId]).mode('lch').colors(5);
+      if (takeMiddle) {
+        const middle = this.mixinList[index].listOfColors[2];
+        list = chroma.scale([first, middle, hexId]).mode('lch').colors(5);
+      } else {
+        list = chroma.scale([first, hexId]).mode('lch').colors(5);
+      }
     }
-
     if (list.length) {
       this.mixinList[index].listOfColors = list;
     }

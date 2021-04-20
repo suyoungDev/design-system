@@ -120,6 +120,15 @@ export const SmallButton = styled(Button)`
       color: ${(props) => props.buttonColor};
     }
   }
+
+  &.mixin {
+    cursor: auto;
+  }
+  opacity: ${({ mixin }) => (mixin ? 0 : 1)};
+  &.hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `;
 
 export const ModalButton = styled(Button)`

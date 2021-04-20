@@ -25,11 +25,13 @@ const SmallMixin = observer(({ smallColor, index, open }) => {
       buttonColor={buttonColor}
       onClick={() => open(index)}
     >
-      {isHover && (
-        <SmallButton buttonColor={buttonColor}>
-          <CgOptions />
-        </SmallButton>
-      )}
+      <SmallButton
+        mixin
+        buttonColor={buttonColor}
+        className={`${isHover && 'hover'}  mixin`}
+      >
+        <CgOptions />
+      </SmallButton>
     </ColorBox>
   );
 });
