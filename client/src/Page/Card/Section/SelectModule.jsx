@@ -71,7 +71,7 @@ const colourStyles = {
 
 const SelectModule = observer(({ label, value }) => {
   const [isReEnter, setIsReEnter] = useState(false);
-  const [storedIndex, setStoredIndex] = useState();
+  const [selectedOption, setSelectedOption] = useState('');
 
   const options = colorChipListStore.colorList.map((item) => ({
     color: item.hexId,
@@ -83,15 +83,18 @@ const SelectModule = observer(({ label, value }) => {
     if (storeValue) setIsReEnter(true);
     for (let i = 0; i < options.length; i++) {
       if (options[i].color === storeValue) {
-        setStoredIndex(i);
+        setSelectedOption(options[i]);
       }
     }
-  }, [value, options]);
+    // eslint-disable-next-line
+  }, []);
 
   const setCardColors = (color) => {
+    setSelectedOption(color);
     cardColorStore.setCardColor(value, color.color);
   };
 
+  // focus border 색상
   function customTheme(theme) {
     return {
       ...theme,
@@ -124,8 +127,8 @@ const SelectModule = observer(({ label, value }) => {
             styles={colourStyles}
             theme={customTheme}
             isSearchable
-            onChange={setCardColors}
-            defaultValue={options[storedIndex]}
+            onChange={setSelectedOption}
+            defaultValue={selectedOption}
           />
         )}
       </OptionWrapper>
