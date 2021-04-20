@@ -82,6 +82,8 @@ export const Container = styled.section`
 
 export const SimpleContainer = styled.section`
   position: relative;
+  width: 100vw;
+  max-width: 100%;
   height: auto;
   overflow: hidden;
   padding: 4rem 0;

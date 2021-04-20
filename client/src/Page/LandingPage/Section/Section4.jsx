@@ -63,6 +63,8 @@ const Content = styled.div`
 
 const Container = styled.section`
   position: relative;
+  width: 100vw;
+  max-width: 100%;
   height: auto;
   overflow: hidden;
   padding: 2rem 0;

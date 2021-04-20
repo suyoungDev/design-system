@@ -29,6 +29,7 @@ const SmallMixin = observer(({ smallColor, index, open }) => {
         mixin
         buttonColor={buttonColor}
         className={`${isHover && 'hover'}  mixin`}
+        title='색상 수정하기'
       >
         <CgOptions />
       </SmallButton>
