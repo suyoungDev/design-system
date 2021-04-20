@@ -89,6 +89,9 @@ export class cardColor {
   loadOptions() {
     const data = localStorage.getItem('cardOptions');
     const dataList = JSON.parse(data);
+
+    if (!dataList) return;
+
     this.borderRadius = dataList[0].borderRadius;
     this.buttonColor = dataList[0].buttonColor;
     this.buttonRadius = dataList[0].buttonRadius;

@@ -83,7 +83,9 @@ class ColorChipList {
   loadList() {
     const list = localStorage.getItem('palette');
     const dataList = JSON.parse(list);
-    if (dataList.length) this.clearList();
+    if (!dataList) return;
+
+    this.clearList();
     for (let i = 0; i < dataList.length; i++) {
       const { hexId, label } = dataList[i];
       this.addColorChip({ hexId, label });

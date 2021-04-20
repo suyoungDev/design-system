@@ -48,6 +48,7 @@ const CardSlider = observer(({ label, name }) => {
         setDefaultSliderValue(cardColorStore.buttonRadius);
 
     handler();
+    // eslint-disable-next-line
   }, [name]);
 
   const changeHandle = (value) => {

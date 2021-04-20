@@ -58,7 +58,9 @@ export class typoColorList {
   loadList() {
     const data = localStorage.getItem('typo');
     const dataList = JSON.parse(data);
-    if (data.length) this.clearList();
+    if (!dataList) return;
+
+    this.clearList();
     for (let i = 0; i < dataList.length; i++) {
       this.addNewColor(dataList[i].hexId);
     }

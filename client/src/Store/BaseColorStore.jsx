@@ -89,7 +89,9 @@ export class baseColorList {
   loadList() {
     const list = localStorage.getItem('baseColorList');
     const dataList = JSON.parse(list);
-    if (dataList.length) this.clearList();
+    if (!dataList) return;
+
+    this.clearList();
     for (let i = 0; i < dataList.length; i++) {
       const { role, label, hexId } = dataList[i];
       const newItem = new baseColor(hexId, label, role);
