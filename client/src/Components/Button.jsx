@@ -110,7 +110,7 @@ export const SmallButton = styled(Button)`
   height: 32px;
   font-size: 12px;
   font-weight: 400;
-  padding: ${({ narrow }) => narrow && '0.2rem 0.3rem'};
+  padding: ${({ narrow, mini }) => (narrow ? '0.2rem 0.3rem' : mini && '0rem')};
   border: none;
   :not(:last-of-type) {
     margin-right: 0.2rem;
@@ -128,6 +128,13 @@ export const SmallButton = styled(Button)`
   &.hover {
     opacity: 1;
     cursor: pointer;
+  }
+
+  &.mini {
+    padding: 0;
+    :not(:last-of-type) {
+      margin-right: 0.3rem;
+    }
   }
 `;
 

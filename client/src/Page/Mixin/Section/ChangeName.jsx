@@ -1,6 +1,10 @@
 import React, { useCallback, useEffect } from 'react';
+import { SmallButton } from '../../../Components/Button';
 import FormInput from '../../../Components/FormInput/FormInput';
 import useInput from '../../../Hook/useInput';
+import { BiPencil } from 'react-icons/bi';
+import { Row } from '../../../Components/Row';
+import { Form } from '../../../Components/Form';
 
 const ChangeName = ({ setIsOpen, item }) => {
   const [input, handler] = useInput({ title: '' });
@@ -27,7 +31,7 @@ const ChangeName = ({ setIsOpen, item }) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <Form row mixin onSubmit={onSubmit}>
       <FormInput
         type='text'
         value={title}
@@ -36,7 +40,10 @@ const ChangeName = ({ setIsOpen, item }) => {
         required
         autoFocus
       />
-    </form>
+      <SmallButton mini type='submit' title='이름 수정'>
+        <BiPencil />
+      </SmallButton>
+    </Form>
   );
 };
 

@@ -25,6 +25,7 @@ const AddButton = ({
   changeName,
   save,
   deleteItem,
+  ...props
 }) => {
   return (
     <div>
@@ -35,12 +36,12 @@ const AddButton = ({
       )}
 
       {changeName && (
-        <SmallButton narrow onClick={changeName} title='이름 변경'>
+        <SmallButton narrow onClick={changeName} title='이름 변경' {...props}>
           <BiPencil />
         </SmallButton>
       )}
       {save && (
-        <SmallButton narrow onClick={save} title='저장하기'>
+        <SmallButton narrow onClick={save} title='저장하기' {...props}>
           <BiSave />
         </SmallButton>
       )}
@@ -75,7 +76,7 @@ const AddButton = ({
         </SmallButton>
       )}
       {deleteItem && (
-        <SmallButton narrow onClick={deleteItem} title='삭제하기'>
+        <SmallButton narrow onClick={deleteItem} title='삭제하기' {...props}>
           <BiX />
         </SmallButton>
       )}

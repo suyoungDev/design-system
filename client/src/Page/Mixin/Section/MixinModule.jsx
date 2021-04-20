@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 
 import { Row } from '../../../Components/Row';
-import SaveMixin from './SaveMixin';
-import MixinOptions from './MixinOptions';
 import AddButton from '../../../Components/AddButton';
 import ModifyName from './ModifyName';
 import SmallMixin from './SmallMixin';
 
 import useIsOpen from '../../../Hook/useIsOpen';
 import { mixinStore } from '../../../Store/MixinStore';
+const MixinOptions = React.lazy(() => import('./MixinOptions'));
 
 const Title = styled.div`
   display: flex;
@@ -66,11 +65,14 @@ const MixinModule = observer(({ item }) => {
       <Container>
         <Title>
           <ModifyName isOpen={isOpen} setIsOpen={setIsOpen} item={item} />
-          <AddButton
-            changeName={setIsOpen}
-            deleteItem={deleteItem}
-            save={addToPalette}
-          />
+          {!isOpen && (
+            <AddButton
+              changeName={setIsOpen}
+              deleteItem={deleteItem}
+              save={addToPalette}
+              className='mini'
+            />
+          )}
         </Title>
         <Row className='mb-5'>
           <Row>
@@ -85,13 +87,15 @@ const MixinModule = observer(({ item }) => {
           </Row>
         </Row>
         {isOptionOpen && (
-          <MixinOptions
-            index={indexLog}
-            setIsOptionOpen={setIsOptionOpen}
-            id={item.id}
-            isChecked={isChecked}
-            setIsChecked={setIsChecked}
-          />
+          <Suspense fallback={<div>...loading...</div>}>
+            <MixinOptions
+              index={indexLog}
+              setIsOptionOpen={setIsOptionOpen}
+              id={item.id}
+              isChecked={isChecked}
+              setIsChecked={setIsChecked}
+            />
+          </Suspense>
         )}
       </Container>
     </ModuleWrapper>
