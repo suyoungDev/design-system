@@ -43,7 +43,4 @@ export class typoColorList {
   }
 }
 
-export const typoColorStore = new typoColorList([
-  new typoColor('#868bff'),
-  new typoColor('#748199'),
-]);
+export const typoColorStore = new typoColorList([new typoColor('#393B3F')]);

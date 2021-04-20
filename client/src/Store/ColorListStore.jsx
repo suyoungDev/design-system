@@ -67,9 +67,9 @@ class ColorChipList {
 }
 
 export const colorChipListStore = new ColorChipList([
-  new colorChip('#868bff', 'lavender'),
-  new colorChip('#748199', 'ash'),
+  new colorChip('#AD9EE5', 'lavender'),
+  new colorChip('#393B3F', 'ash'),
   new colorChip('#fa8888', 'pink'),
-  new colorChip('#52f4e1', 'mint'),
-  new colorChip('#2037ff', 'blue'),
+  new colorChip('#f68a6e', 'orange'),
+  new colorChip('#F3EFA1', 'lemon'),
 ]);

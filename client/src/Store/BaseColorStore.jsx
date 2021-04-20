@@ -72,8 +72,8 @@ export class baseColorList {
 }
 
 export const baseColorListStore = new baseColorList([
-  new baseColor('#868bff', 'lavender', 'Primary'),
-  new baseColor('#2037ff', 'blue', 'action'),
-  new baseColor('#748199', 'ash', 'ink'),
-  new baseColor('#52f4e1', 'mint', 'secondary'),
+  new baseColor('#AD9EE5', 'lavender', 'primary'),
+  new baseColor('#393B3F', 'ash', 'ink'),
+  new baseColor('#f68a6e', 'orange', 'warning'),
+  new baseColor('#F3EFA1', 'lemon', 'secondary'),
 ]);
