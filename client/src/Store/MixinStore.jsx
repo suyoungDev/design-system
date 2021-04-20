@@ -5,25 +5,17 @@ import { colorChipListStore } from './ColorListStore';
 export class mixinColors {
   id = Math.random().toFixed(4);
   title = '';
-  mainHexId = '';
   listOfColors = [];
 
-  constructor(title, mainHexId, listOfColors) {
+  constructor(title, listOfColors) {
     makeObservable(this, {
       title: observable,
-      mainHexId: observable,
       listOfColors: observable,
-      changeMainColor: action,
       changeTitle: action,
     });
 
     this.title = title;
-    this.mainHexId = mainHexId;
     this.listOfColors = listOfColors;
-  }
-
-  changeMainColor(mainHexId) {
-    this.mainHexId = mainHexId;
   }
 
   changeTitle(title) {
@@ -48,7 +40,7 @@ export class mixinColorsList {
 
   addNewMixin(hexId = '#513CCC') {
     const list = chroma.scale(['white', hexId]).mode('lch').colors(5);
-    const newBase = new mixinColors('new mixin', hexId, list);
+    const newBase = new mixinColors('new mixin', list);
     this.mixinList.push(newBase);
   }
 

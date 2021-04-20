@@ -55,7 +55,7 @@ const MixinModule = observer(({ item }) => {
       </Title>
       <Row className='mb-5'>
         <Row>
-          {item.listOfColors?.map((smallColor, index) => (
+          {item.listOfColors.map((smallColor, index) => (
             <SmallMixin
               key={`${smallColor}_${index}`}
               smallColor={smallColor}

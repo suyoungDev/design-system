@@ -6,7 +6,7 @@ import MixinModule from './MixinModule';
 const ListOfMixin = observer(() => {
   return (
     <div>
-      {mixinStore.mixinList?.map((item) => (
+      {mixinStore.mixinList.map((item) => (
         <MixinModule item={item} key={item.id} />
       ))}
     </div>
