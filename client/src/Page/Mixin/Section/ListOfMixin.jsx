@@ -1,8 +1,8 @@
-import React from 'react';
-import { mixinStore } from '../../../Store/MixinStore';
-import { observer } from 'mobx-react-lite';
-import MixinModule from './MixinModule';
+import React, { Suspense } from 'react';
 import styled from 'styled-components';
+import { observer } from 'mobx-react-lite';
+import { mixinStore } from '../../../Store/MixinStore';
+const MixinModule = React.lazy(() => import('./MixinModule'));
 
 const Container = styled.div`
   width: 100%;
@@ -15,7 +15,9 @@ const ListOfMixin = observer(() => {
   return (
     <Container>
       {mixinStore.mixinList.map((item) => (
-        <MixinModule item={item} key={item.id} />
+        <Suspense fallback={<div>...loading...</div>}>
+          <MixinModule item={item} key={item.id} />
+        </Suspense>
       ))}
     </Container>
   );

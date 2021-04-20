@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { BiX, BiPencil } from 'react-icons/bi';
 
 import { Row, BaseColorItemRow } from '../../../Components/Row';
 import { ColorCircle } from '../../../Components/ColorCircle';
 import ModifyInput from './ModifyInput';
-import ChangeBaseColorList from './ChangeBaseColorList';
 import { baseColorListStore } from '../../../Store/BaseColorStore';
 import { Wrapper, Title, Dash, Label } from './BaseColorModule.styles';
 import { SmallButton } from '../../../Components/Button';
+const ChangeBaseColorList = React.lazy(() => import('./ChangeBaseColorList'));
 
 const BaseColorModule = ({ item }) => {
   const [isModify, setIsModify] = useState({ label: false, role: false });
@@ -75,7 +75,11 @@ const BaseColorModule = ({ item }) => {
           <BiX />
         </SmallButton>
       </BaseColorItemRow>
-      {label && <ChangeBaseColorList changeColor={changeColor} />}
+      {label && (
+        <Suspense fallback={<div>...loading...</div>}>
+          <ChangeBaseColorList changeColor={changeColor} />
+        </Suspense>
+      )}
     </Wrapper>
   );
 };
