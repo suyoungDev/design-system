@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link as LinkScroll } from 'react-scroll';
 
 export const NavMenu = styled.ul`
-  display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+  display: flex;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transition: all 0.5s ease-in-out;
   flex-direction: column;
@@ -10,14 +10,13 @@ export const NavMenu = styled.ul`
   justify-content: center;
   list-style: none;
   text-decoration: none;
+
   position: fixed;
   top: calc(100vh / 2 - 150px);
-  left: 0px;
+  left: 15px;
+
   text-align: center;
-  border: 1px solid ${(props) => props.theme.neutral50};
   padding: 1rem 0rem 1rem 0;
-  border-radius: 0 20px 20px 0;
-  background-color: ${(props) => props.theme.neutral40};
 `;
 
 export const NavItem = styled.li`
@@ -55,9 +54,9 @@ export const NavLinkS = styled(LinkScroll)`
 
 export const NavContainer = styled.nav`
   z-index: 1;
-  display: flex;
+  display: none;
 
-  @media screen and (max-width: 768px) {
-    display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
   }
 `;
