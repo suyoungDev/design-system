@@ -26,7 +26,7 @@ const SubmitHex = () => {
     (e) => {
       e.preventDefault();
       if (payload) {
-        const id = payload.id;
+        const { id } = payload;
         colorChipListStore.modifyColorChip({ id, label, hexId });
       }
       if (!payload) colorChipListStore.addColorChip({ label, hexId });
