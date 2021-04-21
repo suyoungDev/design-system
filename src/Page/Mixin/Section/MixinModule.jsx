@@ -5,8 +5,8 @@ import { observer } from 'mobx-react-lite';
 import { Row } from '../../../Components/Row';
 import AddButton from '../../../Components/AddButton';
 import ModifyName from './ModifyName';
-import SmallMixin from './SmallMixin';
 
+import SmallMixinList from './SmallMixinList';
 import useIsOpen from '../../../Hook/useIsOpen';
 import { mixinStore } from '../../../Store/MixinStore';
 const MixinOptions = React.lazy(() => import('./MixinOptions'));
@@ -75,16 +75,7 @@ const MixinModule = observer(({ item }) => {
           )}
         </Title>
         <Row className='mb-5'>
-          <Row>
-            {item.listOfColors.map((smallColor, index) => (
-              <SmallMixin
-                key={`${smallColor}_${index}`}
-                smallColor={smallColor}
-                index={index}
-                open={openOptions}
-              />
-            ))}
-          </Row>
+          <SmallMixinList list={item.listOfColors} open={openOptions} />
         </Row>
         {isOptionOpen && (
           <Suspense fallback={<div>...loading...</div>}>
