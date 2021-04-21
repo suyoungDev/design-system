@@ -13,7 +13,6 @@ const NAV_LIST = {
     duration: 500,
     offset: -60,
     spy: true,
-    exact: true,
     activeClass: 'active',
   },
 };

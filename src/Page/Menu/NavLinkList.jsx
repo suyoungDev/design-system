@@ -6,7 +6,7 @@ const NavLinkList = ({ isVisible, list }) => {
   return (
     <NavMenu isVisible={isVisible}>
       {list.data.map((item) => (
-        <NavLinkModule item={item} config={list.config} />
+        <NavLinkModule item={item} config={list.config} key={item.to} />
       ))}
     </NavMenu>
   );

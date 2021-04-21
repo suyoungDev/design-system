@@ -19,7 +19,7 @@ const NavLinkModule = ({ item, config }) => {
           smooth={config.smooth}
           duration={config.duration}
           spy={config.spy}
-          exact={config.exact}
+          exact='true'
           offset={config.offset}
           activeClass={config.activeClass}
           to={item.to}
@@ -33,7 +33,7 @@ const NavLinkModule = ({ item, config }) => {
           smooth={config.smooth}
           duration={config.duration}
           spy={config.spy}
-          exact={config.exact}
+          exact='true'
           offset={config.offset}
           activeClass={config.activeClass}
           to={item.to}
