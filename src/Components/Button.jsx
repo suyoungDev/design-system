@@ -156,7 +156,7 @@ export const ModalButton = styled(Button)`
 export const ModalSubmitButton = styled(Button)`
   color: ${(props) => props.theme.ink50};
   background: ${(props) => props.theme.neutral50};
-  width: 200px;
+  width: 100%;
   height: auto;
   padding: 0.6em 3em;
 

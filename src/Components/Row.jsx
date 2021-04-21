@@ -24,7 +24,7 @@ export const Row = styled.div`
     margin-top: 0.8rem;
   }
   &.mb-20 {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 `;
 

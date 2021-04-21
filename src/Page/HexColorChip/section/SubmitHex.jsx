@@ -46,9 +46,10 @@ const SubmitHex = () => {
     <Column className='center'>
       <ChromePicker color={hexId} onChange={handleColor} disableAlpha={true} />
       <Form onSubmit={handleSubmit}>
-        <Row className='al_ct mt-5 mb-20'>
+        <Row className='al_ct jc_sb mt-5 mb-20'>
           <ColorCircle big hexId={hexId} />
           <FormInput
+            modal
             name='label'
             id='label'
             type='text'

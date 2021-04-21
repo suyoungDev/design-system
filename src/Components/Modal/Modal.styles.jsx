@@ -20,9 +20,10 @@ export const ModalWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 300px;
-  height: 500px;
+  height: auto;
   border-radius: 10px;
   background-color: white;
   position: relative;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
 `;

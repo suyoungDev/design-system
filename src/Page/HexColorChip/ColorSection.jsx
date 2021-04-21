@@ -2,14 +2,15 @@ import React, { Suspense, useCallback, useRef, useLayoutEffect } from 'react';
 import chroma from 'chroma-js';
 
 import { Wrapper } from '../../Components/Wrapper';
-import Modal from '../../Components/Modal/Modal';
 import Head from '../../Components/Head';
 import List from './section/List';
-import SubmitHex from './section/SubmitHex';
+
 import { openModalStore } from '../../Store/ModalStore';
 import { colorChipListStore } from '../../Store/ColorListStore';
 import useIsOpen from '../../Hook/useIsOpen';
 const ViewCode = React.lazy(() => import('../../Components/ViewCode'));
+const Modal = React.lazy(() => import('../../Components/Modal/Modal'));
+const SubmitHex = React.lazy(() => import('./section/SubmitHex'));
 
 const ColorSection = () => {
   const [isOpen, setIsOpen] = useIsOpen();
@@ -34,9 +35,9 @@ const ColorSection = () => {
 
   return (
     <Wrapper id='palette'>
-      <Modal>
-        <SubmitHex />
-      </Modal>
+      <Suspense fallback={<div>...loading...</div>}>
+        <Modal children={<SubmitHex />} />
+      </Suspense>
       <Head
         title='palette'
         addNew={openModal}

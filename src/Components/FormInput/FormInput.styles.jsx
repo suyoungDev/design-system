@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const Label = styled.label`
   position: absolute;
-  top: -12px;
+  top: -20px;
   z-index: 1;
   font-size: 14px;
   font-weight: 300;
@@ -12,11 +12,11 @@ export const Label = styled.label`
 export const Group = styled.div`
   position: relative;
   width: 100%;
-  margin-right: 1.5rem;
 `;
 
 const defineInputStyle = (props) => {
-  if (props.setThemeName) return setThemeNameStyles;
+  if (props.setThemeName) return themeNameStyles;
+  if (props.modal) return modalStyles;
 };
 
 export const Input = styled.input`
@@ -38,7 +38,7 @@ export const Input = styled.input`
   ${defineInputStyle}
 `;
 
-const setThemeNameStyles = css`
+const themeNameStyles = css`
   margin: 10px 0 40px 0;
   font-size: 2em;
   text-transform: capitalize;
@@ -49,4 +49,8 @@ const setThemeNameStyles = css`
   :focus {
     border-bottom: 2px solid ${(props) => props.theme.purple10};
   }
+`;
+
+const modalStyles = css`
+  width: 100%;
 `;
