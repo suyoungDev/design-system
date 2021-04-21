@@ -4,10 +4,15 @@ import CardSlider from './CardSlider';
 import { OptionContainer } from '../../../Components/OptionContainer';
 import SetButtonHover from './SetButtonHover';
 
-const LIST = [
+const SELECT_LIST = [
   { label: '제목 색상', value: 'headColor' },
   { label: '내용 색상', value: 'contentColor' },
   { label: '버튼 색상', value: 'buttonColor' },
+];
+
+const SLIDER_LIST = [
+  { label: '버튼 라운드 값', name: 'buttonRadius' },
+  { label: '카드 라운드 값', name: 'borderRadius' },
 ];
 
 const SetColorsList = ({ isOpen }) => {
@@ -15,7 +20,7 @@ const SetColorsList = ({ isOpen }) => {
     <>
       {isOpen && (
         <OptionContainer>
-          {LIST.map((item) => (
+          {SELECT_LIST.map((item) => (
             <SelectModule
               label={item.label}
               value={item.value}
@@ -23,8 +28,9 @@ const SetColorsList = ({ isOpen }) => {
             />
           ))}
           <SetButtonHover />
-          <CardSlider label='버튼 라운드 값' name='buttonRadius' />
-          <CardSlider label='카드 라운드 값' name='borderRadius' />
+          {SLIDER_LIST.map((item) => (
+            <CardSlider label={item.label} name={item.name} />
+          ))}
         </OptionContainer>
       )}
     </>
