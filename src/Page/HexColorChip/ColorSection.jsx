@@ -33,7 +33,7 @@ const ColorSection = () => {
   }, []);
 
   return (
-    <Wrapper id='allcolors'>
+    <Wrapper id='palette'>
       <Modal>
         <SubmitHex />
       </Modal>
