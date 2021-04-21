@@ -183,7 +183,7 @@ export const MainTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -4rem;
+  margin-top: 0rem;
 
   span {
     font-family: 'Noto Sans KR', sans-serif;
