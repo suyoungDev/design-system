@@ -1,5 +1,4 @@
 import React, { useState, Suspense, useLayoutEffect } from 'react';
-import { observer } from 'mobx-react-lite';
 import Head from '../../Components/Head';
 import { Wrapper } from '../../Components/Wrapper';
 import CardModulesList from './Section/CardModulesList';

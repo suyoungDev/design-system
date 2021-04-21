@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Woman from '../../../constance/woman.jpg';
 
 export const Heading = styled.h2`
   color: ${(props) => props.headHex};
@@ -91,4 +92,14 @@ export const PhotoCardLayout = styled(CardLayout)`
   padding: 0;
   display: grid;
   grid-template-rows: 190px auto;
+`;
+
+export const Bg = styled.div`
+  border-radius: ${({ radius }) => `${radius}px`}
+    ${({ radius }) => `${radius}px`} 0 0;
+  height: 190px;
+  background-image: url(${Woman});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
