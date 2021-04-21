@@ -8,7 +8,7 @@ import { cardColorStore } from '../../Store/CardColorStore';
 const SetColorsList = React.lazy(() => import('./Section/SetColorsList'));
 const ViewCode = React.lazy(() => import('../../Components/ViewCode'));
 
-const Card = observer(() => {
+const Card = () => {
   const [language, setLanguage] = useState(true);
   const [isCodeOpen, setIsCodeOpen] = useIsOpen();
   const [isOpen, setIsOpen] = useIsOpen();
@@ -44,6 +44,6 @@ const Card = observer(() => {
       <CardModulesList language={language} style={style} />
     </Wrapper>
   );
-});
+};
 
 export default Card;

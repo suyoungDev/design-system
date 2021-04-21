@@ -127,7 +127,7 @@ const SelectModule = observer(({ label, value }) => {
             styles={colourStyles}
             theme={customTheme}
             isSearchable
-            onChange={setSelectedOption}
+            onChange={setCardColors}
             defaultValue={selectedOption}
           />
         )}
