@@ -5,5 +5,5 @@ export const Form = styled.form`
   flex-direction: ${({ row }) => (row ? 'row' : 'column')};
   align-items: center;
   justify-content: ${({ mixin }) => (mixin ? 'space-between' : 'center')};
-  width: ${({ mixin }) => (mixin ? '200px' : 'auto')};
+  width: ${({ mixin }) => (mixin ? '200px' : '100%')};
 `;

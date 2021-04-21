@@ -11,7 +11,8 @@ export const Label = styled.label`
 
 export const Group = styled.div`
   position: relative;
-  width: 78%;
+  width: 100%;
+  margin-right: 1.5rem;
 `;
 
 const defineInputStyle = (props) => {

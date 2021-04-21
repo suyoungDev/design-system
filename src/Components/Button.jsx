@@ -22,6 +22,10 @@ export const Button = styled.button`
   transition: all 0.3s ease;
   cursor: pointer;
 
+  :not(:last-of-type) {
+    margin: 0 0.2rem 0 0;
+  }
+
   ${defineButtonStyle};
 `;
 
@@ -113,7 +117,7 @@ export const SmallButton = styled(Button)`
   padding: ${({ narrow, mini }) => (narrow ? '0.2rem 0.3rem' : mini && '0rem')};
   border: none;
   :not(:last-of-type) {
-    margin-right: 0.2rem;
+    margin: 0 0.2rem 0 0;
   }
   :hover {
     .react-icons {
