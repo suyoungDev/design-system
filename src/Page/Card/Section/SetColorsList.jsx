@@ -3,7 +3,6 @@ import SelectModule from './SelectModule';
 import CardSlider from './CardSlider';
 import { OptionContainer } from '../../../Components/OptionContainer';
 import SetButtonHover from './SetButtonHover';
-import { cardColorStore } from '../../../Store/CardColorStore';
 
 const LIST = [
   { label: '제목 색상', value: 'headColor' },
@@ -23,7 +22,7 @@ const SetColorsList = ({ isOpen }) => {
               key={item.value}
             />
           ))}
-          {cardColorStore.buttonColor && <SetButtonHover />}
+          <SetButtonHover />
           <CardSlider label='버튼 라운드 값' name='buttonRadius' />
           <CardSlider label='카드 라운드 값' name='borderRadius' />
         </OptionContainer>

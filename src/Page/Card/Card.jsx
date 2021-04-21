@@ -1,5 +1,5 @@
 import React, { useState, Suspense, useLayoutEffect } from 'react';
-
+import { observer } from 'mobx-react-lite';
 import Head from '../../Components/Head';
 import { Wrapper } from '../../Components/Wrapper';
 import CardModulesList from './Section/CardModulesList';
@@ -8,7 +8,7 @@ import { cardColorStore } from '../../Store/CardColorStore';
 const SetColorsList = React.lazy(() => import('./Section/SetColorsList'));
 const ViewCode = React.lazy(() => import('../../Components/ViewCode'));
 
-const Card = () => {
+const Card = observer(() => {
   const [language, setLanguage] = useState(true);
   const [isCodeOpen, setIsCodeOpen] = useIsOpen();
   const [isOpen, setIsOpen] = useIsOpen();
@@ -44,6 +44,6 @@ const Card = () => {
       <CardModulesList language={language} style={style} />
     </Wrapper>
   );
-};
+});
 
 export default Card;

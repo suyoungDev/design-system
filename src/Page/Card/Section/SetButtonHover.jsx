@@ -32,26 +32,31 @@ const SetButtonHover = observer(() => {
   }, []);
 
   return (
-    <Container>
-      <Label cardHover>버튼 호버 색상</Label>
-      <OptionWrapper>
-        <OptionContainer onClick={(e) => changeHoverColorType(e)}>
-          {OPTIONS.map((option) => (
-            <div key={option.value}>
-              <RadioComponents
-                value={option.value}
-                label={option.label}
-                name='hover'
-                defaultChecked={buttonHoverType}
-              />
-            </div>
-          ))}
-        </OptionContainer>
-        <SelectWrapper>
-          {buttonHoverType === 'colors' && <SelectModule value='hoverColor' />}
-        </SelectWrapper>
-      </OptionWrapper>
-    </Container>
+    <>
+      {cardColorStore.buttonColor && (
+        <Container>
+          <Label cardHover>버튼 호버 색상</Label>
+          <OptionWrapper>
+            <OptionContainer onClick={(e) => changeHoverColorType(e)}>
+              {OPTIONS.map((option) => (
+                <RadioComponents
+                  value={option.value}
+                  label={option.label}
+                  name='hover'
+                  defaultChecked={buttonHoverType}
+                  key={option.value}
+                />
+              ))}
+            </OptionContainer>
+            <SelectWrapper>
+              {buttonHoverType === 'colors' && (
+                <SelectModule value='hoverColor' />
+              )}
+            </SelectWrapper>
+          </OptionWrapper>
+        </Container>
+      )}
+    </>
   );
 });
 
