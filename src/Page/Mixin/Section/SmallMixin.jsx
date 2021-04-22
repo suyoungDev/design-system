@@ -22,7 +22,6 @@ const SmallMixin = observer(({ smallColor, index, open }) => {
       onMouseLeave={() => onHover(false)}
       hexId={smallColor}
       borderColor={bordercolor}
-      buttonColor={buttonColor}
       onClick={() => open(index)}
     >
       <SmallButton
