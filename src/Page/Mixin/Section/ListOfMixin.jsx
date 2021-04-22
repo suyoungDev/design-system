@@ -15,8 +15,8 @@ const ListOfMixin = observer(() => {
   return (
     <Container>
       {mixinStore.mixinList.map((item) => (
-        <Suspense fallback={<div>...loading...</div>}>
-          <MixinModule item={item} key={item.id} />
+        <Suspense fallback={<div>...loading...</div>} key={item.id}>
+          <MixinModule item={item} />
         </Suspense>
       ))}
     </Container>

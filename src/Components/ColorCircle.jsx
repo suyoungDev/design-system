@@ -10,7 +10,9 @@ export const ColorCircle = styled.div`
   padding: 10px;
   background: ${(props) => props.hexId};
   border-radius: 50%;
-  ${defineStyles}
+  border: ${({ borderColor }) => borderColor && `1px solid ${borderColor}`};
+
+  ${defineStyles};
 `;
 
 const bigStyles = css`
