@@ -2,7 +2,7 @@
 
 디자인 시스템을 색상을 위주로 하여 만들 수 있다.
 
-[사용해보기](https://serene-gates-31a447.netlify.app/)
+[사용해보기](https://mocha-design-system.netlify.app/)
 
 # 기획
 
