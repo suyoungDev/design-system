@@ -1,10 +1,10 @@
-# 목적
+# 프로젝트 소개
 
 디자인 시스템을 색상을 위주로 하여 만들 수 있다.
 
-[사용해보기](https://mocha-design-system.netlify.app/)
+## 배포
 
-# 기획
+[사용해보기](https://mocha-design-system.netlify.app/)
 
 ## 작업 기간
 
@@ -21,13 +21,13 @@
 - react-syntax-highlighter
 - react-select
 
-## 주요 기능
+# 주요 기능
 
-### parallax 랜딩 페이지
+## parallax 랜딩 페이지
 
 ![landing](readMe_img/landing.gif)
 
-### 색상 추가, 수정, 드래그 & 드랍
+## 색상 추가, 수정, 드래그 & 드랍
 
 ![palette](readMe_img/title_pallete.gif)
 
@@ -36,14 +36,14 @@
 - 색상의 hex를 **간단하게 복사**할 수 있다.
 - **드래그 & 드랍**으로 순서를 변경할 수 있다.
 
-### 색상 섞기
+## 색상 섞기
 
 ![mixin](readMe_img/mixin.gif)
 
 - `palette`에 있는 색상끼리 섞어서 새로운 색상을 만들 수 있다.
 - `mixin`에 저장한 이름으로 `palette`에 저장할 수 있다.
 
-### 카드, 버튼 디자인 기능(정해진 옵션 내에서)
+## 카드, 버튼 디자인 기능(정해진 옵션 내에서)
 
 ![cards](readMe_img/card.gif)
 
@@ -52,19 +52,19 @@
 - 만든 카드의 셋팅의 **코드를 실시간으로** 볼 수 있다.
 - 버튼 색상의 명도에 따라 버튼의 글자색이 흰색과 검정색으로 바뀐다.
 
-### 그외
+## 그외
 
-#### 저장
+### 저장
 
 설정한 옵션들을 로컬스토리지에 저장하며, 재방문 시 옵션을 가져온다.
 
-#### Main Colors
+### Main Colors
 
 `palette`에 있는 색상의 역할을 지정할 수 있다.
 
 ![mainColors](readMe_img/mainColor.gif)
 
-#### Typography
+### Typography
 
 `palette`에 있는 색상을 선택하여 글자색으로 확인할 수 있다.
 
