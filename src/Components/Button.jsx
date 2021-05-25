@@ -29,6 +29,10 @@ export const Button = styled.button`
   ${defineButtonStyle};
 `;
 
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 export const ButtonToTop = styled(Button)`
   display: flex;
   align-items: center;

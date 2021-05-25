@@ -1,108 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import { Dotted } from '../LandingPage.styles';
-import { AiOutlineArrowRight } from 'react-icons/ai';
+import SectionTableModule from './SectionTableModule';
+import {
+  Container,
+  GridContainer,
+  Center,
+  GridLayout,
+} from './Section4.styles';
 
-const GridLayout = styled.div`
-  display: grid;
-
-  @media screen and (min-width: 768px) {
-    grid-template-columns: 0.45fr 1fr;
-  }
-`;
-
-const Title = styled.div`
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: ${(props) => props.theme.ink50};
-  height: 80px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  .react-icons {
-    color: ${(props) => props.theme.ink50};
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
-  }
-
-  @media screen and (min-width: 768px) {
-    height: 140px;
-    padding: 1rem 0;
-    font-size: 1.5rem;
-
-    :not(:nth-child(7)) {
-      border-bottom: 1px solid ${(props) => props.theme.neutral60};
-    }
-  }
-`;
-
-const Content = styled.div`
-  display: flex;
-  height: 100px;
-  align-items: center;
-  padding: 0 0 1rem 0;
-  margin-bottom: 0;
-  font-size: 1rem;
-  color: ${(props) => props.theme.ink50};
-  letter-spacing: 1px;
-  word-break: keep-all;
-  :not(:last-child) {
-    border-bottom: 1px solid ${(props) => props.theme.neutral60};
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 1rem 0;
-    margin-bottom: 0;
-    height: 140px;
-    > p {
-      max-width: 600px;
-    }
-  }
-`;
-
-const Container = styled.section`
-  position: relative;
-  width: 100vw;
-  max-width: 100%;
-  height: auto;
-  overflow: hidden;
-  padding: 2rem 0;
-`;
-
-const GridContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Center = styled.div`
-  width: 80vw;
-`;
-
-const description = [
-  {
-    id: 'de01',
-    title: '손쉬운 색상 선택',
-    p: `실시간으로 색상을 선택할 수 있습니다. 선택한 색상 중에 중요한 색상만 따로 보관해보세요.
-           복사도 간단합니다.`,
-  },
-  {
-    id: 'de02',
-    title: '글자체 선택',
-    p: `선택한 글자체와 색상을 실시간으로 확인하고 비교해 보세요.`,
-  },
-  {
-    id: 'de03',
-    title: '버튼과 카드까지',
-    p: `선택한 색상으로 버튼과 카드를 만들어보세요. 다양한 설정값을 적용하여 실시간으로 확인해 볼 수 있습니다.`,
-  },
-  {
-    id: 'de04',
-    title: '라이브 코드',
-    p: `선택한 옵션들을 적용한 JSX, styled-components 코드를 바로 바로 사용하세요.`,
-  },
-];
+import description from './description';
 
 const Section4 = () => {
   return (
@@ -112,15 +19,11 @@ const Section4 = () => {
         <Center>
           <GridLayout>
             {description.map((item) => (
-              <React.Fragment key={item.id}>
-                <Title>
-                  <AiOutlineArrowRight />
-                  <span>{item.title}</span>
-                </Title>
-                <Content>
-                  <p>{item.p}</p>
-                </Content>
-              </React.Fragment>
+              <SectionTableModule
+                title={item.title}
+                content={item.content}
+                id={item.id}
+              />
             ))}
           </GridLayout>
         </Center>

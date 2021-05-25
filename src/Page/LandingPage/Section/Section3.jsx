@@ -6,7 +6,7 @@ import {
   SubText,
   BlueGradation,
 } from '../LandingPage.styles';
-import { Button } from '../../../Components/Button';
+import { Button, StyledLink } from '../../../Components/Button';
 import { withRouter } from 'react-router';
 
 const Section3 = ({ history }) => {
@@ -44,9 +44,9 @@ const Section3 = ({ history }) => {
           <span>색상을 쉽게 고르고 저장하세요.</span>
           <span>한번 저장해둔 셋팅을 불러와서 다시 사용 할 수 있습니다.</span>
         </SubText>
-        <Button primary onClick={() => history.push('/main')}>
-          바로 시작하기
-        </Button>
+        <StyledLink to='/main'>
+          <Button primary>바로 시작하기</Button>
+        </StyledLink>
       </TitleContainer>
     </BasicContainer>
   );

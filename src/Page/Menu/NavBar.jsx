@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MenuButton } from '../../Components/Button';
 import Menu from './Menu';
-import { Nav, Container, Navigation } from './NavbBar.styles';
+import { Nav, Container, Header } from './NavbBar.styles';
 import { animateScroll } from 'react-scroll';
 
-const NavBar = ({ history }) => {
+const NavBar = () => {
   const [visiblility, setVisiblility] = useState(true);
   const [location, setLocation] = useState('');
   const { pathname } = useLocation();
@@ -27,24 +27,22 @@ const NavBar = ({ history }) => {
     };
   }, [pathname]);
 
-  const onLogoClick = () => {
+  const goToStart = () => {
     animateScroll.scrollToTop({ smooth: 'linear' });
   };
 
   return (
-    <Nav visiblility={visiblility} location={location}>
-      <Container visiblility={visiblility} location={location}>
-        <Navigation>
-          <ul>
-            <li onClick={onLogoClick}>Dd</li>
-          </ul>
-        </Navigation>
-        {location === '/main' && <MenuButton to='/'>돌아가기</MenuButton>}
-        {location === '/' && <MenuButton to='/main'>시작하기</MenuButton>}
-      </Container>
+    <Header location={location}>
+      <Nav>
+        <Container visiblility={visiblility} location={location}>
+          <h2 onClick={goToStart}>Dd</h2>
+          {location === '/main' && <MenuButton to='/'>돌아가기</MenuButton>}
+          {location === '/' && <MenuButton to='/main'>시작하기</MenuButton>}
+        </Container>
+      </Nav>
       <Menu />
-    </Nav>
+    </Header>
   );
 };
 
-export default withRouter(NavBar);
+export default NavBar;

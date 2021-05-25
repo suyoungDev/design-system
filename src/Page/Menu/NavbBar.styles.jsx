@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Nav = styled.header`
+export const Header = styled.header`
   position: fixed;
   top: 0;
   z-index: 10;
@@ -21,28 +21,20 @@ export const Nav = styled.header`
   }
 `;
 
-export const Navigation = styled.nav`
+export const Nav = styled.nav`
   color: ${(props) => props.theme.purple40};
   height: 100%;
+  width: 100%;
   left: 4rem;
   top: 0;
   display: flex;
   align-items: center;
-
-  ul {
-    display: flex;
-    flex-direction: row;
+  justify-content: center;
+  h2 {
     cursor: pointer;
-    list-style: none;
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: bold;
-    font-size: 1rem;
-
-    li {
-      :not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
+    font-size: 1.2rem;
   }
 `;
 
