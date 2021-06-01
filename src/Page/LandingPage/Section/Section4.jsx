@@ -20,6 +20,7 @@ const Section4 = () => {
           <GridLayout>
             {description.map((item) => (
               <SectionTableModule
+                key={item.id}
                 title={item.title}
                 content={item.content}
                 id={item.id}
