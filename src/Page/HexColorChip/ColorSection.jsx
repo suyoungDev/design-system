@@ -8,7 +8,7 @@ import List from './section/List';
 import { openModalStore } from '../../Store/ModalStore';
 import { colorChipListStore } from '../../Store/ColorListStore';
 import useIsOpen from '../../Hook/useIsOpen';
-import Modal from '../../Components/Modal/Modal';
+const Modal = React.lazy(() => import('../../Components/Modal/Modal'));
 const ViewCode = React.lazy(() => import('../../Components/ViewCode'));
 const SubmitHex = React.lazy(() => import('./section/SubmitHex'));
 
@@ -35,7 +35,9 @@ const ColorSection = () => {
 
   return (
     <Wrapper id='palette'>
-      <Modal children={<SubmitHex />} />
+      <Suspense fallback={<div>...loading...</div>}>
+        <Modal children={<SubmitHex />} />
+      </Suspense>
       <Head
         title='palette'
         addNew={openModal}
