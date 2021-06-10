@@ -250,7 +250,7 @@ const openOptions = (index) => {
 
 목적은 처음, 중간, 마지막의 색상만 `옵션 버튼`이 나오는 것.
 
-hover되었는지 확인하기 위해 onHover함수를 작성하였고, 요소의 index를 판단하여 특정 index일 경우에만 `isHover`를 `true`로 전달하였다.
+onHover함수에서 요소의 index를 판단하여 `특정 index`일 경우에만 `isHover`의 상태를 변경했다. `isHover`이 true일 경우 `hover`라는 클래스 이름을 주었고, `.hover`의 css는 `opacity: 0`에서 `opacity:1`로 변경된다.
 
 ```js
 const SmallMixin = observer(({ smallColor, index, open }) => {
