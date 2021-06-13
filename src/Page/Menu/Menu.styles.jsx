@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link as LinkScroll } from 'react-scroll';
 
 export const NavMenu = styled.ul`
-  display: flex;
+  display: ${({ isDisplay }) => (isDisplay ? 'flex' : 'none')};
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transition: all 0.5s ease-in-out;
   flex-direction: column;

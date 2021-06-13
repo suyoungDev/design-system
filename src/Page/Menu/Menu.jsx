@@ -6,6 +6,7 @@ import NAV_LIST from './NAV_LIST';
 const NavLinkList = lazy(() => import('./NavLinkList'));
 
 const Menu = () => {
+  const [isDisplay, setIsDisplay] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
@@ -20,8 +21,12 @@ const Menu = () => {
   }, [pathname]);
 
   const changeNav = () => {
-    if (window.scrollY >= 70) setIsVisible(true);
-    else setIsVisible(false);
+    if (window.scrollY > 50) setIsDisplay(true);
+    if (window.scrollY > 100) setIsVisible(true);
+    else {
+      setIsVisible(false);
+      setIsDisplay(false);
+    }
   };
 
   useEffect(() => {
@@ -34,8 +39,12 @@ const Menu = () => {
   return (
     <NavContainer>
       {isOpen && (
-        <Suspense fallback={<div>...loading</div>}>
-          <NavLinkList list={NAV_LIST} isVisible={isVisible} />
+        <Suspense fallback={<div></div>}>
+          <NavLinkList
+            list={NAV_LIST}
+            isVisible={isVisible}
+            isDisplay={isDisplay}
+          />
         </Suspense>
       )}
     </NavContainer>
