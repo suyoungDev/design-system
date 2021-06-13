@@ -20,6 +20,7 @@
 - react-beautiful-dnd
 - react-syntax-highlighter
 - react-select
+- react-scroll
 
 # 주요 기능
 
