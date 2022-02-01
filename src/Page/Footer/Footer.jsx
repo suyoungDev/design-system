@@ -20,7 +20,7 @@ const Footer = () => {
         <span>poked.by.mocha@gmail.com</span>
         <div>
           <a
-            href='https://github.com/mochapoke'
+            href='https://github.com/suyoungDev'
             target='_blank'
             rel='noreferrer'
             title='깃허브로 이동'
